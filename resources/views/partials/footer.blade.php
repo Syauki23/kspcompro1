@@ -5,26 +5,6 @@
 
   <div class="footer-container">
 
-    <!-- ── CTA STRIP ─────────────────────────── -->
-    <div class="footer-cta-strip">
-      <div class="footer-cta-content">
-        <span class="footer-cta-badge">READY TO START?</span>
-        <h2 class="footer-cta-title">Let's Build Something <span class="footer-cta-accent">Exceptional</span></h2>
-        <p class="footer-cta-desc">Partner with KSP Consulting to navigate complexity and achieve operational excellence.</p>
-      </div>
-      <div class="footer-cta-actions">
-        <button class="footer-btn-primary" type="button" id="footer-consult-btn">
-          Consult With Us
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-        <a href="{{ url('/contact') }}" class="footer-btn-outline">
-          View Contact
-        </a>
-      </div>
-    </div>
-
-    <!-- ── DIVIDER ────────────────────────────── -->
-    <div class="footer-strip-divider" aria-hidden="true"></div>
 
     <!-- ── MAIN GRID ─────────────────────────── -->
     <div class="footer-grid">
@@ -155,11 +135,7 @@
           </li>
         </ul>
 
-        <!-- Availability badge -->
-        <div class="footer-availability">
-          <span class="footer-avail-dot" aria-hidden="true"></span>
-          <span>Available Mon – Fri, 09:00 – 17:00 WIB</span>
-        </div>
+
       </div>
 
     </div><!-- /.footer-grid -->
