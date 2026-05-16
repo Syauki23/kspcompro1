@@ -54,16 +54,16 @@
     <div class="about-image-col">
       <div class="about-img-grid">
         <div class="about-img item-meeting">
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Meeting">
+         <img src="{{ asset('assets/training.png') }}" alt="Training Session Background">
         </div>
         <div class="about-img item-man-ship">
-          <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80" alt="Man looking at ship">
+         <img src="{{ asset('assets/uuuaaa.png') }}" alt="Training Session Background">
         </div>
         <div class="about-img item-hard-hats">
-          <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Workers in hard hats">
+         <img src="{{ asset('assets/uuu.png') }}" alt="Training Session Background">
         </div>
         <div class="about-img item-woman-laptop">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Woman at laptop">
+         <img src="{{ asset('assets/about.png') }}" alt="Training Session Background">
         </div>
         <div class="about-img item-ship-bridge">
           <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=800&q=80" alt="Ship bridge">

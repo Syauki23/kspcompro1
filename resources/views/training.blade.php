@@ -5,7 +5,7 @@
 @section('content')
 <header class="train-hero">
   <div class="train-hero-bg">
-    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80" alt="Training Session Background">
+    <img src="{{ asset('assets/training.png') }}" alt="Training Session Background">
     <div class="train-hero-overlay"></div>
   </div>
   

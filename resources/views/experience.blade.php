@@ -4,6 +4,10 @@
 
 @section('content')
 <section class="exp-hero-section">
+  <div class="exp-hero-bg">
+    <img src="{{ asset('assets/hd.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
+  </div>
+  <div class="exp-hero-overlay"></div>
   <div class="exp-hero-container">
     <div class="exp-hero-content">
       <span class="exp-subtitle">OUR EXPERIENCE</span>

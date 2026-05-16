@@ -91,7 +91,7 @@
 
 <header class="contact-banner-wrapper">
   <div class="contact-banner-bg">
-    <img src="{{ asset('assets/bg-ship.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
+    <img src="{{ asset('assets/hd.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
   </div>
   <div class="contact-banner-overlay"></div>
   
@@ -152,7 +152,7 @@
 
     <!-- Right Column: Visual Photo Card -->
     <div class="ic-image-col">
-      <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80" alt="Maritime Professionals">
+     <img src="{{ asset('assets/training.png') }}" alt="Training Session Background">
       <div class="ic-image-overlay">
         <p>We value every conversation and look forward to supporting your business.</p>
         <div class="ic-image-line"></div>
