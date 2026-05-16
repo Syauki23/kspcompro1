@@ -27,7 +27,7 @@
   const exploreBtn = document.getElementById('explore-services-btn');
   if (exploreBtn) {
     exploreBtn.addEventListener('click', function () {
-      window.location.href = 'services.html';
+      window.location.href = '/services';
     });
   }
 
