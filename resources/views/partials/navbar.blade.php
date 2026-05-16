@@ -37,6 +37,8 @@
       <a href="{{ url('/contact') }}" id="nav-contact">Contact</a>
     </li>
   </ul>
+  <!-- Divider -->
+  <div class="navbar-divider" aria-hidden="true"></div>
 
   <!-- Right Side: Social + CTA -->
   <div class="navbar-right">

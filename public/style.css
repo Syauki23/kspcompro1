@@ -90,7 +90,7 @@ ul {
 }
 
 /* =========================================
-   NAVIGATION BAR
+   NAVIGATION BAR — Premium Redesign
    ========================================= */
 .navbar {
   position: fixed;
@@ -101,18 +101,36 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  padding: 18px 48px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 1px solid transparent;
+}
+
+/* Subtle orange accent line at the very top */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary-orange) 40%, var(--primary-orange) 60%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
 }
 
 .navbar.scrolled {
-  background-color: rgba(10, 22, 40, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 14px 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(8, 16, 34, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 12px 48px;
+  border-bottom: 1px solid rgba(245, 166, 35, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.05) inset;
+}
+
+.navbar.scrolled::before {
+  opacity: 1;
 }
 
 /* --- Logo --- */
@@ -121,6 +139,21 @@ ul {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-logo::after {
+  content: '';
+  position: absolute;
+  inset: -8px -12px;
+  border-radius: 10px;
+  background: rgba(245, 166, 35, 0.0);
+  transition: background 0.3s ease;
+}
+
+.navbar-logo:hover::after {
+  background: rgba(245, 166, 35, 0.06);
 }
 
 .logo-icon {
@@ -129,9 +162,16 @@ ul {
 }
 
 .main-logo {
-  height: 50px;
+  height: 46px;
   width: auto;
   display: block;
+  filter: drop-shadow(0 0 12px rgba(245, 166, 35, 0));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-logo:hover .main-logo {
+  filter: drop-shadow(0 0 16px rgba(245, 166, 35, 0.3));
+  transform: scale(1.03);
 }
 
 /* =========================================
@@ -266,46 +306,74 @@ ul {
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .navbar-nav .nav-item a {
   font-size: 13.5px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
-  padding: 5px 8px;
-  border-radius: 4px;
-  transition: color 0.2s ease;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+/* Hover pill background */
+.navbar-nav .nav-item a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.25s ease;
 }
 
 .navbar-nav .nav-item a:hover {
   color: var(--white);
 }
 
-.navbar-nav .nav-item.active a {
-  color: var(--white);
-  font-weight: 600;
-  position: relative;
+.navbar-nav .nav-item a:hover::before {
+  background: rgba(255, 255, 255, 0.07);
 }
 
-.navbar-nav .nav-item.active a::after {
+/* Active state — orange pill indicator */
+.navbar-nav .nav-item.active > a {
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Glowing dot indicator for active page */
+.navbar-nav .nav-item.active > a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 14px;
-  right: 14px;
-  height: 2px;
-  background-color: var(--primary-orange);
-  border-radius: 2px;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--primary-orange), #ffcc60);
+  border-radius: 99px;
+  box-shadow: 0 0 8px rgba(245, 166, 35, 0.6);
+  animation: activeNavPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes activeNavPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(245, 166, 35, 0.5); }
+  50% { opacity: 0.8; box-shadow: 0 0 14px rgba(245, 166, 35, 0.9); }
 }
 
 .nav-dropdown-icon {
-  font-size: 10px;
-  opacity: 0.7;
-  transition: transform 0.2s ease;
+  font-size: 9px;
+  opacity: 0.6;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-flex;
 }
 
 .nav-item.dropdown {
@@ -314,31 +382,51 @@ ul {
 
 .nav-item.dropdown:hover .nav-dropdown-icon {
   transform: rotate(180deg);
+  opacity: 1;
+  color: var(--primary-orange);
 }
 
-/* Dropdown Menu Container */
+/* ---- Dropdown Menu — Glassmorphism ---- */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--navy-dark);
-  min-width: 220px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(9, 20, 40, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  min-width: 230px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(245, 166, 35, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255,255,255,0.04) inset;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 8px 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 10px 8px;
   z-index: 100;
   list-style: none;
+}
+
+/* Arrow pointer on dropdown */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(9, 20, 40, 0.96);
+  border-top: 1px solid rgba(245, 166, 35, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
 .nav-item.dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Dropdown Items */
@@ -347,112 +435,194 @@ ul {
 }
 
 .dropdown-menu li a {
-  padding: 10px 20px !important;
+  padding: 10px 16px !important;
   font-size: 13.5px !important;
-  color: rgba(255, 255, 255, 0.82) !important;
-  display: block !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
   width: 100%;
-  border-radius: 0 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  position: relative;
+}
+
+/* Leading accent bar on hover */
+.dropdown-menu li a::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 6px !important;
+  top: 50% !important;
+  transform: translateY(-50%) scaleY(0) !important;
+  width: 3px !important;
+  height: 16px !important;
+  background: var(--primary-orange) !important;
+  border-radius: 99px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.dropdown-menu li a:hover::before {
+  transform: translateY(-50%) scaleY(1) !important;
 }
 
 .dropdown-menu li a:hover {
-  color: var(--primary-orange) !important;
-  background-color: rgba(255, 255, 255, 0.03) !important;
-  padding-left: 24px !important;
-  transition: all 0.2s ease !important;
-}
-
-/* Disable the parent ::after underline inside dropdown */
-.dropdown-menu li.active a::after {
-  display: none !important;
+  color: var(--white) !important;
+  background-color: rgba(245, 166, 35, 0.08) !important;
+  padding-left: 22px !important;
 }
 
 .dropdown-menu li.active a {
   color: var(--primary-orange) !important;
   font-weight: 600 !important;
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: rgba(245, 166, 35, 0.08) !important;
+}
+
+.dropdown-menu li.active a::after {
+  display: none !important;
+}
+
+/* --- Vertical Divider Between Nav & Right --- */
+.navbar-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
 }
 
 /* --- Nav Right (social + CTA) --- */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .social-icons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .social-icon {
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  border-radius: 6px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 13px;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(245,166,35,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 .social-icon:hover {
-  border-color: var(--primary-orange);
+  border-color: rgba(245, 166, 35, 0.6);
   color: var(--primary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(245, 166, 35, 0.2);
 }
 
+.social-icon:hover::after {
+  opacity: 1;
+}
+
+/* --- CTA Button --- */
 .btn-consult {
-  background-color: var(--primary-orange);
-  color: #000;
+  background: linear-gradient(135deg, var(--primary-orange) 0%, #ffb830 100%);
+  color: #0a1628;
+  font-family: var(--font-main);
   font-size: 13px;
   font-weight: 700;
-  padding: 9px 20px;
-  border-radius: 6px;
+  padding: 9px 22px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(245, 166, 35, 0.3);
+}
+
+/* Shimmer effect on CTA */
+.btn-consult::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
 }
 
 .btn-consult:hover {
-  background-color: #ffb83a;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #ffb830 0%, #ffd060 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 166, 35, 0.5);
 }
 
-/* --- Premium Dark Navbar for Services Page --- */
+.btn-consult:hover::before {
+  left: 160%;
+}
+
+.btn-consult:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+}
+
+/* ---- Premium Dark Navbar (non-hero pages) ---- */
 .navbar.navbar-services {
-  background-color: rgba(10, 22, 40, 0.98);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(8, 16, 34, 0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(245, 166, 35, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar.navbar-services::before {
+  opacity: 1;
 }
 
 .navbar.navbar-services .navbar-nav .nav-item a {
-  color: #f1f5f9;
+  color: rgba(241, 245, 249, 0.75);
   font-weight: 500;
 }
 
 .navbar.navbar-services .navbar-nav .nav-item a:hover {
-  color: var(--primary-orange);
+  color: var(--white);
 }
 
-.navbar.navbar-services .navbar-nav .nav-item.active a {
-  color: var(--primary-orange);
+.navbar.navbar-services .navbar-nav .nav-item.active > a {
+  color: var(--white);
   font-weight: 600;
 }
 
 .navbar.navbar-services .social-icon {
-  color: #f1f5f9;
-  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(241, 245, 249, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .navbar.navbar-services .social-icon:hover {
-  border-color: var(--primary-orange);
+  border-color: rgba(245, 166, 35, 0.6);
   color: var(--primary-orange);
 }
 
