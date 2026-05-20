@@ -51,7 +51,7 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="9"/>
           <circle cx="12" cy="12" r="5"/>
-          <circle cx="12" cy="12" r="1" fill="#F5A623" stroke="none"/>
+          <circle cx="12" cy="12" r="1" fill="#E1A730" stroke="none"/>
           <line x1="12" y1="3" x2="12" y2="1"/>
           <line x1="12" y1="23" x2="12" y2="21"/>
           <line x1="3" y1="12" x2="1" y2="12"/>

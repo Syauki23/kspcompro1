@@ -368,6 +368,6 @@
   window.addEventListener('resize', adjustZoomForLargeMonitors);
   adjustZoomForLargeMonitors(); // Initial run
 
-  console.log('%cKSP Consulting | Everything Connected', 'color: #F5A623; font-size: 14px; font-weight: bold;');
+  console.log('%cKSP Consulting | Everything Connected', 'color: #E1A730; font-size: 14px; font-weight: bold;');
 })();
 
