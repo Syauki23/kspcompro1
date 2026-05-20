@@ -81,11 +81,4 @@
   </div>
 </section>
 
-<section class="phil-culture">
-  <h2 class="phil-culture-title">Our Culture in Action</h2>
-  <p class="phil-culture-desc">These values shape our mindset, our behavior, and the way we deliver impact for our clients and partners.</p>
-  <div class="phil-culture-grid" id="phil-culture-grid">
-    <!-- JS will populate -->
-  </div>
-</section>
 @endsection
