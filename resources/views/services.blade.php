@@ -23,7 +23,6 @@
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
           </div>
-          <span class="card-number">01</span>
         </div>
         <h3 class="card-title">Maritime Consulting</h3>
         <p class="card-desc">Strategic maritime consulting services designed to support operational excellence, compliance, efficiency, and sustainable business growth.</p>
@@ -40,7 +39,6 @@
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
-          <span class="card-number">02</span>
         </div>
         <h3 class="card-title">Risk Assessment</h3>
         <p class="card-desc">Comprehensive safety and operational risk assessments for maritime and industrial operations.</p>
@@ -57,7 +55,6 @@
        <div class="service-card">
         <div class="card-top">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-          <span class="card-number">03</span>
         </div>
         <h3 class="card-title">Vessel Inspection</h3>
         <p class="card-desc">Professional vessel inspection services to ensure operational readiness and regulatory compliance.</p>
@@ -74,7 +71,6 @@
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-          <span class="card-number">04</span>
         </div>
         <h3 class="card-title">HR Assessment</h3>
         <p class="card-desc">Assessment and profiling systems designed to improve workforce capability and organizational performance.</p>
@@ -91,7 +87,6 @@
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
-          <span class="card-number">05</span>
         </div>
         <h3 class="card-title">Workshop & Training</h3>
         <p class="card-desc">Practical training programs designed to strengthen capability, compliance, and operational standards.</p>
@@ -108,7 +103,6 @@
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="10" cy="13" r="2"></circle><line x1="11.5" y1="14.5" x2="14" y2="17"></line></svg></div>
-          <span class="card-number">06</span>
         </div>
         <h3 class="card-title">Due Diligence</h3>
         <p class="card-desc">Strategic due diligence support for acquisitions, operational reviews, and business evaluation.</p>
@@ -172,7 +166,6 @@
         <div class="modal-icon-bg">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
         </div>
-        <span class="modal-number">01</span>
       </div>
       <h2 class="modal-title">Maritime Consulting</h2>
       <p class="modal-desc">Strategic maritime consulting services designed to support operational excellence, compliance, efficiency, and sustainable business growth.</p>
@@ -231,7 +224,6 @@
         <div class="modal-icon-bg">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
         </div>
-        <span class="modal-number">02</span>
       </div>
       <h2 class="modal-title">Risk Assessment</h2>
       <p class="modal-desc">Comprehensive safety and operational risk assessments for maritime and industrial operations.</p>
@@ -290,7 +282,6 @@
         <div class="modal-icon-bg">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
         </div>
-        <span class="modal-number">03</span>
       </div>
       <h2 class="modal-title">Vessel Inspection</h2>
       <p class="modal-desc">Professional vessel inspection services to ensure operational readiness and regulatory compliance.</p>
@@ -349,7 +340,6 @@
         <div class="modal-icon-bg">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
-        <span class="modal-number">04</span>
       </div>
       <h2 class="modal-title">HR Assessment</h2>
       <p class="modal-desc">Assessment and profiling systems designed to improve workforce capability and organizational performance.</p>
@@ -408,7 +398,6 @@
         <div class="modal-icon-bg">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
         </div>
-        <span class="modal-number">05</span>
       </div>
       <h2 class="modal-title">Workshop & Training</h2>
       <p class="modal-desc">Practical training programs designed to strengthen capability, compliance, and operational standards.</p>
@@ -467,7 +456,6 @@
         <div class="modal-icon-bg">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="10" cy="13" r="2"></circle><line x1="11.5" y1="14.5" x2="14" y2="17"></line></svg>
         </div>
-        <span class="modal-number">06</span>
       </div>
       <h2 class="modal-title">Due Diligence</h2>
       <p class="modal-desc">Strategic due diligence support for acquisitions, operational reviews, and business evaluation.</p>
