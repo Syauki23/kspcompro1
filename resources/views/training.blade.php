@@ -177,65 +177,6 @@
   </div>
 </section>
 
-<section class="train-split-section">
-  <!-- Left: Gallery -->
-  <div class="train-gallery-wrapper">
-    <div class="train-split-header">
-      <h3>Training Gallery</h3>
-      <a href="#" class="view-link">View all photos &rarr;</a>
-    </div>
-    <div class="train-gallery-grid">
-      <div class="tg-large">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Training presentation" class="tg-slide active">
-        <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&q=80" alt="Workshop Session" class="tg-slide">
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Knowledge Sharing" class="tg-slide">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Team Discussion" class="tg-slide">
-      </div>
-      <div class="tg-small"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&q=80" alt="Team meeting"></div>
-      <div class="tg-small"><img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=300&q=80" alt="Workshop"></div>
-      <div class="tg-small"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80" alt="Discussion"></div>
-      <div class="tg-small tg-overlay">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=300&q=80" alt="Audience">
-        <div class="tg-overlay-text">
-          <span class="tg-count">+25</span>
-          <span class="tg-label">Photos</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right: Speakers -->
-  <div class="train-speakers-wrapper">
-    <div class="train-split-header train-speakers-header">
-      <h3>Our Speakers</h3>
-      <a href="#" class="view-link view-link-white">View all speakers &rarr;</a>
-    </div>
-    <div class="train-speakers-grid">
-      <div class="train-speaker-card">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Capt. Novan H." class="speaker-img">
-        <h4 class="speaker-name">Capt. Novan H.</h4>
-        <span class="speaker-title">Maritime & Safety Expert</span>
-        <p class="speaker-desc">25+ years in maritime operations, safety management, and vessel inspections.</p>
-        <a href="#" class="speaker-social"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-      </div>
-      <div class="train-speaker-card">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Ir. Dea Primasari" class="speaker-img">
-        <h4 class="speaker-name">Ir. Dea Primasari</h4>
-        <span class="speaker-title">Risk & Compliance Expert</span>
-        <p class="speaker-desc">Expert in risk assessment, ISM/ISPS implementation, and regulatory compliance.</p>
-        <a href="#" class="speaker-social"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-      </div>
-      <div class="train-speaker-card">
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="M. Ridwan, M.M." class="speaker-img">
-        <h4 class="speaker-name">M. Ridwan, M.M.</h4>
-        <span class="speaker-title">HR & Business Expert</span>
-        <p class="speaker-desc">Specialist in HR assessment, leadership development, and organizational performance.</p>
-        <a href="#" class="speaker-social"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="train-events-section">
   <div class="train-split-header">
     <h3>Recent Workshop & Training Recap</h3>
