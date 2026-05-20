@@ -7,7 +7,9 @@
     <h1 class="hero-headline">
       <span class="line-white">Navigating Complexity.</span>
       <span class="line-orange">Delivering</span>
-      <span class="line-orange">Operational Excellence.</span>
+      <span class="line-orange dynamic-text-container">
+        <span id="typewriter-text" data-words='["Operational Excellence."]'></span><span class="typewriter-cursor" aria-hidden="true"></span>
+      </span>
     </h1>
 
     <p class="hero-description">

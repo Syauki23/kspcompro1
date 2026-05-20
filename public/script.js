@@ -368,6 +368,54 @@
   window.addEventListener('resize', adjustZoomForLargeMonitors);
   adjustZoomForLargeMonitors(); // Initial run
 
+  // =========================================
+  // HERO DYNAMIC TYPEWRITER ANIMATION
+  // =========================================
+  const typewriterElement = document.getElementById('typewriter-text');
+  if (typewriterElement) {
+    const wordsAttr = typewriterElement.getAttribute('data-words');
+    if (wordsAttr) {
+      const words = JSON.parse(wordsAttr);
+      let wordIdx = 0;
+      let charIdx = 0; // Start from empty text
+      let isDeleting = false;
+      let typingSpeed = 100;
+
+      const type = () => {
+        const currentWord = words[wordIdx];
+        
+        if (isDeleting) {
+          // Deleting character
+          typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
+          charIdx--;
+          typingSpeed = 50; // Deleting is faster
+        } else {
+          // Typing character
+          typewriterElement.textContent = currentWord.substring(0, charIdx + 1);
+          charIdx++;
+          typingSpeed = 100; // Normal typing speed
+        }
+
+        // Check if finished typing a word
+        if (!isDeleting && charIdx === currentWord.length) {
+          // Pause at the end of the full word
+          typingSpeed = 2500; // Hold for 2.5 seconds
+          isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+          // Finished deleting, move to next word
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % words.length;
+          typingSpeed = 500; // Small pause before starting next word
+        }
+
+        setTimeout(type, typingSpeed);
+      };
+
+      // Start typing loop with a delay after initial page load
+      setTimeout(type, 800);
+    }
+  }
+
   console.log('%cKSP Consulting | Everything Connected', 'color: #E1A730; font-size: 14px; font-weight: bold;');
 })();
 

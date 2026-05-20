@@ -691,6 +691,34 @@ ul {
   display: block;
 }
 
+.hero-headline .dynamic-text-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+#typewriter-text {
+  text-shadow: 0 0 30px rgba(225, 167, 48, 0.25);
+  transition: color 0.3s ease;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 4px;
+  height: 1.1em;
+  background-color: var(--primary-orange);
+  margin-left: 4px;
+  animation: cursorBlink 0.8s infinite;
+  box-shadow: 0 0 12px var(--primary-orange), 0 0 4px var(--primary-orange);
+  border-radius: 99px;
+  vertical-align: middle;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .hero-description {
   font-size: 14px;
   font-weight: 400;
