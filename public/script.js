@@ -84,9 +84,40 @@
   const consultTriggers = document.querySelectorAll('.btn-consult, #consult-btn');
   
   if (consultModal) {
+    const selectElement = consultModal.querySelector('.consult-select');
+    const textareaElement = consultModal.querySelector('.consult-textarea');
+
     consultTriggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
+
+        // 1. Smoothly close any open side-panel modals
+        const openSideModals = document.querySelectorAll('.service-modal-overlay.show');
+        openSideModals.forEach(modal => {
+          modal.classList.remove('show');
+        });
+
+        // 2. Clear pre-populated fields by default
+        if (selectElement) selectElement.value = "";
+        if (textareaElement) textareaElement.value = "";
+
+        // 3. Handle service or workshop selection
+        const serviceName = this.getAttribute('data-service');
+        const workshopName = this.getAttribute('data-workshop');
+
+        if (serviceName) {
+          if (selectElement) selectElement.value = serviceName;
+          if (textareaElement) {
+            textareaElement.value = `Dear KSP Consulting Team,\n\nI would like to inquire about your "${serviceName}" service.\n\nPlease provide us with more information on how we can collaborate.\n\nThank you.`;
+          }
+        } else if (workshopName) {
+          if (selectElement) selectElement.value = "Workshop & Training";
+          if (textareaElement) {
+            textareaElement.value = `Dear KSP Consulting Team,\n\nI am interested in scheduling or registering for the "${workshopName}" workshop.\n\nPlease send us the training syllabus, pricing structure, and available schedules.\n\nThank you.`;
+          }
+        }
+
+        // 4. Open the consultation modal
         consultModal.classList.add('show');
         document.body.style.overflow = 'hidden';
       });

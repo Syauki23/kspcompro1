@@ -5,7 +5,7 @@
 @section('content')
 <section class="phil-hero">
   <div class="phil-hero-bg">
-    <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=1920&q=80" alt="Golden Temple Sunset">
+    <img src="{{ asset('assets/minang.jfif') }}" alt="Minangkabau House Banner">
     <div class="phil-hero-overlay"></div>
   </div>
 
