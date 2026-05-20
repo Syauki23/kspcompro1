@@ -38,17 +38,17 @@
   <p class="phil-compass-desc">SWARNADWIPA represents the values that guide us in everything we do.</p>
 
   <div class="phil-letters" id="phil-letters">
-    <div class="phil-letter active" data-index="0"><span class="letter">S</span><span class="letter-num">01</span></div>
-    <div class="phil-letter" data-index="1"><span class="letter">W</span><span class="letter-num">02</span></div>
-    <div class="phil-letter" data-index="2"><span class="letter">A</span><span class="letter-num">04</span></div>
-    <div class="phil-letter" data-index="3"><span class="letter">R</span><span class="letter-num">05</span></div>
-    <div class="phil-letter" data-index="4"><span class="letter">N</span><span class="letter-num">06</span></div>
-    <div class="phil-letter" data-index="5"><span class="letter">A</span><span class="letter-num">09</span></div>
-    <div class="phil-letter" data-index="6"><span class="letter">D</span><span class="letter-num">08</span></div>
-    <div class="phil-letter" data-index="7"><span class="letter">W</span><span class="letter-num">10</span></div>
-    <div class="phil-letter" data-index="8"><span class="letter">I</span><span class="letter-num">10</span></div>
-    <div class="phil-letter" data-index="9"><span class="letter">P</span><span class="letter-num">10</span></div>
-    <div class="phil-letter" data-index="10"><span class="letter">A</span><span class="letter-num">11</span></div>
+    <div class="phil-letter active" data-index="0"><span class="letter">S</span></div>
+    <div class="phil-letter" data-index="1"><span class="letter">W</span></div>
+    <div class="phil-letter" data-index="2"><span class="letter">A</span></div>
+    <div class="phil-letter" data-index="3"><span class="letter">R</span></div>
+    <div class="phil-letter" data-index="4"><span class="letter">N</span></div>
+    <div class="phil-letter" data-index="5"><span class="letter">A</span></div>
+    <div class="phil-letter" data-index="6"><span class="letter">D</span></div>
+    <div class="phil-letter" data-index="7"><span class="letter">W</span></div>
+    <div class="phil-letter" data-index="8"><span class="letter">I</span></div>
+    <div class="phil-letter" data-index="9"><span class="letter">P</span></div>
+    <div class="phil-letter" data-index="10"><span class="letter">A</span></div>
   </div>
 
   <div class="phil-letter-timeline">
