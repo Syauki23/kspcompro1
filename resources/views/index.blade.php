@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['navbarClass' => 'navbar-services'])
 
 @section('content')
 <div class="hero-wrapper">

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['navbarClass' => 'navbar', 'bodyClass' => 'page-training'])
+@extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-training'])
 
 @section('title', 'Training & Knowledge Sharing | KSP Consulting')
 
