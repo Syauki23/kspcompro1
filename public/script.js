@@ -10,6 +10,7 @@
 
   // ---- Sticky Navbar ----
   const navbar = document.getElementById('main-navbar');
+  const navbarWrapper = document.getElementById('navbar-wrapper');
 
   window.addEventListener('scroll', function () {
     const currentScrollY = window.scrollY;
@@ -17,8 +18,10 @@
     if (navbar) {
       if (currentScrollY > 60) {
         navbar.classList.add('scrolled');
+        if (navbarWrapper) navbarWrapper.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
+        if (navbarWrapper) navbarWrapper.classList.remove('scrolled');
       }
     }
   });
