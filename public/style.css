@@ -3744,6 +3744,13 @@ ul {
 .phil-letter.active {
   background: var(--primary-orange);
   border-color: var(--primary-orange);
+  transform: translateY(-12px);
+  box-shadow: 0 12px 24px rgba(31, 98, 142, 0.25);
+}
+
+.phil-letter.active:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(31, 98, 142, 0.3);
 }
 
 .phil-letter .letter {
