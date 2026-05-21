@@ -6,7 +6,7 @@
 <!-- SERVICES HERO BANNER -->
 <section class="services-hero-section">
   <div class="services-hero-bg">
-    <img src="{{ asset('assets/services.jpg') }}" alt="Solutions that drive operational excellence">
+    <img src="{{ asset('assets/www.jpg') }}" alt="Solutions that drive operational excellence">
   </div>
   <div class="services-hero-overlay"></div>
   <div class="services-hero-container">
@@ -40,9 +40,6 @@
           <button class="learn-more-btn" data-modal="modal-maritime">
             Learn more <span class="arrow">&rarr;</span>
           </button>
-          <button class="btn-consult card-inquire-btn" data-service="Maritime Consulting">
-            Inquire Now
-          </button>
         </div>
       </div>
       <!-- Service Card 2 -->
@@ -55,9 +52,6 @@
         <div class="card-actions">
           <button class="learn-more-btn" data-modal="modal-risk">
             Learn more <span class="arrow">&rarr;</span>
-          </button>
-          <button class="btn-consult card-inquire-btn" data-service="Risk Assessment">
-            Inquire Now
           </button>
         </div>
       </div>
@@ -72,9 +66,6 @@
           <button class="learn-more-btn" data-modal="modal-vessel">
             Learn more <span class="arrow">&rarr;</span>
           </button>
-          <button class="btn-consult card-inquire-btn" data-service="Vessel Inspection">
-            Inquire Now
-          </button>
         </div>
       </div>
       <!-- Service Card 4 -->
@@ -87,9 +78,6 @@
         <div class="card-actions">
           <button class="learn-more-btn" data-modal="modal-hr">
             Learn more <span class="arrow">&rarr;</span>
-          </button>
-          <button class="btn-consult card-inquire-btn" data-service="HR Assessment">
-            Inquire Now
           </button>
         </div>
       </div>
@@ -104,9 +92,6 @@
           <button class="learn-more-btn" data-modal="modal-workshop">
             Learn more <span class="arrow">&rarr;</span>
           </button>
-          <button class="btn-consult card-inquire-btn" data-service="Workshop & Training">
-            Inquire Now
-          </button>
         </div>
       </div>
       <!-- Service Card 6 -->
@@ -119,9 +104,6 @@
         <div class="card-actions">
           <button class="learn-more-btn" data-modal="modal-due-diligence">
             Learn more <span class="arrow">&rarr;</span>
-          </button>
-          <button class="btn-consult card-inquire-btn" data-service="Due Diligence">
-            Inquire Now
           </button>
         </div>
       </div>
