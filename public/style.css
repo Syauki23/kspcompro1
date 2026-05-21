@@ -1218,9 +1218,9 @@ ul {
   transform: translateX(-50%);
   width: 18px;
   height: 2.5px;
-  background: linear-gradient(90deg, var(--primary-orange), #edd17c);
+  background: #1F628E;
   border-radius: 99px;
-  box-shadow: 0 0 8px rgba(225, 167, 48, 0.6);
+  box-shadow: 0 0 8px rgba(31, 98, 142, 0.6);
   animation: activeNavPulse 2.5s ease-in-out infinite;
 }
 
@@ -1229,12 +1229,12 @@ ul {
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 6px rgba(225, 167, 48, 0.5);
+    box-shadow: 0 0 6px rgba(31, 98, 142, 0.5);
   }
 
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 14px rgba(225, 167, 48, 0.9);
+    box-shadow: 0 0 14px rgba(31, 98, 142, 0.9);
   }
 }
 
