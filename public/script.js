@@ -300,6 +300,21 @@
       `).join('');
     };
 
+    let slideInterval;
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      slideInterval = setInterval(() => {
+        renderSlide((currentIndex + 1) % values.length);
+      }, 3000); // Auto-slide every 5 seconds
+    };
+
+    const stopAutoSlide = () => {
+      if (slideInterval) {
+        clearInterval(slideInterval);
+      }
+    };
+
     // Render slide
     const renderSlide = (i) => {
       const v = values[i];
@@ -325,6 +340,9 @@
       }
       currentIndex = i;
       renderCultureGrid();
+      
+      // Restart the auto-slide timer to ensure manual clicks reset the 5s window
+      startAutoSlide();
     };
 
     // Letter clicks
