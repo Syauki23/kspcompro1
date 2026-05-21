@@ -6139,12 +6139,12 @@ ul {
    ========================================= */
 
 .page-podcast {
-  background-color: var(--navy-dark);
+  background-color: #F2F1EE;
 }
 
 /* --- Hero Section --- */
 .pod-hero {
-  background: linear-gradient(135deg, #0A1628 0%, #0d1e36 100%);
+  background: #F2F1EE;
   padding: 160px 40px 80px;
   position: relative;
   overflow: hidden;
@@ -6174,12 +6174,12 @@ ul {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
-  color: var(--white);
+  color: var(--navy-dark);
 }
 
 .pod-hero-desc {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 500px;
@@ -6207,22 +6207,24 @@ ul {
 .btn-pod-youtube {
   background-color: var(--white);
   color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .btn-pod-youtube:hover {
   background-color: #f1f5f9;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .btn-pod-spotify {
   background-color: transparent;
-  color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: var(--navy-dark);
+  border: 1.5px solid rgba(15, 23, 42, 0.2);
 }
 
 .btn-pod-spotify:hover {
-  border-color: var(--white);
-  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--navy-dark);
+  background-color: rgba(15, 23, 42, 0.03);
   transform: translateY(-2px);
 }
 
@@ -6237,10 +6239,11 @@ ul {
 }
 
 .pod-feat-card {
-  background: #112240;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .pod-feat-img {
@@ -6322,13 +6325,14 @@ ul {
   font-weight: 700;
   margin-bottom: 12px;
   line-height: 1.4;
+  color: var(--navy-dark);
 }
 
 .pod-meta {
   display: flex;
   gap: 20px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #64748b;
 }
 
 .pod-meta span {
@@ -6340,12 +6344,12 @@ ul {
 .pod-feat-desc-block {
   margin-top: 24px;
   padding-left: 24px;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(15, 23, 42, 0.1);
 }
 
 .pod-feat-desc-block p {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -6374,16 +6378,17 @@ ul {
   font-size: 14px;
   font-weight: 700;
   display: block;
+  color: var(--navy-dark);
 }
 
 .host-title {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: #64748b;
 }
 
 /* --- Playlists Section --- */
 .pod-playlists {
-  background-color: var(--white);
+  background-color: #F2F1EE;
   padding: 100px 40px;
   color: var(--navy-dark);
 }
@@ -6518,7 +6523,7 @@ ul {
 
 /* --- Platforms Section --- */
 .pod-platforms {
-  background-color: #f8fafc;
+  background-color: #F2F1EE;
   padding: 80px 40px;
 }
 
@@ -7327,23 +7332,15 @@ ul {
    PODCAST HERO (DARK THEME)
    -------------------------------------------------- */
 .pod-hero {
-  background: linear-gradient(135deg, #0b0f19 0%, #1a2333 100%);
-  color: #ffffff;
+  background: #F2F1EE;
+  color: var(--navy-dark);
   padding: 60px 0 60px;
   position: relative;
   overflow: hidden;
 }
 
 .pod-hero::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(0, 102, 204, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  display: none;
 }
 
 .pod-hero-container {
@@ -7366,15 +7363,15 @@ ul {
 
 .pod-hero-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  color: #8ab4f8;
+  background: rgba(31, 98, 142, 0.08);
+  color: var(--primary-orange);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(31, 98, 142, 0.15);
 }
 
 .pod-hero-title {
@@ -7382,15 +7379,13 @@ ul {
   line-height: 1.1;
   font-weight: 700;
   margin-bottom: 20px;
-  background: linear-gradient(to right, #ffffff, #a0aec0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--navy-dark);
 }
 
 .pod-hero-desc {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #a0aec0;
+  color: #475569;
   margin-bottom: 40px;
 }
 
@@ -7416,14 +7411,14 @@ ul {
 .btn-pod-youtube {
   background-color: #ffffff;
   color: #000000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border: none;
 }
 
 .btn-pod-youtube:hover {
   background-color: #f8f9fa;
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .btn-pod-youtube svg {
@@ -7432,13 +7427,13 @@ ul {
 
 .btn-pod-spotify {
   background-color: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--navy-dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
 }
 
 .btn-pod-spotify:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(15, 23, 42, 0.03);
+  border-color: var(--navy-dark);
   transform: translateY(-2px);
 }
 
@@ -7455,19 +7450,18 @@ ul {
 .pod-hero-feat-label {
   display: block;
   font-size: 0.85rem;
-  color: #8ab4f8;
+  color: var(--primary-orange);
   font-weight: 600;
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
 
 .pod-feat-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .pod-feat-video-wrapper {
@@ -7567,7 +7561,7 @@ ul {
 
 .pod-ep-num {
   font-size: 0.85rem;
-  color: #1ed760;
+  color: var(--primary-orange);
   font-weight: 700;
   margin-bottom: 8px;
   display: block;
@@ -7577,13 +7571,13 @@ ul {
   font-size: 1.4rem;
   line-height: 1.3;
   margin-bottom: 16px;
-  color: #fff;
+  color: var(--navy-dark);
 }
 
 .pod-meta {
   display: flex;
   gap: 20px;
-  color: #a0aec0;
+  color: #64748b;
   font-size: 0.9rem;
   align-items: center;
 }
@@ -7596,16 +7590,15 @@ ul {
 
 .pod-feat-desc-block {
   margin-top: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 12px;
   padding: 20px;
-  backdrop-filter: blur(10px);
 }
 
 .pod-feat-desc-block p {
   font-size: 0.95rem;
-  color: #cbd5e1;
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -7614,7 +7607,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
   padding-top: 15px;
 }
 
@@ -7623,7 +7616,7 @@ ul {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(15, 23, 42, 0.1);
 }
 
 .host-info {
@@ -7633,7 +7626,7 @@ ul {
 
 .host-with {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -7641,19 +7634,19 @@ ul {
 .host-name {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--navy-dark);
 }
 
 .host-title {
   font-size: 0.85rem;
-  color: #8ab4f8;
+  color: #64748b;
 }
 
 /* --------------------------------------------------
    EPISODE LISTS (WHITE THEME)
    -------------------------------------------------- */
 .pod-playlists {
-  background-color: #f8fafc;
+  background-color: #F2F1EE;
   padding: 100px 0;
 }
 
@@ -7873,9 +7866,8 @@ ul {
    PLATFORMS SECTION
    -------------------------------------------------- */
 .pod-platforms {
-  background-color: #ffffff;
+  background-color: #F2F1EE;
   padding: 40px 0;
-  border-top: 1px solid #f1f5f9;
 }
 
 .pod-plat-container {

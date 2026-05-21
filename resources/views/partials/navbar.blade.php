@@ -27,9 +27,6 @@
     <li class="nav-item {{ Request::is('training') ? 'active' : '' }}">
       <a href="{{ url('/training') }}" id="nav-training">Training</a>
     </li>
-    <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
-      <a href="{{ url('/blog') }}" id="nav-blog">Blog</a>
-    </li>
     <li class="nav-item {{ Request::is('podcast') ? 'active' : '' }}">
       <a href="{{ url('/podcast') }}" id="nav-podcast">Podcast</a>
     </li>
