@@ -30,10 +30,10 @@
     z-index: 2;
     background: linear-gradient(
       to right,
-      rgba(8, 18, 38, 0.97) 0%,
-      rgba(8, 18, 38, 0.88) 35%,
-      rgba(8, 18, 38, 0.6) 65%,
-      rgba(8, 18, 38, 0.2) 85%,
+      rgba(242, 241, 238, 1) 0%,
+      rgba(242, 241, 238, 0.96) 35%,
+      rgba(242, 241, 238, 0.7) 65%,
+      rgba(242, 241, 238, 0.2) 85%,
       transparent 100%
     );
   }
@@ -56,7 +56,7 @@
     margin-bottom: 16px;
   }
   .cb-title .line-white {
-    color: var(--white);
+    color: var(--navy-dark);
     display: block;
   }
   .cb-title .line-orange {
@@ -67,19 +67,19 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.65;
-    color: #cbd5e1;
+    color: #475569;
     margin-bottom: 0;
     max-width: 520px;
     padding-left: 14px;
-    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    border-left: 2px solid rgba(15, 23, 42, 0.2);
   }
   @media (max-width: 768px) {
     .contact-banner-overlay {
       background: linear-gradient(
         to right,
-        rgba(8, 18, 38, 0.98) 0%,
-        rgba(8, 18, 38, 0.95) 70%,
-        rgba(8, 18, 38, 0.8) 100%
+        rgba(242, 241, 238, 0.98) 0%,
+        rgba(242, 241, 238, 0.95) 70%,
+        rgba(242, 241, 238, 0.8) 100%
       );
     }
     .contact-banner-wrapper {
@@ -91,7 +91,7 @@
 
 <header class="contact-banner-wrapper">
   <div class="contact-banner-bg">
-    <img src="{{ asset('assets/hd.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
+    <img src="{{ asset('assets/ngecet.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
   </div>
   <div class="contact-banner-overlay"></div>
   

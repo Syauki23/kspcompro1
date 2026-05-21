@@ -5459,11 +5459,11 @@ ul {
    INLINE CONTACT SECTION (Global Contact Block)
    ========================================= */
 .inline-contact-section {
-  background-color: var(--white);
+  background-color: #F2F1EE;
   padding: 80px 40px;
   position: relative;
   z-index: 10;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .ic-container {
@@ -5538,6 +5538,10 @@ ul {
   background: var(--white);
   display: flex;
   flex-direction: column;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 .ic-form {
