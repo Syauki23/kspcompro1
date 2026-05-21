@@ -3133,8 +3133,7 @@ ul {
    EXPERIENCE SECTION (100% Match Design)
    ========================================= */
 .page-experience {
-  background-color: #f8f9fa;
-  /* Sesuai warna background abu-abu/putih bersih di desain */
+  background-color: #F2F1EE;
   color: var(--navy-dark);
 }
 
@@ -3165,10 +3164,10 @@ ul {
   position: absolute;
   inset: 0;
   background: linear-gradient(to right,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.95) 30%,
-      rgba(255, 255, 255, 0.7) 50%,
-      rgba(255, 255, 255, 0.2) 75%,
+      rgba(242, 241, 238, 1) 0%,
+      rgba(242, 241, 238, 0.95) 30%,
+      rgba(242, 241, 238, 0.7) 50%,
+      rgba(242, 241, 238, 0.2) 75%,
       transparent 100%);
   z-index: -1;
 }
@@ -3278,16 +3277,17 @@ ul {
   margin-bottom: 20px;
 }
 
-/* Style 1: Background Navy, Icon Orange/White */
+/* Style 1: Background Brand Blue, Icon White */
 .exp-card-icon.style-navy {
-  background-color: var(--navy-dark);
+  background-color: var(--primary-orange);
   color: var(--white);
 }
 
-/* Style 2: Background Orange, Icon White */
+/* Style 2: Light Brand Blue Tint, Icon Brand Blue */
 .exp-card-icon.style-orange {
-  background-color: var(--primary-orange);
-  color: var(--white);
+  background-color: rgba(31, 98, 142, 0.1);
+  color: var(--primary-orange);
+  border: 1px solid rgba(31, 98, 142, 0.15);
 }
 
 .exp-card-icon svg {
@@ -3356,7 +3356,7 @@ ul {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #94a3b8;
+  background-color: #cbd5e1;
   z-index: 1;
 }
 
@@ -3385,11 +3385,13 @@ ul {
 }
 
 .exp-dot.dot-navy {
-  border-color: var(--navy-dark);
+  border-color: var(--primary-orange);
+  background-color: var(--white);
 }
 
 .exp-dot.dot-orange {
   border-color: var(--primary-orange);
+  background-color: var(--primary-orange);
 }
 
 .exp-dot:hover {
@@ -3400,7 +3402,7 @@ ul {
 .exp-stats-footer {
   max-width: 1200px;
   margin: 60px auto 100px;
-  background-color: #f1f5f9;
+  background-color: #E5E4E0;
   border-radius: 16px;
   padding: 32px 24px;
   display: grid;
@@ -3414,7 +3416,7 @@ ul {
   align-items: center;
   gap: 12px;
   padding: 0 10px;
-  border-right: 1px solid #cbd5e1;
+  border-right: 1px solid rgba(31, 98, 142, 0.15);
 }
 
 .exp-stat-item:last-child {
@@ -3679,7 +3681,7 @@ ul {
 .phil-compass {
   text-align: center;
   padding: 0 40px 40px;
-  background: var(--navy-dark);
+  background: #F2F1EE;
   position: relative;
   z-index: 5;
 }
@@ -3687,7 +3689,7 @@ ul {
 .phil-compass-title {
   font-size: 28px;
   font-weight: 800;
-  color: var(--white);
+  color: var(--navy-dark);
   margin-bottom: 12px;
   display: inline-flex;
   align-items: center;
@@ -3700,12 +3702,12 @@ ul {
   display: block;
   width: 60px;
   height: 1px;
-  background: rgba(225, 167, 48, 0.3);
+  background: rgba(31, 98, 142, 0.3);
 }
 
 .phil-compass-desc {
   font-size: 14px;
-  color: #cbd5e1;
+  color: #475569;
   margin-bottom: 50px;
 }
 
@@ -3722,7 +3724,7 @@ ul {
 .phil-letter {
   width: 65px;
   height: 65px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(31, 98, 142, 0.15);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -3730,13 +3732,13 @@ ul {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: #1e293b;
+  background: var(--white);
 }
 
 .phil-letter:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(10, 22, 40, 0.05);
+  border-color: rgba(31, 98, 142, 0.4);
 }
 
 .phil-letter.active {
@@ -3747,12 +3749,12 @@ ul {
 .phil-letter .letter {
   font-size: 32px;
   font-weight: 800;
-  color: var(--white);
+  color: var(--navy-dark);
   line-height: 1;
 }
 
 .phil-letter.active .letter {
-  color: var(--navy-dark);
+  color: var(--white);
 }
 
 .phil-letter .letter-num {
@@ -3763,8 +3765,8 @@ ul {
 }
 
 .phil-letter.active .letter-num {
-  color: var(--navy-dark);
-  opacity: 0.8;
+  color: var(--white);
+  opacity: 0.9;
 }
 
 /* Letter Timeline */
@@ -3782,7 +3784,7 @@ ul {
   left: 32px;
   right: 32px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(31, 98, 142, 0.2);
   z-index: 1;
 }
 
@@ -3799,13 +3801,13 @@ ul {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #64748b;
+  background: #cbd5e1;
   transition: all 0.3s;
 }
 
 .phil-ldot.active {
   background: var(--primary-orange);
-  box-shadow: 0 0 0 4px rgba(225, 167, 48, 0.2);
+  box-shadow: 0 0 0 4px rgba(31, 98, 142, 0.2);
 }
 
 /* Slider Section */
@@ -3814,7 +3816,7 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: var(--navy-dark);
+  background: #F2F1EE;
   padding: 0 20px 80px;
   position: relative;
   z-index: 5;
@@ -3834,7 +3836,7 @@ ul {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(31, 98, 142, 0.2);
   background: transparent;
   display: flex;
   align-items: center;
@@ -3842,13 +3844,13 @@ ul {
   cursor: pointer;
   transition: all 0.3s;
   flex-shrink: 0;
-  color: var(--white);
+  color: var(--navy-dark);
 }
 
 .phil-arrow:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-  border-color: var(--white);
+  background: rgba(31, 98, 142, 0.08);
+  color: var(--primary-orange);
+  border-color: var(--primary-orange);
 }
 
 .phil-slider-wrapper {
@@ -3856,7 +3858,7 @@ ul {
   background: var(--white);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 25px 50px rgba(10, 22, 40, 0.06);
   flex: 1;
   max-width: 1050px;
   min-height: 420px;
@@ -3949,7 +3951,7 @@ ul {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(225, 167, 48, 0.1);
+  background: rgba(31, 98, 142, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
