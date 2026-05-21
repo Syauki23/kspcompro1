@@ -5,7 +5,7 @@
 @section('content')
 <section class="phil-hero">
   <div class="phil-hero-bg">
-    <img src="{{ asset('assets/padangg.jpg') }}" alt="Minangkabau House Banner">
+    <img src="{{ asset('assets/sumatra.jpg') }}" alt="Minangkabau House Banner">
     <div class="phil-hero-overlay"></div>
   </div>
 
