@@ -2012,7 +2012,7 @@ ul {
    SERVICES SECTION
    ========================================= */
 .services-section {
-  background-color: #f8f9fa;
+  background-color: #F2F1EE;
   color: var(--navy-dark);
   padding: 100px 40px;
   position: relative;
@@ -2037,6 +2037,7 @@ ul {
   z-index: 1;
   display: flex;
   justify-content: flex-start;
+  background-color: #F2F1EE;
 }
 
 .services-hero-bg {
@@ -2056,10 +2057,10 @@ ul {
   position: absolute;
   inset: 0;
   background: linear-gradient(to right,
-      rgba(248, 249, 250, 1) 0%,
-      rgba(248, 249, 250, 0.96) 25%,
-      rgba(248, 249, 250, 0.8) 55%,
-      rgba(248, 249, 250, 0.3) 75%,
+      rgba(242, 241, 238, 1) 0%,
+      rgba(242, 241, 238, 0.96) 25%,
+      rgba(242, 241, 238, 0.8) 55%,
+      rgba(242, 241, 238, 0.3) 75%,
       transparent 100%);
   z-index: -1;
 }
@@ -2113,9 +2114,9 @@ ul {
   }
   .services-hero-overlay {
     background: linear-gradient(to bottom,
-        rgba(248, 249, 250, 0.95) 0%,
-        rgba(248, 249, 250, 0.85) 60%,
-        rgba(248, 249, 250, 0.7) 100%);
+        rgba(242, 241, 238, 0.95) 0%,
+        rgba(242, 241, 238, 0.85) 60%,
+        rgba(242, 241, 238, 0.7) 100%);
   }
 }
 
@@ -2124,7 +2125,7 @@ ul {
    ========================================= */
 .services-section {
   position: relative;
-  background-color: #f8f9fa;
+  background-color: #F2F1EE;
   padding-top: 60px;
   padding-bottom: 80px;
   overflow: hidden;
