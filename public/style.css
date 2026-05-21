@@ -7,8 +7,8 @@
 
 /* ---- CSS Variables ---- */
 :root {
-  --primary-orange: #E1A730;
-  --primary-orange-dark: #C89320;
+  --primary-orange: #1F628E;
+  --primary-orange-dark: #15486a;
   --navy-dark: #0A1628;
   --navy-mid: #0d1e36;
   --white: #ffffff;
@@ -3136,7 +3136,7 @@ ul {
 }
 
 .cp2-title-accent {
-  background: linear-gradient(135deg, #E1A730 0%, #eec66b 100%);
+  background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
