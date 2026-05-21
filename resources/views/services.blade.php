@@ -3,19 +3,29 @@
 @section('title', 'Services | KSP Consulting')
 
 @section('content')
-<!-- SERVICES SECTION -->
-<section id="services" class="services-section" role="region" aria-label="Our Services">
-  <div class="services-container">
-    <div class="services-header">
-      <span class="section-subtitle">OUR SERVICES</span>
-      <h2 class="section-title">Solutions that drive<br>operational excellence</h2>
-      <p class="section-desc">
+<!-- SERVICES HERO BANNER -->
+<section class="services-hero-section">
+  <div class="services-hero-bg">
+    <img src="{{ asset('assets/services.jpg') }}" alt="Solutions that drive operational excellence">
+  </div>
+  <div class="services-hero-overlay"></div>
+  <div class="services-hero-container">
+    <div class="services-hero-content">
+      <span class="services-subtitle">OUR SERVICES</span>
+      <h1 class="services-title">Solutions that drive<br>operational excellence</h1>
+      <div class="services-title-decor"></div>
+      <p class="services-desc">
         KSP Consulting provides integrated consulting services to help maritime<br>
         and industrial businesses overcome challenges and achieve sustainable<br>
         growth through practical and measurable solutions.
       </p>
     </div>
+  </div>
+</section>
 
+<!-- SERVICES SECTION -->
+<section id="services" class="services-section" role="region" aria-label="Our Services">
+  <div class="services-container">
     <div class="services-grid">
       <!-- Service Card 1 -->
       <div class="service-card">
