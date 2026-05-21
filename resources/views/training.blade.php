@@ -5,7 +5,7 @@
 @section('content')
 <header class="train-hero">
   <div class="train-hero-bg">
-    <img src="{{ asset('assets/training.png') }}" alt="Training Session Background">
+    <img src="{{ asset('assets/www.jpg') }}" alt="Training Session Background">
     <div class="train-hero-overlay"></div>
   </div>
   
