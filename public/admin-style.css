@@ -1,5 +1,5 @@
-/* KSP CONSULTING - PREMIUM DARK-GLASSMORPHISM ADMIN STYLING */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+/* KSP CONSULTING - ADMIN STYLING */
+/* Google Fonts dimuat via <link> di layout, bukan @import */
 
 :root {
   --font-brand: 'Outfit', sans-serif;
@@ -44,7 +44,6 @@ body {
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.05) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 40%);
-  background-attachment: fixed;
 }
 
 /* LOGIN VIEW STYLES */
@@ -61,11 +60,9 @@ body {
   max-width: 440px;
   background: var(--bg-surface);
   border: 1px solid var(--border-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
   position: relative;
   overflow: hidden;
   transition: var(--transition-smooth);
@@ -215,10 +212,8 @@ body {
 /* Sidebar */
 .admin-sidebar {
   width: var(--sidebar-width);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   border-right: 1px solid var(--border-glass);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -387,9 +382,7 @@ body {
 .admin-header {
   height: var(--header-height);
   border-bottom: 1px solid var(--border-glass);
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -463,7 +456,6 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: var(--transition-smooth);
-  backdrop-filter: blur(10px);
 }
 
 .metric-card:hover {
@@ -508,7 +500,6 @@ body {
   border: 1px solid var(--border-glass);
   border-radius: 20px;
   padding: 28px;
-  backdrop-filter: blur(10px);
   margin-bottom: 24px;
 }
 
@@ -647,9 +638,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(15, 23, 42, 0.5);
   z-index: 1000;
   display: none;
   align-items: center;
