@@ -108,6 +108,28 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
+    public function training()
+    {
+        $settings = Setting::where('group', 'training')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'training_feature')) {
+                $groups['Feature Strip'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'training_topics')) {
+                $groups['Topics Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'training_events')) {
+                $groups['Recent Events Section'][] = $setting;
+            } else {
+                $groups['Banner / Hero'][] = $setting;
+            }
+        }
+        $groups['Training Topics List'] = [];
+        $groups['Recent Events List']   = [];
+
+        $pageTitle = 'Training';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
+    }
+
     public function global()
     {
         // Get settings that are NOT 'home' or 'about'

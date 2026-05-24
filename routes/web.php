@@ -46,7 +46,9 @@ Route::get('/services', function () {
 
 Route::get('/training', function () {
     $trainings = \App\Models\Training::where('is_active', true)->orderBy('id')->get();
-    return view('training', compact('trainings'));
+    $settings  = \App\Models\Setting::where('group', 'training')->pluck('value', 'key');
+    $events    = \App\Models\TrainingEvent::where('is_active', true)->orderBy('order_position')->orderByDesc('event_date')->get();
+    return view('training', compact('trainings', 'settings', 'events'));
 });
 
 Route::get('/blog', function () {
@@ -98,6 +100,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/settings/experience', [App\Http\Controllers\Admin\SettingsController::class, 'experience'])->name('admin.settings.experience');
     Route::get('/settings/philosophy', [App\Http\Controllers\Admin\SettingsController::class, 'philosophy'])->name('admin.settings.philosophy');
     Route::get('/settings/services', [App\Http\Controllers\Admin\SettingsController::class, 'services'])->name('admin.settings.services');
+    Route::get('/settings/training', [App\Http\Controllers\Admin\SettingsController::class, 'training'])->name('admin.settings.training');
     Route::get('/settings/global', [App\Http\Controllers\Admin\SettingsController::class, 'global'])->name('admin.settings.global');
     Route::post('/settings', [App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('admin.settings.update');
 
@@ -137,6 +140,19 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
             'edit'    => 'admin.trainings.edit',
             'update'  => 'admin.trainings.update',
             'destroy' => 'admin.trainings.destroy',
+        ]
+    ]);
+
+    // Training Events (Recent Workshop Recap)
+    Route::resource('training-events', App\Http\Controllers\Admin\TrainingEventController::class, [
+        'as' => 'admin',
+        'names' => [
+            'index'   => 'admin.training-events.index',
+            'create'  => 'admin.training-events.create',
+            'store'   => 'admin.training-events.store',
+            'edit'    => 'admin.training-events.edit',
+            'update'  => 'admin.training-events.update',
+            'destroy' => 'admin.training-events.destroy',
         ]
     ]);
 

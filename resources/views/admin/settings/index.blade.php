@@ -218,6 +218,32 @@
                                 Manage Services List &rarr;
                             </a>
                         </div>
+                    @elseif($group === 'Training Topics List' && request()->routeIs('admin.settings.training'))
+                        <div style="background: rgba(234, 88, 12, 0.05); border: 1px dashed var(--accent-orange); border-radius: 12px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(234, 88, 12, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-orange);">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 8px;">Training Topics / Materi</h4>
+                                <p style="font-size: 13px; color: var(--text-muted); max-width: 400px; margin: 0 auto; line-height: 1.6;">Tambah, edit, atau hapus topik training yang tampil di grid kartu website.</p>
+                            </div>
+                            <a href="{{ route('admin.trainings.index') }}" style="background: var(--accent-orange); color: white; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);">
+                                Manage Training Topics &rarr;
+                            </a>
+                        </div>
+                    @elseif($group === 'Recent Events List' && request()->routeIs('admin.settings.training'))
+                        <div style="background: rgba(13, 148, 136, 0.05); border: 1px dashed var(--accent-teal); border-radius: 12px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(13, 148, 136, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-teal);">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 8px;">Recent Workshop Events</h4>
+                                <p style="font-size: 13px; color: var(--text-muted); max-width: 400px; margin: 0 auto; line-height: 1.6;">Kelola kartu event workshop yang tampil di bagian "Recent Workshop & Training Recap".</p>
+                            </div>
+                            <a href="{{ route('admin.training-events.index') }}" style="background: var(--accent-teal); color: white; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);">
+                                Manage Events &rarr;
+                            </a>
+                        </div>
                     @else
                         @foreach($settings as $setting)
                             @include('admin.settings.partials.input', ['setting' => $setting])

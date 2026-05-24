@@ -65,8 +65,8 @@
                     </a>
                 </li>
 
-                <li class="menu-item {{ Route::is('admin.trainings.*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.trainings.index') }}">
+                <li class="menu-item {{ Route::is('admin.trainings.*') || Route::is('admin.training-events.*') || Route::is('admin.settings.training') ? 'active' : '' }}">
+                    <a href="{{ route('admin.settings.training') }}">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
                         <span>Training</span>
                     </a>
