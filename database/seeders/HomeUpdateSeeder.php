@@ -18,16 +18,20 @@ class HomeUpdateSeeder extends Seeder
         $settings = [
             // Home Hero
             ['key' => 'home_banner_image', 'value' => '', 'group' => 'home', 'label' => 'Hero Banner Background Image', 'type' => 'image'],
+            ['key' => 'home_hero_title_white', 'value' => 'Navigating Complexity.', 'group' => 'home', 'label' => 'Hero Title White Text', 'type' => 'text'],
+            ['key' => 'home_hero_title_orange', 'value' => 'Delivering', 'group' => 'home', 'label' => 'Hero Title Orange Prefix', 'type' => 'text'],
+            ['key' => 'home_typewriter_words', 'value' => 'Operational Excellence, Strategic Solutions, Maritime Expertise', 'group' => 'home', 'label' => 'Typewriter Cycling Phrases (Comma Separated)', 'type' => 'text'],
+            ['key' => 'home_hero_description', 'value' => 'KSP Consulting helps maritime and industrial businesses solve operational challenges through consulting, assessment, training, and strategic implementation.', 'group' => 'home', 'label' => 'Hero Description', 'type' => 'textarea'],
             
             // Home Features
-            ['key' => 'home_feature_1_title', 'value' => "Maritime<br>Expertise", 'group' => 'home', 'label' => 'Feature 1 Title', 'type' => 'textarea'],
-            ['key' => 'home_feature_1_desc', 'value' => "Years of hands-on<br>industry experience", 'group' => 'home', 'label' => 'Feature 1 Description', 'type' => 'textarea'],
-            ['key' => 'home_feature_2_title', 'value' => "Strategic<br>Solutions", 'group' => 'home', 'label' => 'Feature 2 Title', 'type' => 'textarea'],
-            ['key' => 'home_feature_2_desc', 'value' => "Tailored strategies<br>that drive results", 'group' => 'home', 'label' => 'Feature 2 Description', 'type' => 'textarea'],
-            ['key' => 'home_feature_3_title', 'value' => "Trusted<br>Partner", 'group' => 'home', 'label' => 'Feature 3 Title', 'type' => 'textarea'],
-            ['key' => 'home_feature_3_desc', 'value' => "Collaborative approach<br>for lasting impact", 'group' => 'home', 'label' => 'Feature 3 Description', 'type' => 'textarea'],
-            ['key' => 'home_feature_4_title', 'value' => "Global Perspective<br>Local Understanding", 'group' => 'home', 'label' => 'Feature 4 Title', 'type' => 'textarea'],
-            ['key' => 'home_feature_4_desc', 'value' => "Connecting standards<br>with real-world execution", 'group' => 'home', 'label' => 'Feature 4 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_1_title', 'value' => "Maritime Expertise", 'group' => 'home', 'label' => 'Feature 1 Title', 'type' => 'text'],
+            ['key' => 'home_feature_1_desc', 'value' => "Years of hands-on industry experience", 'group' => 'home', 'label' => 'Feature 1 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_2_title', 'value' => "Strategic Solutions", 'group' => 'home', 'label' => 'Feature 2 Title', 'type' => 'text'],
+            ['key' => 'home_feature_2_desc', 'value' => "Tailored strategies that drive results", 'group' => 'home', 'label' => 'Feature 2 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_3_title', 'value' => "Trusted Partner", 'group' => 'home', 'label' => 'Feature 3 Title', 'type' => 'text'],
+            ['key' => 'home_feature_3_desc', 'value' => "Collaborative approach for lasting impact", 'group' => 'home', 'label' => 'Feature 3 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_4_title', 'value' => "Global Perspective Local Understanding", 'group' => 'home', 'label' => 'Feature 4 Title', 'type' => 'text'],
+            ['key' => 'home_feature_4_desc', 'value' => "Connecting standards with real-world execution", 'group' => 'home', 'label' => 'Feature 4 Description', 'type' => 'textarea'],
 
             // Core Services Highlights
             ['key' => 'home_services_subtitle', 'value' => 'WHAT WE DO', 'group' => 'home', 'label' => 'Core Services Subtitle', 'type' => 'text'],
@@ -36,12 +40,13 @@ class HomeUpdateSeeder extends Seeder
 
             // Testimonials Section
             ['key' => 'home_testimonials_subtitle', 'value' => 'CLIENT TESTIMONIALS', 'group' => 'home', 'label' => 'Testimonials Subtitle', 'type' => 'text'],
-            ['key' => 'home_testimonials_title', 'value' => "Trusted by Maritime<br>Leaders", 'group' => 'home', 'label' => 'Testimonials Title', 'type' => 'textarea'],
-            ['key' => 'home_testimonials_desc', 'value' => "We are proud to be a trusted partner for maritime and industrial<br>businesses across Indonesia.", 'group' => 'home', 'label' => 'Testimonials Description', 'type' => 'textarea'],
+            ['key' => 'home_testimonials_title', 'value' => "Trusted by Maritime Leaders", 'group' => 'home', 'label' => 'Testimonials Title', 'type' => 'text'],
+            ['key' => 'home_testimonials_desc', 'value' => "We are proud to be a trusted partner for maritime and industrial businesses across Indonesia.", 'group' => 'home', 'label' => 'Testimonials Description', 'type' => 'textarea'],
 
             // Clients & Partners Section
             ['key' => 'home_clients_subtitle', 'value' => 'CLIENTS & PARTNERS', 'group' => 'home', 'label' => 'Clients Subtitle', 'type' => 'text'],
-            ['key' => 'home_clients_title', 'value' => "Trusted By <span class=\"cp2-title-accent\">Industry Leaders</span>", 'group' => 'home', 'label' => 'Clients Title (HTML allowed)', 'type' => 'text'],
+            ['key' => 'home_clients_title', 'value' => "Trusted By", 'group' => 'home', 'label' => 'Clients Title Main', 'type' => 'text'],
+            ['key' => 'home_clients_title_accent', 'value' => "Industry Leaders", 'group' => 'home', 'label' => 'Clients Title Highlighted Text', 'type' => 'text'],
             ['key' => 'home_clients_desc', 'value' => 'We collaborate with leading organizations across maritime and industrial sectors to drive operational excellence and sustainable growth.', 'group' => 'home', 'label' => 'Clients Description', 'type' => 'textarea'],
             ['key' => 'home_clients_stat_1_num', 'value' => '50+', 'group' => 'home', 'label' => 'Client Stat 1 Number', 'type' => 'text'],
             ['key' => 'home_clients_stat_1_label', 'value' => 'Clients Served', 'group' => 'home', 'label' => 'Client Stat 1 Label', 'type' => 'text'],

@@ -8,7 +8,7 @@
       <span class="line-white">{{ $settings['home_hero_title_white'] ?? 'Navigating Complexity.' }}</span>
       <span class="line-orange">{{ $settings['home_hero_title_orange'] ?? 'Delivering' }}</span>
       <span class="line-orange dynamic-text-container">
-        <span id="typewriter-text" data-words='{{ $settings["home_typewriter_words"] ?? "[\"Operational Excellence.\"]" }}'></span><span class="typewriter-cursor" aria-hidden="true"></span>
+        <span id="typewriter-text" data-words="{{ json_encode(array_map('trim', explode(',', $settings['home_typewriter_words'] ?? 'Operational Excellence, Strategic Solutions, Maritime Expertise'))) }}"></span><span class="typewriter-cursor" aria-hidden="true"></span>
       </span>
     </h1>
 
@@ -41,8 +41,8 @@
           <path d="M6 19c1.5 1.5 9 1.5 12 0"/>
         </svg>
       </div>
-      <h3 class="feature-title">{!! $settings['home_feature_1_title'] ?? 'Maritime<br>Expertise' !!}</h3>
-      <p class="feature-desc">{!! $settings['home_feature_1_desc'] ?? 'Years of hands-on<br>industry experience' !!}</p>
+      <h3 class="feature-title">{{ $settings['home_feature_1_title'] ?? 'Maritime Expertise' }}</h3>
+      <p class="feature-desc">{{ $settings['home_feature_1_desc'] ?? 'Years of hands-on industry experience' }}</p>
     </div>
 
     <!-- Feature 2: Strategic Solutions -->
@@ -58,8 +58,8 @@
           <line x1="23" y1="12" x2="21" y2="12"/>
         </svg>
       </div>
-      <h3 class="feature-title">{!! $settings['home_feature_2_title'] ?? 'Strategic<br>Solutions' !!}</h3>
-      <p class="feature-desc">{!! $settings['home_feature_2_desc'] ?? 'Tailored strategies<br>that drive results' !!}</p>
+      <h3 class="feature-title">{{ $settings['home_feature_2_title'] ?? 'Strategic Solutions' }}</h3>
+      <p class="feature-desc">{{ $settings['home_feature_2_desc'] ?? 'Tailored strategies that drive results' }}</p>
     </div>
 
     <!-- Feature 3: Trusted Partner -->
@@ -71,8 +71,8 @@
           <path d="M2 12l10 5 10-5"/>
         </svg>
       </div>
-      <h3 class="feature-title">{!! $settings['home_feature_3_title'] ?? 'Trusted<br>Partner' !!}</h3>
-      <p class="feature-desc">{!! $settings['home_feature_3_desc'] ?? 'Collaborative approach<br>for lasting impact' !!}</p>
+      <h3 class="feature-title">{{ $settings['home_feature_3_title'] ?? 'Trusted Partner' }}</h3>
+      <p class="feature-desc">{{ $settings['home_feature_3_desc'] ?? 'Collaborative approach for lasting impact' }}</p>
     </div>
 
     <!-- Feature 4: Global Perspective -->
@@ -84,8 +84,8 @@
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
       </div>
-      <h3 class="feature-title">{!! $settings['home_feature_4_title'] ?? 'Global Perspective<br>Local Understanding' !!}</h3>
-      <p class="feature-desc">{!! $settings['home_feature_4_desc'] ?? 'Connecting standards<br>with real-world execution' !!}</p>
+      <h3 class="feature-title">{{ $settings['home_feature_4_title'] ?? 'Global Perspective Local Understanding' }}</h3>
+      <p class="feature-desc">{{ $settings['home_feature_4_desc'] ?? 'Connecting standards with real-world execution' }}</p>
     </div>
   </section>
   <!-- END FEATURE GRID -->
@@ -149,8 +149,8 @@
   <div class="testi-container">
     <div class="testi-header">
       <span class="testi-subtitle">{{ $settings['home_testimonials_subtitle'] ?? 'CLIENT TESTIMONIALS' }}</span>
-      <h2 class="testi-title">{!! $settings['home_testimonials_title'] ?? 'Trusted by Maritime<br>Leaders' !!}</h2>
-      <p class="testi-desc">{!! $settings['home_testimonials_desc'] ?? 'We are proud to be a trusted partner for maritime and industrial<br>businesses across Indonesia.' !!}</p>
+      <h2 class="testi-title">{{ $settings['home_testimonials_title'] ?? 'Trusted by Maritime Leaders' }}</h2>
+      <p class="testi-desc">{{ $settings['home_testimonials_desc'] ?? 'We are proud to be a trusted partner for maritime and industrial businesses across Indonesia.' }}</p>
     </div>
 
     @if(isset($testimonials) && count($testimonials) > 0)
@@ -191,7 +191,10 @@
   <div class="cp2-wrapper">
     <div class="cp2-header">
       <div class="cp2-badge">{{ $settings['home_clients_subtitle'] ?? 'CLIENTS & PARTNERS' }}</div>
-      <h2 class="cp2-title">{!! $settings['home_clients_title'] ?? 'Trusted By <span class="cp2-title-accent">Industry Leaders</span>' !!}</h2>
+      <h2 class="cp2-title">
+        {{ $settings['home_clients_title'] ?? 'Trusted By' }}
+        <span class="cp2-title-accent">{{ $settings['home_clients_title_accent'] ?? 'Industry Leaders' }}</span>
+      </h2>
       <p class="cp2-desc">{{ $settings['home_clients_desc'] ?? 'We collaborate with leading organizations across maritime and industrial sectors to drive operational excellence and sustainable growth.' }}</p>
       <div class="cp2-stats">
         <div class="cp2-stat">

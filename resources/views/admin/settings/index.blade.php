@@ -15,10 +15,21 @@
         @csrf
         @method('POST')
 
-        @foreach($groups as $group => $settings)
+         @foreach($groups as $group => $settings)
             <div class="card" style="margin-bottom: 24px;">
-                <div class="card-header">
-                    <h3 class="card-title" style="text-transform: capitalize;">{{ ucfirst($group) }} Settings</h3>
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <h3 class="card-title" style="text-transform: capitalize;">{{ $group }} Settings</h3>
+                    @if($group === 'Testimonials Section')
+                        <a href="{{ route('admin.testimonials.index') }}" style="background: var(--accent-teal); color: white; padding: 8px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            Manage Testimonials List &rarr;
+                        </a>
+                    @elseif($group === 'Clients & Partners Section')
+                        <a href="{{ route('admin.partners.index') }}" style="background: var(--accent-teal); color: white; padding: 8px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            Manage Partner Logos &rarr;
+                        </a>
+                    @endif
                 </div>
                 <div style="padding: 0 24px 24px; display: flex; flex-direction: column; gap: 20px;">
                     @foreach($settings as $setting)

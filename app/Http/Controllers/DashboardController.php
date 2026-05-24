@@ -8,6 +8,8 @@ use App\Models\Service;
 use App\Models\Training;
 use App\Models\Podcast;
 use App\Models\ContactMessage;
+use App\Models\Partner;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -23,6 +25,8 @@ class DashboardController extends Controller
             'services' => Service::count(),
             'trainings' => Training::count(),
             'podcasts' => Podcast::count(),
+            'partners' => Partner::count(),
+            'testimonials' => Testimonial::count(),
             'messages' => ContactMessage::count(),
             'unread_messages' => ContactMessage::where('is_read', false)->count(),
         ];
