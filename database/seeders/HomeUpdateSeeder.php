@@ -16,6 +16,9 @@ class HomeUpdateSeeder extends Seeder
     {
         // 1. Seed New Home Settings
         $settings = [
+            // Home Hero
+            ['key' => 'home_banner_image', 'value' => '', 'group' => 'home', 'label' => 'Hero Banner Background Image', 'type' => 'image'],
+            
             // Home Features
             ['key' => 'home_feature_1_title', 'value' => "Maritime<br>Expertise", 'group' => 'home', 'label' => 'Feature 1 Title', 'type' => 'textarea'],
             ['key' => 'home_feature_1_desc', 'value' => "Years of hands-on<br>industry experience", 'group' => 'home', 'label' => 'Feature 1 Description', 'type' => 'textarea'],

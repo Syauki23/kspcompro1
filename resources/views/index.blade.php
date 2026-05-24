@@ -1,7 +1,7 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services'])
 
 @section('content')
-<div class="hero-wrapper">
+<div class="hero-wrapper" style="background-image: url('{{ isset($settings['home_banner_image']) && $settings['home_banner_image'] ? (str_starts_with($settings['home_banner_image'], 'http') ? $settings['home_banner_image'] : Storage::url($settings['home_banner_image'])) : asset('assets/banner.jpg') }}');">
   <!-- HERO CONTENT -->
   <main class="hero-content" id="home" role="main">
     <h1 class="hero-headline">

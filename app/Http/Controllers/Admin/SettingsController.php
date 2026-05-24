@@ -11,7 +11,28 @@ class SettingsController extends Controller
 {
     public function home()
     {
-        return $this->showGroup('home', 'Home');
+        $settings = Setting::where('group', 'home')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'home_hero') || str_starts_with($setting->key, 'home_typewriter') || $setting->key == 'home_banner_image') {
+                $groups['Hero Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'home_feature')) {
+                $groups['Features Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'home_services')) {
+                $groups['Core Services Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'home_testimonials')) {
+                $groups['Testimonials Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'home_clients')) {
+                $groups['Clients & Partners Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'home_insights') || str_starts_with($setting->key, 'home_podcast')) {
+                $groups['Insights Section'][] = $setting;
+            } else {
+                $groups['Other'][] = $setting;
+            }
+        }
+        
+        $pageTitle = 'Home';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
     public function about()
