@@ -49,10 +49,22 @@
     </div>
     <div id="features-container">
         @php
-            $features = old('feature_title') ? null : ($srv?->features ?? []);
-            if (is_string($features)) {
-                $decoded = json_decode($features, true);
-                $features = is_array($decoded) ? $decoded : [$features];
+            $features = [];
+            if (old('feature_title')) {
+                $titles = old('feature_title', []);
+                $descs = old('feature_desc', []);
+                foreach ($titles as $i => $title) {
+                    $features[] = [
+                        'title' => $title,
+                        'desc' => $descs[$i] ?? ''
+                    ];
+                }
+            } else {
+                $features = $srv?->features ?? [];
+                if (is_string($features)) {
+                    $decoded = json_decode($features, true);
+                    $features = is_array($decoded) ? $decoded : [];
+                }
             }
         @endphp
         @if(is_array($features) && count($features) > 0)

@@ -40,7 +40,8 @@ Route::get('/philosophy', function () {
 
 Route::get('/services', function () {
     $services = \App\Models\Service::where('is_active', true)->orderBy('id')->get();
-    return view('services', compact('services'));
+    $settings = \App\Models\Setting::where('group', 'services')->pluck('value', 'key');
+    return view('services', compact('services', 'settings'));
 });
 
 Route::get('/training', function () {
@@ -96,6 +97,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/settings/about', [App\Http\Controllers\Admin\SettingsController::class, 'about'])->name('admin.settings.about');
     Route::get('/settings/experience', [App\Http\Controllers\Admin\SettingsController::class, 'experience'])->name('admin.settings.experience');
     Route::get('/settings/philosophy', [App\Http\Controllers\Admin\SettingsController::class, 'philosophy'])->name('admin.settings.philosophy');
+    Route::get('/settings/services', [App\Http\Controllers\Admin\SettingsController::class, 'services'])->name('admin.settings.services');
     Route::get('/settings/global', [App\Http\Controllers\Admin\SettingsController::class, 'global'])->name('admin.settings.global');
     Route::post('/settings', [App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('admin.settings.update');
 

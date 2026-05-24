@@ -91,6 +91,23 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
+    public function services()
+    {
+        $settings = Setting::where('group', 'services')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'services_stat')) {
+                $groups['Statistics Section'][] = $setting;
+            } else {
+                $groups['Header Section'][] = $setting;
+            }
+        }
+        $groups['Services Section'] = []; // Empty array for custom button layout
+        
+        $pageTitle = 'Services';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
+    }
+
     public function global()
     {
         // Get settings that are NOT 'home' or 'about'

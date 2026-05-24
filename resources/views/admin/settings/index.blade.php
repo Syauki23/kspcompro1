@@ -29,6 +29,11 @@
                             <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                             Manage Partner Logos &rarr;
                         </a>
+                    @elseif($group === 'Services Section')
+                        <a href="{{ route('admin.services.index') }}" style="background: var(--accent-teal); color: white; padding: 8px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            Manage Services List &rarr;
+                        </a>
                     @endif
                 </div>
                 <div style="padding: 0 24px 24px; display: flex; flex-direction: column; gap: 20px;">
@@ -167,6 +172,14 @@
                                 </div>
                             @endforeach
                         </div>
+                    @elseif($group === 'Header Section' && request()->routeIs('admin.settings.services'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ in_array($setting->key, ['services_hero_description', 'services_banner_image']) ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
                     @elseif($group === 'Compass Section' && request()->routeIs('admin.settings.philosophy'))
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             @foreach($settings as $setting)
@@ -190,6 +203,19 @@
                             </div>
                             <a href="{{ route('admin.philosophy.index') }}" style="background: var(--accent-orange); color: white; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);">
                                 Manage Philosophy Values &rarr;
+                            </a>
+                        </div>
+                    @elseif($group === 'Services Section' && request()->routeIs('admin.settings.services'))
+                        <div style="background: rgba(234, 88, 12, 0.05); border: 1px dashed var(--accent-orange); border-radius: 12px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(234, 88, 12, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-orange);">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 8px;">Individual Services List</h4>
+                                <p style="font-size: 13px; color: var(--text-muted); max-width: 400px; margin: 0 auto; line-height: 1.6;">Manage individual service cards, titles, full details, descriptions, icons, images, and custom features.</p>
+                            </div>
+                            <a href="{{ route('admin.services.index') }}" style="background: var(--accent-orange); color: white; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);">
+                                Manage Services List &rarr;
                             </a>
                         </div>
                     @else
