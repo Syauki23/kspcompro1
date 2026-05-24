@@ -80,9 +80,6 @@
       </div>
       <h3 class="train-topic-title">{{ $training->title }}</h3>
       <p class="train-topic-desc">{{ $training->description }}</p>
-      @if($training->duration)
-        <p style="font-size: 12px; color: var(--primary-orange, #1F628E); margin-top: 8px; font-weight: 600;">⏱ {{ $training->duration }}</p>
-      @endif
     </div>
     @empty
     <p style="text-align: center; color: #64748b; grid-column: 1/-1;">Belum ada data training.</p>
@@ -94,9 +91,6 @@
 <section class="train-events-section">
   <div class="train-split-header">
     <h3>{{ $settings['training_events_title'] ?? 'Recent Workshop & Training Recap' }}</h3>
-    @if(!empty($settings['training_events_link_url']) && $settings['training_events_link_url'] !== '#')
-      <a href="{{ $settings['training_events_link_url'] }}" class="view-link">{{ $settings['training_events_link_text'] ?? 'View all events' }} &rarr;</a>
-    @endif
   </div>
   
   <div class="train-events-carousel-wrapper">
@@ -112,7 +106,8 @@
         <div class="te-content">
           <div class="te-date">
             <span class="te-day">{{ $event->event_date ? $event->event_date->format('d') : '--' }}</span>
-            <span class="te-mo">{{ $event->event_date ? strtoupper($event->event_date->format('M')) . '<br>' . $event->event_date->format('Y') : '' }}</span>
+            <span class="te-mo">{{ $event->event_date ? strtoupper($event->event_date->format('M')) : '' }}</span>
+            <span class="te-mo">{{ $event->event_date ? $event->event_date->format('Y') : '' }}</span>
           </div>
           <div class="te-info">
             <h4 class="te-title">{{ $event->title }}</h4>

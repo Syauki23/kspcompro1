@@ -22,8 +22,6 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Duration</th>
-                        <th>Price</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -32,8 +30,6 @@
                     @forelse($trainings as $training)
                         <tr>
                             <td style="font-weight: 600;">{{ $training->title }}</td>
-                            <td style="color: var(--text-muted);">{{ $training->duration ?? '-' }}</td>
-                            <td>{{ $training->price ?? '-' }}</td>
                             <td>
                                 <span class="badge {{ $training->is_active ? 'badge-read' : 'badge-unread' }}">
                                     {{ $training->is_active ? 'Active' : 'Inactive' }}

@@ -23,21 +23,22 @@ class TrainingEventController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title'          => 'required|string|max:255',
-            'location'       => 'nullable|string|max:255',
-            'event_date'     => 'nullable|date',
-            'image'          => 'nullable|image|max:2048',
-            'is_active'      => 'nullable|boolean',
-            'order_position' => 'nullable|integer',
+            'title'      => 'required|string|max:255',
+            'location'   => 'nullable|string|max:255',
+            'event_date' => 'nullable|date',
+            'image'      => 'nullable|image|max:2048',
+            'is_active'  => 'nullable|boolean',
         ]);
 
         $validated['is_active'] = $request->boolean('is_active', true);
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('training_events', 'public');
-        } elseif ($request->filled('image_url')) {
-            $validated['image'] = $request->input('image_url');
         }
+
+        // Geser semua event yang ada +1, lalu taruh yang baru di posisi 1
+        TrainingEvent::query()->increment('order_position');
+        $validated['order_position'] = 1;
 
         TrainingEvent::create($validated);
 
@@ -52,12 +53,11 @@ class TrainingEventController extends Controller
     public function update(Request $request, TrainingEvent $trainingEvent)
     {
         $validated = $request->validate([
-            'title'          => 'required|string|max:255',
-            'location'       => 'nullable|string|max:255',
-            'event_date'     => 'nullable|date',
-            'image'          => 'nullable|image|max:2048',
-            'is_active'      => 'nullable|boolean',
-            'order_position' => 'nullable|integer',
+            'title'      => 'required|string|max:255',
+            'location'   => 'nullable|string|max:255',
+            'event_date' => 'nullable|date',
+            'image'      => 'nullable|image|max:2048',
+            'is_active'  => 'nullable|boolean',
         ]);
 
         $validated['is_active'] = $request->boolean('is_active', true);
@@ -67,8 +67,6 @@ class TrainingEventController extends Controller
                 Storage::disk('public')->delete($trainingEvent->image);
             }
             $validated['image'] = $request->file('image')->store('training_events', 'public');
-        } elseif ($request->filled('image_url')) {
-            $validated['image'] = $request->input('image_url');
         }
 
         $trainingEvent->update($validated);

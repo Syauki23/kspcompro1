@@ -27,16 +27,6 @@
             </div>
         @endif
         <input type="file" name="image" accept="image/*" style="color: var(--text-muted); font-size: 13px;">
-        <p style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Bisa juga pakai URL gambar dari Unsplash, dll.</p>
-    </div>
-    <div>
-        <label class="form-label">URL Gambar (opsional, jika tidak upload)</label>
-        <input type="text" name="image_url" value="" class="form-input" placeholder="https://images.unsplash.com/...">
-        <p style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Jika diisi, URL ini akan dipakai (upload diabaikan)</p>
-    </div>
-    <div>
-        <label class="form-label">Order / Urutan</label>
-        <input type="number" name="order_position" value="{{ old('order_position', $ev?->order_position ?? 0) }}" class="form-input">
     </div>
     <div>
         <label class="form-label">Status</label>

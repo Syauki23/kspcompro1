@@ -34,8 +34,6 @@ class TrainingSettingsSeeder extends Seeder
 
             // Recent Events Section
             ['key' => 'training_events_title',       'value' => 'Recent Workshop & Training Recap','group' => 'training', 'label' => 'Events Section Title',            'type' => 'text'],
-            ['key' => 'training_events_link_text',   'value' => 'View all events',                 'group' => 'training', 'label' => 'Events "View All" Link Text',      'type' => 'text'],
-            ['key' => 'training_events_link_url',    'value' => '#',                               'group' => 'training', 'label' => 'Events "View All" Link URL',       'type' => 'text'],
         ];
 
         foreach ($settings as $s) {
