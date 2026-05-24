@@ -32,42 +32,51 @@
                     @endif
                 </div>
                 <div style="padding: 0 24px 24px; display: flex; flex-direction: column; gap: 20px;">
-                    @foreach($settings as $setting)
-                        <div>
-                            <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
-                                {{ $setting->label }}
-                                <span style="font-size: 11px; color: var(--text-dim); font-weight: 400; text-transform: none; margin-left: 6px;">({{ $setting->key }})</span>
-                            </label>
+                    @if($group === 'Clients & Partners Section')
+                        @php
+                            $general = [];
+                            $stats = [1 => [], 2 => [], 3 => []];
+                            foreach($settings as $setting) {
+                                if (str_contains($setting->key, 'stat_1')) {
+                                    $stats[1][] = $setting;
+                                } elseif (str_contains($setting->key, 'stat_2')) {
+                                    $stats[2][] = $setting;
+                                } elseif (str_contains($setting->key, 'stat_3')) {
+                                    $stats[3][] = $setting;
+                                } else {
+                                    $general[] = $setting;
+                                }
+                            }
+                        @endphp
 
-                            @if($setting->type === 'textarea')
-                                <textarea
-                                    name="{{ $setting->key }}"
-                                    rows="3"
-                                    class="form-input"
-                                    style="resize: vertical;"
-                                >{{ $setting->value }}</textarea>
-                            @elseif($setting->type === 'image')
-                                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-                                    @if($setting->value)
-                                        <img src="{{ str_starts_with($setting->value, 'http') ? $setting->value : Storage::url($setting->value) }}" alt="Current" style="height: 60px; width: auto; border-radius: 8px; border: 1px solid var(--border-glass);">
-                                    @endif
-                                    <input type="file" name="images[{{ $setting->key }}]" accept="image/*"
-                                        style="color: var(--text-muted); font-size: 13px;">
+                        <!-- General Clients Settings Grid -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($general as $setting)
+                                <div style="{{ ($setting->key === 'home_clients_desc' || $setting->key === 'home_clients_subtitle' || $setting->key === 'home_clients_marquee_label') ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
                                 </div>
-                            @else
-                                <input
-                                    type="text"
-                                    name="{{ $setting->key }}"
-                                    value="{{ $setting->value }}"
-                                    class="form-input"
-                                >
-                            @endif
-
-                            @error($setting->key)
-                                <p style="color: var(--accent-red); font-size: 12px; margin-top: 4px;">{{ $message }}</p>
-                            @enderror
+                            @endforeach
                         </div>
-                    @endforeach
+
+                        <!-- Statistics Grid -->
+                        <div style="border-top: 1px solid var(--border-glass); padding-top: 24px; margin-top: 8px;">
+                            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;">Client Statistics Metric Cards</h4>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                                @foreach($stats as $num => $statFields)
+                                    <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
+                                        <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Metric #{{ $num }}</div>
+                                        @foreach($statFields as $setting)
+                                            @include('admin.settings.partials.input', ['setting' => $setting])
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        @foreach($settings as $setting)
+                            @include('admin.settings.partials.input', ['setting' => $setting])
+                        @endforeach
+                    @endif
                 </div>
             </div>
         @endforeach
