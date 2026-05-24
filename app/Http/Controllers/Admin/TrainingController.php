@@ -28,7 +28,7 @@ class TrainingController extends Controller
             'description' => 'required|string',
             'duration'    => 'nullable|string|max:100',
             'price'       => 'nullable|string|max:100',
-            'image'       => 'nullable|image|max:2048',
+            'image'       => 'nullable|image|max:10240',
             'is_active'   => 'nullable|boolean',
         ]);
 
@@ -61,7 +61,7 @@ class TrainingController extends Controller
             'description' => 'required|string',
             'duration'    => 'nullable|string|max:100',
             'price'       => 'nullable|string|max:100',
-            'image'       => 'nullable|image|max:2048',
+            'image'       => 'nullable|image|max:10240',
             'is_active'   => 'nullable|boolean',
         ]);
 

@@ -34,7 +34,7 @@ class PodcastController extends Controller
             'category'       => 'nullable|string|max:100',
             'is_featured'    => 'nullable|boolean',
             'is_active'      => 'nullable|boolean',
-            'image'          => 'nullable|image|max:2048',
+            'image'          => 'nullable|image|max:10240',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
@@ -74,7 +74,7 @@ class PodcastController extends Controller
             'category'       => 'nullable|string|max:100',
             'is_featured'    => 'nullable|boolean',
             'is_active'      => 'nullable|boolean',
-            'image'          => 'nullable|image|max:2048',
+            'image'          => 'nullable|image|max:10240',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);

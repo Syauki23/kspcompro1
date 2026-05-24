@@ -27,7 +27,7 @@
         <label class="form-label">Upload Gambar</label>
         @if($tr?->image)
             <div style="margin-bottom: 8px;">
-                <img src="{{ str_starts_with($tr->image, 'http') ? $tr->image : asset($tr->image) }}" alt="Current" style="height: 60px; border-radius: 8px; border: 1px solid var(--border-glass);">
+                <img src="{{ str_starts_with($tr->image, 'http') || str_starts_with($tr->image, 'assets') ? asset($tr->image) : Storage::url($tr->image) }}" alt="Current" style="height: 60px; border-radius: 8px; border: 1px solid var(--border-glass);">
             </div>
         @endif
         <input type="file" name="image" accept="image/*" style="color: var(--text-muted); font-size: 13px;">

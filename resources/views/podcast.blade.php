@@ -31,7 +31,7 @@
         <div class="pod-feat-card">
           <div class="pod-feat-video-wrapper" id="featured-video-container" onclick="loadFeaturedVideo('{{ $featured->youtube_id }}')">
             @if($featured->image)
-              <img src="{{ str_starts_with($featured->image, 'http') ? $featured->image : asset($featured->image) }}" alt="{{ $featured->title }}" id="featured-thumbnail">
+              <img src="{{ str_starts_with($featured->image, 'http') || str_starts_with($featured->image, 'assets') ? asset($featured->image) : Storage::url($featured->image) }}" alt="{{ $featured->title }}" id="featured-thumbnail">
             @else
               <img src="{{ asset('assets/featured_podcast.png') }}" alt="{{ $featured->title }}" id="featured-thumbnail">
             @endif
@@ -80,7 +80,7 @@
           <div class="pod-card">
             <div class="pod-card-img">
               @if($episode->image)
-                <img src="{{ str_starts_with($episode->image, 'http') ? $episode->image : asset($episode->image) }}" alt="{{ $episode->title }}">
+                <img src="{{ str_starts_with($episode->image, 'http') || str_starts_with($episode->image, 'assets') ? asset($episode->image) : Storage::url($episode->image) }}" alt="{{ $episode->title }}">
               @else
                 <img src="{{ asset('assets/life_podcast.png') }}" alt="{{ $episode->title }}">
               @endif

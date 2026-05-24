@@ -44,7 +44,7 @@
         <label class="form-label">Upload Thumbnail</label>
         @if($pod?->image)
             <div style="margin-bottom: 8px;">
-                <img src="{{ str_starts_with($pod->image, 'http') ? $pod->image : asset($pod->image) }}" alt="Current" style="height: 60px; border-radius: 8px; border: 1px solid var(--border-glass);">
+                <img src="{{ str_starts_with($pod->image, 'http') || str_starts_with($pod->image, 'assets') ? asset($pod->image) : Storage::url($pod->image) }}" alt="Current" style="height: 60px; border-radius: 8px; border: 1px solid var(--border-glass);">
             </div>
         @endif
         <input type="file" name="image" accept="image/*" style="color: var(--text-muted); font-size: 13px;">

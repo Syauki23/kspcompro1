@@ -93,7 +93,7 @@
     <button class="modal-close-btn" aria-label="Close modal">&times;</button>
     <div class="modal-left-img">
       @if($service->image)
-        <img src="{{ str_starts_with($service->image, 'http') ? $service->image : asset($service->image) }}" alt="{{ $service->title }}">
+        <img src="{{ str_starts_with($service->image, 'http') || str_starts_with($service->image, 'assets') ? asset($service->image) : Storage::url($service->image) }}" alt="{{ $service->title }}">
       @else
         <img src="{{ asset('assets/bg-ship.jpg') }}" alt="{{ $service->title }}">
       @endif
