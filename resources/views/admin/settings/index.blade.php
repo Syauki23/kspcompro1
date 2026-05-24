@@ -228,9 +228,7 @@
         @endforeach
 
         <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
-            <button type="submit" class="btn-primary" style="background: var(--accent-orange); color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font-body);">
-                Simpan Semua Settings
-            </button>
+            <button type="submit" class="btn-save">Simpan Semua Settings</button>
         </div>
     </form>
 @endsection

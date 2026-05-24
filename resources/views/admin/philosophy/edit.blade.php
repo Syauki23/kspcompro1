@@ -13,8 +13,8 @@
             <form action="{{ route('admin.philosophy.update', $philosophy) }}" method="POST">
                 @csrf @method('PUT')
                 @include('admin.philosophy._form', ['philosophy' => $philosophy])
-                <div style="margin-top: 24px; display: flex; gap: 12px;">
-                    <button type="submit" style="background: var(--accent-orange); color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font-body);">Update</button>
+                <div class="form-actions">
+                    <button type="submit" class="btn-save">Update</button>
                     <a href="{{ route('admin.philosophy.index') }}" class="btn-secondary" style="padding: 12px 20px; font-size: 14px; text-decoration: none;">Batal</a>
                 </div>
             </form>
