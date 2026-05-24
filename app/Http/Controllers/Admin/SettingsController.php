@@ -72,6 +72,25 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
+    public function philosophy()
+    {
+        $settings = Setting::where('group', 'philosophy')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'phil_compass')) {
+                $groups['Compass Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'phil_slider')) {
+                $groups['Slider Section'][] = $setting;
+            } else {
+                $groups['Header Section'][] = $setting;
+            }
+        }
+        $groups['Philosophy Values Section'] = []; // Empty array for custom button layout
+        
+        $pageTitle = 'Philosophy';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
+    }
+
     public function global()
     {
         // Get settings that are NOT 'home' or 'about'

@@ -5,37 +5,41 @@
 @section('content')
 <section class="phil-hero">
   <div class="phil-hero-bg">
-    <img src="{{ asset('assets/sumatra.jpg') }}" alt="Minangkabau House Banner">
+    <img src="{{ isset($settings['phil_banner_image']) ? (str_starts_with($settings['phil_banner_image'], 'http') || str_starts_with($settings['phil_banner_image'], 'assets') ? asset($settings['phil_banner_image']) : Storage::url($settings['phil_banner_image'])) : asset('assets/sumatra.jpg') }}" alt="Philosophy Banner">
     <div class="phil-hero-overlay"></div>
   </div>
 
   <div class="phil-hero-container">
     <div class="phil-hero-content">
       <div class="phil-subtitle-wrap">
-        <span class="phil-subtitle">OUR PHILOSOPHY & CULTURE</span>
+        <span class="phil-subtitle">{{ $settings['phil_subtitle'] ?? 'OUR PHILOSOPHY & CULTURE' }}</span>
         <div class="phil-subtitle-line"></div>
       </div>
-      <h1 class="phil-title">The Philosophy<br><span class="phil-title-accent">Behind KSP</span></h1>
+      <h1 class="phil-title">
+        {{ $settings['phil_title_first'] ?? 'The Philosophy' }}
+        <br>
+        <span class="phil-title-accent">{{ $settings['phil_title_second'] ?? 'Behind KSP' }}</span>
+      </h1>
       
       <div class="phil-intro-card">
-        <p>The word "Swarna" comes from Sanskrit<br>meaning "gold," symbolizing excellence, trust,<br>value, and meaningful partnerships.</p>
+        <p>{!! nl2br(e($settings['phil_intro_card'] ?? "The word \"Swarna\" comes from Sanskrit\nmeaning \"gold,\" symbolizing excellence, trust,\nvalue, and meaningful partnerships.")) !!}</p>
       </div>
       
-      <p class="phil-intro-text">Inspired by "Swarnadwipa" (Island of Gold), KSP Consulting<br>believes operational excellence is built through connectivity,<br>innovation, integrity, and collaborative growth.</p>
+      <p class="phil-intro-text">{!! nl2br(e($settings['phil_intro_text'] ?? "Inspired by \"Swarnadwipa\" (Island of Gold), KSP Consulting\nbelieves operational excellence is built through connectivity,\ninnovation, integrity, and collaborative growth.")) !!}</p>
     </div>
 
     <div class="phil-hero-badge">
       <div class="badge-text">
-        <span class="badge-title">SWARNADWIPA</span>
-        <span class="badge-sub">ISLAND OF GOLD</span>
+        <span class="badge-title">{{ $settings['phil_badge_title'] ?? 'SWARNADWIPA' }}</span>
+        <span class="badge-sub">{{ $settings['phil_badge_sub'] ?? 'ISLAND OF GOLD' }}</span>
       </div>
     </div>
   </div>
 </section>
 
 <section class="phil-compass">
-  <h2 class="phil-compass-title">Our Culture, Our Compass</h2>
-  <p class="phil-compass-desc">SWARNADWIPA represents the values that guide us in everything we do.</p>
+  <h2 class="phil-compass-title">{{ $settings['phil_compass_title'] ?? 'Our Culture, Our Compass' }}</h2>
+  <p class="phil-compass-desc">{!! nl2br(e($settings['phil_compass_desc'] ?? 'SWARNADWIPA represents the values that guide us in everything we do.')) !!}</p>
 
   <div class="phil-letters" id="phil-letters">
     @foreach($values as $val)
@@ -60,7 +64,7 @@
     </button>
     <div class="phil-slider-wrapper">
       <div class="phil-slider-img">
-        <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80" alt="KSP Worker">
+        <img src="{{ isset($settings['phil_slider_image']) ? (str_starts_with($settings['phil_slider_image'], 'http') || str_starts_with($settings['phil_slider_image'], 'assets') ? asset($settings['phil_slider_image']) : Storage::url($settings['phil_slider_image'])) : 'https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80' }}" alt="Philosophy Value">
       </div>
       <div class="phil-slider-content" id="phil-slide-content">
         <!-- JS will populate this -->
@@ -74,13 +78,13 @@
 
 {{-- Pass philosophy data to JS --}}
 <script>
-  const philosophyData = @json($values->map(fn($v) => [
+  const philosophyData = {!! json_encode($values->map(fn($v) => [
     'letter' => $v->letter,
     'index' => $v->index,
     'title' => $v->title,
     'description' => $v->description,
     'features' => $v->features ?? [],
-  ]));
+  ])) !!};
 </script>
 
 @endsection

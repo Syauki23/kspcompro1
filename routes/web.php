@@ -33,8 +33,9 @@ Route::get('/experience', function () {
 });
 
 Route::get('/philosophy', function () {
+    $settings = \App\Models\Setting::where('group', 'philosophy')->pluck('value', 'key');
     $values = \App\Models\PhilosophyValue::orderBy('index')->get();
-    return view('philosophy', compact('values'));
+    return view('philosophy', compact('settings', 'values'));
 });
 
 Route::get('/services', function () {
@@ -94,6 +95,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/settings/home', [App\Http\Controllers\Admin\SettingsController::class, 'home'])->name('admin.settings.home');
     Route::get('/settings/about', [App\Http\Controllers\Admin\SettingsController::class, 'about'])->name('admin.settings.about');
     Route::get('/settings/experience', [App\Http\Controllers\Admin\SettingsController::class, 'experience'])->name('admin.settings.experience');
+    Route::get('/settings/philosophy', [App\Http\Controllers\Admin\SettingsController::class, 'philosophy'])->name('admin.settings.philosophy');
     Route::get('/settings/global', [App\Http\Controllers\Admin\SettingsController::class, 'global'])->name('admin.settings.global');
     Route::post('/settings', [App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('admin.settings.update');
 

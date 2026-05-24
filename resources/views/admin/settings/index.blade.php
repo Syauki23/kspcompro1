@@ -159,6 +159,39 @@
                                 Manage Timeline Entries &rarr;
                             </a>
                         </div>
+                    @elseif($group === 'Header Section' && request()->routeIs('admin.settings.philosophy'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ in_array($setting->key, ['phil_intro_card', 'phil_intro_text']) ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Compass Section' && request()->routeIs('admin.settings.philosophy'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ ($setting->key === 'phil_compass_desc') ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Slider Section' && request()->routeIs('admin.settings.philosophy'))
+                        @foreach($settings as $setting)
+                            @include('admin.settings.partials.input', ['setting' => $setting])
+                        @endforeach
+                    @elseif($group === 'Philosophy Values Section' && request()->routeIs('admin.settings.philosophy'))
+                        <div style="background: rgba(234, 88, 12, 0.05); border: 1px dashed var(--accent-orange); border-radius: 12px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(234, 88, 12, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-orange);">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 8px;">SWARNADWIPA Values</h4>
+                                <p style="font-size: 13px; color: var(--text-muted); max-width: 400px; margin: 0 auto; line-height: 1.6;">Manage the cultural values shown in the compass and slider section (S, W, A, R, N, A, etc).</p>
+                            </div>
+                            <a href="{{ route('admin.philosophy.index') }}" style="background: var(--accent-orange); color: white; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);">
+                                Manage Philosophy Values &rarr;
+                            </a>
+                        </div>
                     @else
                         @foreach($settings as $setting)
                             @include('admin.settings.partials.input', ['setting' => $setting])
