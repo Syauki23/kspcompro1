@@ -251,7 +251,7 @@
   // PHILOSOPHY PAGE - SWARNADWIPA Interactive
   // =========================================
   // Data 11 nilai SWARNADWIPA
-  const values = [
+  const defaultValues = [
     { letter: 'S', num: '01', title: 'Synergy in Every Step', desc: 'Working together across teams and disciplines to create solutions greater than the sum of their parts.', feats: ['Cross-functional Teams', 'Collaborative Approach', 'Shared Goals'], icon: 'users' },
     { letter: 'W', num: '02', title: 'Worldwide Perspective, Local Touch', desc: 'We bring global standards and best practices with a deep understanding of local dynamics to deliver relevant and impactful solutions.', feats: ['Global Standards', 'Local Understanding', 'Relevant Solutions'], icon: 'globe' },
     { letter: 'A', num: '03', title: 'Ambition for the Future', desc: 'Driven by a vision for long-term excellence and sustainable progress in every project we undertake.', feats: ['Forward Thinking', 'Growth Mindset', 'Sustainable Development'], icon: 'trending-up' },
@@ -264,6 +264,32 @@
     { letter: 'P', num: '10', title: 'Professional Excellence', desc: 'Maintaining the highest levels of expertise, quality, and continuous improvement in our services.', feats: ['Expert Knowledge', 'Quality Assurance', 'Continuous Improvement'], icon: 'award' },
     { letter: 'A', num: '11', title: 'Achieving Together', desc: 'Celebrating shared accomplishments and driving collective success through partnership and teamwork.', feats: ['Team Success', 'Partnership Focus', 'Shared Achievements'], icon: 'check-circle' }
   ];
+
+  const values = (typeof philosophyData !== 'undefined' && Array.isArray(philosophyData) && philosophyData.length > 0)
+    ? philosophyData.map((v, i) => {
+        let feats = [];
+        if (v.features) {
+          if (Array.isArray(v.features)) {
+            feats = v.features;
+          } else if (typeof v.features === 'string') {
+            try {
+              feats = JSON.parse(v.features);
+              if (!Array.isArray(feats)) feats = [v.features];
+            } catch (e) {
+              feats = [v.features];
+            }
+          }
+        }
+        return {
+          letter: v.letter,
+          num: String(i + 1).padStart(2, '0'),
+          title: v.title,
+          desc: v.description,
+          feats: feats,
+          icon: v.icon || 'users'
+        };
+      })
+    : defaultValues;
 
   // SVG icons map
   const icons = {

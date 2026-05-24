@@ -84,6 +84,7 @@
     'title' => $v->title,
     'description' => $v->description,
     'features' => $v->features ?? [],
+    'icon' => $v->icon ?? 'users',
   ])) !!};
 </script>
 
