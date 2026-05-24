@@ -260,7 +260,7 @@ body {
   overflow-y: auto;
 }
 
-.menu-item a {
+.menu-item > a {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -273,15 +273,76 @@ body {
   transition: var(--transition-smooth);
 }
 
-.menu-item a:hover {
+.menu-item > a:hover {
   background: rgba(0, 0, 0, 0.04);
   color: var(--text-white);
 }
 
-.menu-item.active a {
+.menu-item.active > a {
   background: var(--accent-orange-glow);
   color: var(--text-white);
   border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+/* Sidebar Dropdowns / Submenus */
+.menu-item.has-dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item.has-dropdown > a {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.dropdown-chevron {
+  margin-left: auto;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item.open .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.sidebar-submenu {
+  list-style: none;
+  padding-left: 12px;
+  margin-top: 4px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 1px dashed var(--border-glass);
+  margin-left: 24px;
+}
+
+.menu-item.open .sidebar-submenu {
+  display: flex;
+}
+
+.submenu-item a {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.submenu-item a:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-white);
+}
+
+.submenu-item.active a {
+  background: var(--accent-orange-glow);
+  color: var(--accent-orange);
+  font-weight: 600;
 }
 
 .sidebar-footer {
