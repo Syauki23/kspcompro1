@@ -466,3 +466,37 @@
   console.log('%cKSP Consulting | Everything Connected', 'color: #E1A730; font-size: 14px; font-weight: bold;');
 })();
 
+
+// ============================================================
+// Training Events Carousel
+// ============================================================
+(function () {
+  const grid = document.getElementById('eventsGrid');
+  const btnNext = document.getElementById('eventsNext');
+  const btnPrev = document.getElementById('eventsPrev');
+  if (!grid || !btnNext || !btnPrev) return;
+
+  function getCardWidth() {
+    const card = grid.querySelector('.train-event-card');
+    if (!card) return 0;
+    const gap = 20;
+    return card.offsetWidth + gap;
+  }
+
+  function updateButtons() {
+    btnPrev.style.opacity = grid.scrollLeft <= 0 ? '0.35' : '1';
+    btnNext.style.opacity = grid.scrollLeft + grid.offsetWidth >= grid.scrollWidth - 2 ? '0.35' : '1';
+  }
+
+  btnNext.addEventListener('click', function () {
+    grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+  });
+
+  btnPrev.addEventListener('click', function () {
+    grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+  });
+
+  grid.addEventListener('scroll', updateButtons);
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+})();

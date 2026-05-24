@@ -928,17 +928,14 @@ ul {
 
 .train-events-carousel-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  padding: 0 30px;
 }
 
 .train-events-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 20px;
-  flex: 1;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .train-event-card {
@@ -947,6 +944,8 @@ ul {
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s;
+  flex: 0 0 calc(25% - 15px);
+  min-width: 0;
 }
 
 .train-event-card:hover {
@@ -982,10 +981,12 @@ ul {
 
 .te-mo {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--navy-dark);
-  margin-top: 4px;
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .te-info {
@@ -1010,8 +1011,8 @@ ul {
 }
 
 .train-events-next {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--navy-dark);
   color: var(--white);
@@ -1022,9 +1023,37 @@ ul {
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.3s;
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.train-events-next:hover {
+.train-events-prev {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy-dark);
+  color: var(--white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.3s;
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.train-events-next:hover,
+.train-events-prev:hover {
   background: var(--primary-orange);
 }
 
@@ -1094,7 +1123,11 @@ ul {
   }
 
   .train-events-grid {
-    grid-template-columns: repeat(2, 1fr);
+    /* tablet: tampil 2 card */
+  }
+
+  .train-event-card {
+    flex: 0 0 calc(50% - 10px);
   }
 
   .train-features-strip {
@@ -1130,7 +1163,11 @@ ul {
   }
 
   .train-events-grid {
-    grid-template-columns: 1fr;
+    /* mobile: tampil 1 card */
+  }
+
+  .train-event-card {
+    flex: 0 0 calc(100% - 0px);
   }
 
   .train-gallery-grid {

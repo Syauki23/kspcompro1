@@ -94,7 +94,10 @@
   </div>
   
   <div class="train-events-carousel-wrapper">
-    <div class="train-events-grid">
+    <button class="train-events-prev" id="eventsPrev" aria-label="Previous Events">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <div class="train-events-grid" id="eventsGrid">
       @foreach($events as $event)
       <div class="train-event-card">
         @php
@@ -106,8 +109,7 @@
         <div class="te-content">
           <div class="te-date">
             <span class="te-day">{{ $event->event_date ? $event->event_date->format('d') : '--' }}</span>
-            <span class="te-mo">{{ $event->event_date ? strtoupper($event->event_date->format('M')) : '' }}</span>
-            <span class="te-mo">{{ $event->event_date ? $event->event_date->format('Y') : '' }}</span>
+            <span class="te-mo">{{ $event->event_date ? strtoupper($event->event_date->format('M Y')) : '' }}</span>
           </div>
           <div class="te-info">
             <h4 class="te-title">{{ $event->title }}</h4>
@@ -122,8 +124,8 @@
       </div>
       @endforeach
     </div>
-    <button class="train-events-next" aria-label="Next Events">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    <button class="train-events-next" id="eventsNext" aria-label="Next Events">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
   </div>
 </section>
