@@ -35,8 +35,8 @@
         <input type="number" name="order_position" value="{{ old('order_position', $exp?->order_position ?? 0) }}" class="form-input">
     </div>
     <div style="grid-column: 1 / -1;">
-        <label class="form-label">Description *</label>
-        <textarea name="description" rows="4" class="form-input" required>{{ old('description', $exp?->description) }}</textarea>
+        <label class="form-label">Description</label>
+        <textarea name="description" rows="4" class="form-input">{{ old('description', $exp?->description) }}</textarea>
     </div>
     <div>
         <label class="form-label">Status</label>

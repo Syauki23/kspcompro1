@@ -72,16 +72,18 @@
                                 @endforeach
                             </div>
                         </div>
-                    @elseif($group === 'Statistics Section' && request()->routeIs('admin.settings.about'))
+                    @elseif($group === 'Statistics Section')
                         @php
-                            $stats = [1 => [], 2 => [], 3 => []];
+                            $stats = [];
                             foreach($settings as $setting) {
-                                if (str_contains($setting->key, 'stat_1')) $stats[1][] = $setting;
-                                elseif (str_contains($setting->key, 'stat_2')) $stats[2][] = $setting;
-                                elseif (str_contains($setting->key, 'stat_3')) $stats[3][] = $setting;
+                                preg_match('/stat_(\d+)/', $setting->key, $matches);
+                                if (isset($matches[1])) {
+                                    $stats[$matches[1]][] = $setting;
+                                }
                             }
+                            ksort($stats);
                         @endphp
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                             @foreach($stats as $num => $statFields)
                                 <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
                                     <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Statistic #{{ $num }}</div>
@@ -135,6 +137,27 @@
                                     @include('admin.settings.partials.input', ['setting' => $setting])
                                 </div>
                             @endforeach
+                        </div>
+                    @elseif($group === 'Header & Description Section' && request()->routeIs('admin.settings.experience'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ ($setting->key === 'exp_desc') ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Experience Timeline Section' && request()->routeIs('admin.settings.experience'))
+                        <div style="background: rgba(13, 148, 136, 0.05); border: 1px dashed var(--accent-teal); border-radius: 12px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(13, 148, 136, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-teal);">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 8px;">Experience Timeline Entries</h4>
+                                <p style="font-size: 13px; color: var(--text-muted); max-width: 400px; margin: 0 auto; line-height: 1.6;">Manage the list of consulting projects, assessments, and operational improvements shown on the timeline.</p>
+                            </div>
+                            <a href="{{ route('admin.experiences.index') }}" style="background: var(--accent-teal); color: white; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);">
+                                Manage Timeline Entries &rarr;
+                            </a>
                         </div>
                     @else
                         @foreach($settings as $setting)

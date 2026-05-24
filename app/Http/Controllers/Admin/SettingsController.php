@@ -55,6 +55,23 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
+    public function experience()
+    {
+        $settings = Setting::where('group', 'experience')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'exp_stat')) {
+                $groups['Statistics Section'][] = $setting;
+            } else {
+                $groups['Header & Description Section'][] = $setting;
+            }
+        }
+        $groups['Experience Timeline Section'] = []; // Empty array for custom button layout
+        
+        $pageTitle = 'Experience';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
+    }
+
     public function global()
     {
         // Get settings that are NOT 'home' or 'about'
