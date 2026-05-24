@@ -145,25 +145,51 @@
             </div>
         </div>
 
-        <!-- Right Side: Fast Actions & Info -->
+        <!-- Right Side: Quick Actions -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">System Status</h3>
+                <h3 class="card-title">Quick Actions</h3>
             </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px;">
-                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">Laravel Version</div>
-                    <div style="font-weight: 600; font-family: var(--font-brand);">{{ app()->version() }}</div>
-                </div>
-                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px;">
-                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">PHP Version</div>
-                    <div style="font-weight: 600; font-family: var(--font-brand);">{{ phpversion() }}</div>
-                </div>
-                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px;">
-                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">Database Connection</div>
-                    <div style="font-weight: 600; font-family: var(--font-brand); color: var(--accent-teal);">ONLINE</div>
-                </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="{{ url('/') }}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 14px; background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.2); border-radius: 14px; padding: 16px 20px; text-decoration: none; transition: all 0.2s;" onmouseover="this.style.background='rgba(249,115,22,0.12)'" onmouseout="this.style.background='rgba(249,115,22,0.06)'">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(249,115,22,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-orange); flex-shrink: 0;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; font-size: 14px; color: var(--text-white);">View Website</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Buka halaman publik</div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--accent-orange)" stroke-width="2" fill="none" style="margin-left: auto; flex-shrink: 0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+
+                <a href="{{ route('admin.inbox') }}" style="display: flex; align-items: center; gap: 14px; background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.2); border-radius: 14px; padding: 16px 20px; text-decoration: none; transition: all 0.2s;" onmouseover="this.style.background='rgba(13,148,136,0.12)'" onmouseout="this.style.background='rgba(13,148,136,0.06)'">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(13,148,136,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); flex-shrink: 0;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; font-size: 14px; color: var(--text-white);">Contact Inbox</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                            @if($counts['unread_messages'] > 0)
+                                <span style="color: var(--accent-orange); font-weight: 600;">{{ $counts['unread_messages'] }} pesan belum dibaca</span>
+                            @else
+                                Semua pesan sudah dibaca
+                            @endif
+                        </div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--accent-teal)" stroke-width="2" fill="none" style="margin-left: auto; flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <a href="{{ route('admin.settings.home') }}" style="display: flex; align-items: center; gap: 14px; background: rgba(30,58,138,0.06); border: 1px solid rgba(30,58,138,0.15); border-radius: 14px; padding: 16px 20px; text-decoration: none; transition: all 0.2s;" onmouseover="this.style.background='rgba(30,58,138,0.12)'" onmouseout="this.style.background='rgba(30,58,138,0.06)'">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(30,58,138,0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-navy); flex-shrink: 0;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; font-size: 14px; color: var(--text-white);">Edit Settings</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Ubah teks & konten website</div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--accent-navy)" stroke-width="2" fill="none" style="margin-left: auto; flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
             </div>
         </div>
     </div>
