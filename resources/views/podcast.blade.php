@@ -27,33 +27,37 @@
 
       <div class="pod-hero-right">
         <span class="pod-hero-feat-label">FEATURED EPISODE</span>
+        @if($featured)
         <div class="pod-feat-card">
-          <div class="pod-feat-video-wrapper" id="featured-video-container" onclick="loadFeaturedVideo()">
-            <img src="{{ asset('assets/featured_podcast.png') }}" alt="Featured Episode" id="featured-thumbnail">
+          <div class="pod-feat-video-wrapper" id="featured-video-container" onclick="loadFeaturedVideo('{{ $featured->youtube_id }}')">
+            @if($featured->image)
+              <img src="{{ str_starts_with($featured->image, 'http') ? $featured->image : asset($featured->image) }}" alt="{{ $featured->title }}" id="featured-thumbnail">
+            @else
+              <img src="{{ asset('assets/featured_podcast.png') }}" alt="{{ $featured->title }}" id="featured-thumbnail">
+            @endif
             <div class="pod-play-overlay">
               <div class="play-btn-circle"><div class="play-triangle"></div></div>
             </div>
           </div>
           <div class="pod-feat-content">
-            <span class="pod-ep-num">EP. 12</span>
-            <h3>Building Resilient Maritime Operations in an Era of Complexity</h3>
+            <span class="pod-ep-num">EP. {{ $featured->episode_number }}</span>
+            <h3>{{ $featured->title }}</h3>
             <div class="pod-meta">
-              <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 32:45</span>
-              <span>May 10, 2025</span>
+              <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> {{ $featured->duration }}</span>
+              <span>{{ $featured->publish_date }}</span>
             </div>
           </div>
         </div>
         <div class="pod-feat-desc-block">
-          <p>We discuss how maritime leaders can strengthen operational resilience, manage risks, and create sustainable value across the maritime value chain.</p>
-          <div class="pod-host">
-            <img src="https://i.pravatar.cc/150?u=andika" alt="Capt. Andika Putra">
-            <div class="host-info">
-              <span class="host-with">with</span>
-              <span class="host-name">Capt. Andika Putra</span>
-              <span class="host-title">Maritime Consultant &amp; Trainer</span>
-            </div>
+          <p>{{ $featured->description }}</p>
+        </div>
+        @else
+        <div class="pod-feat-card">
+          <div class="pod-feat-content" style="padding: 24px;">
+            <p style="color: rgba(255,255,255,0.5);">Belum ada featured episode.</p>
           </div>
         </div>
+        @endif
       </div>
     </div>
   </section>
@@ -62,117 +66,43 @@
   <section class="pod-playlists">
     <div class="pod-playlist-container">
       
-      <!-- Category 1 -->
+      @forelse($categories as $categoryName => $episodes)
       <div class="pod-cat-section">
         <div class="pod-cat-header">
           <div class="pod-cat-title">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-            <h2>Navigating Through Life</h2>
+            <h2>{{ $categoryName }}</h2>
           </div>
           <a href="#" class="view-all">View all on YouTube &rarr;</a>
         </div>
         <div class="pod-grid">
+          @foreach($episodes->take(3) as $episode)
           <div class="pod-card">
             <div class="pod-card-img">
-              <img src="{{ asset('assets/life_podcast.png') }}" alt="Life Episode">
-              <div class="pod-play-overlay-small">
+              @if($episode->image)
+                <img src="{{ str_starts_with($episode->image, 'http') ? $episode->image : asset($episode->image) }}" alt="{{ $episode->title }}">
+              @else
+                <img src="{{ asset('assets/life_podcast.png') }}" alt="{{ $episode->title }}">
+              @endif
+              <div class="pod-play-overlay-small" @if($episode->youtube_id) onclick="window.open('https://www.youtube.com/watch?v={{ $episode->youtube_id }}', '_blank')" style="cursor:pointer;" @endif>
                 <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
               </div>
-              <span class="pod-duration">28:16</span>
+              <span class="pod-duration">{{ $episode->duration }}</span>
             </div>
             <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.11</span>
-              <h4>Purpose, Leadership, and Meaningful Impact</h4>
-              <span class="pod-date">May 3, 2025</span>
+              <span class="pod-ep-tag">EP.{{ $episode->episode_number }}</span>
+              <h4>{{ $episode->title }}</h4>
+              <span class="pod-date">{{ $episode->publish_date }}</span>
             </div>
           </div>
-          <div class="pod-card">
-            <div class="pod-card-img">
-              <img src="{{ asset('assets/life_podcast.png') }}" alt="Life Episode">
-              <div class="pod-play-overlay-small">
-                <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
-              </div>
-              <span class="pod-duration">26:48</span>
-            </div>
-            <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.10</span>
-              <h4>Lessons from Setbacks: Turning Challenges into Growth</h4>
-              <span class="pod-date">Apr 26, 2025</span>
-            </div>
-          </div>
-          <div class="pod-card">
-            <div class="pod-card-img">
-              <img src="{{ asset('assets/life_podcast.png') }}" alt="Life Episode">
-              <div class="pod-play-overlay-small">
-                <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
-              </div>
-              <span class="pod-duration">31:02</span>
-            </div>
-            <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.09</span>
-              <h4>Mindset for High Performance and Fulfillment</h4>
-              <span class="pod-date">Apr 19, 2025</span>
-            </div>
-          </div>
+          @endforeach
           <button class="pod-grid-next"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
         </div>
       </div>
+      @empty
+      <p style="text-align: center; color: #64748b; padding: 40px;">Belum ada episode podcast.</p>
+      @endforelse
 
-      <!-- Category 2 -->
-      <div class="pod-cat-section">
-        <div class="pod-cat-header">
-          <div class="pod-cat-title">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-            <h2>Navigating Through Maritime</h2>
-          </div>
-          <a href="#" class="view-all">View all on YouTube &rarr;</a>
-        </div>
-        <div class="pod-grid">
-          <div class="pod-card">
-            <div class="pod-card-img">
-              <img src="{{ asset('assets/maritime_podcast.png') }}" alt="Maritime Episode">
-              <div class="pod-play-overlay-small">
-                <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
-              </div>
-              <span class="pod-duration">32:45</span>
-            </div>
-            <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.12</span>
-              <h4>Building Resilient Maritime Operations in an Era of Complexity</h4>
-              <span class="pod-date">May 10, 2025</span>
-            </div>
-          </div>
-          <div class="pod-card">
-            <div class="pod-card-img">
-              <img src="{{ asset('assets/maritime_podcast.png') }}" alt="Maritime Episode">
-              <div class="pod-play-overlay-small">
-                <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
-              </div>
-              <span class="pod-duration">29:18</span>
-            </div>
-            <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.11</span>
-              <h4>The Future of Maritime Workforce: Skills, Safety, and Adaptability</h4>
-              <span class="pod-date">May 2, 2025</span>
-            </div>
-          </div>
-          <div class="pod-card">
-            <div class="pod-card-img">
-              <img src="{{ asset('assets/maritime_podcast.png') }}" alt="Maritime Episode">
-              <div class="pod-play-overlay-small">
-                <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
-              </div>
-              <span class="pod-duration">27:33</span>
-            </div>
-            <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.10</span>
-              <h4>Navigating Regulatory Changes: What Operators Need to Know</h4>
-              <span class="pod-date">Apr 25, 2025</span>
-            </div>
-          </div>
-          <button class="pod-grid-next"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -198,9 +128,10 @@
 </main>
 
 <script>
-  function loadFeaturedVideo() {
+  function loadFeaturedVideo(youtubeId) {
     const container = document.getElementById('featured-video-container');
-    container.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>`;
+    const id = youtubeId || 'dQw4w9WgXcQ';
+    container.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>`;
     container.onclick = null;
     container.style.cursor = 'default';
   }

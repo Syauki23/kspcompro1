@@ -38,26 +38,17 @@
   <p class="phil-compass-desc">SWARNADWIPA represents the values that guide us in everything we do.</p>
 
   <div class="phil-letters" id="phil-letters">
-    <div class="phil-letter active" data-index="0"><span class="letter">S</span></div>
-    <div class="phil-letter" data-index="1"><span class="letter">W</span></div>
-    <div class="phil-letter" data-index="2"><span class="letter">A</span></div>
-    <div class="phil-letter" data-index="3"><span class="letter">R</span></div>
-    <div class="phil-letter" data-index="4"><span class="letter">N</span></div>
-    <div class="phil-letter" data-index="5"><span class="letter">A</span></div>
-    <div class="phil-letter" data-index="6"><span class="letter">D</span></div>
-    <div class="phil-letter" data-index="7"><span class="letter">W</span></div>
-    <div class="phil-letter" data-index="8"><span class="letter">I</span></div>
-    <div class="phil-letter" data-index="9"><span class="letter">P</span></div>
-    <div class="phil-letter" data-index="10"><span class="letter">A</span></div>
+    @foreach($values as $val)
+    <div class="phil-letter {{ $loop->first ? 'active' : '' }}" data-index="{{ $val->index }}"><span class="letter">{{ $val->letter }}</span></div>
+    @endforeach
   </div>
 
   <div class="phil-letter-timeline">
     <div class="phil-letter-line"></div>
     <div class="phil-letter-dots" id="phil-dots">
-      <span class="phil-ldot active"></span><span class="phil-ldot"></span><span class="phil-ldot"></span>
-      <span class="phil-ldot"></span><span class="phil-ldot"></span><span class="phil-ldot"></span>
-      <span class="phil-ldot"></span><span class="phil-ldot"></span><span class="phil-ldot"></span>
-      <span class="phil-ldot"></span><span class="phil-ldot"></span>
+      @foreach($values as $val)
+      <span class="phil-ldot {{ $loop->first ? 'active' : '' }}"></span>
+      @endforeach
     </div>
   </div>
 </section>
@@ -80,5 +71,16 @@
     </button>
   </div>
 </section>
+
+{{-- Pass philosophy data to JS --}}
+<script>
+  const philosophyData = @json($values->map(fn($v) => [
+    'letter' => $v->letter,
+    'index' => $v->index,
+    'title' => $v->title,
+    'description' => $v->description,
+    'features' => $v->features ?? [],
+  ]));
+</script>
 
 @endsection
