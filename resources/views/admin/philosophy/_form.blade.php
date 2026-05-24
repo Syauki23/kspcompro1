@@ -38,8 +38,12 @@
     <div id="features-container">
         @php
             $features = old('features') ?? ($val?->features ?? []);
+            if (is_string($features)) {
+                $decoded = json_decode($features, true);
+                $features = is_array($decoded) ? $decoded : [$features];
+            }
         @endphp
-        @if($features && count($features) > 0)
+        @if(is_array($features) && count($features) > 0)
             @foreach($features as $feat)
                 <div class="feat-row" style="display: flex; gap: 12px; margin-bottom: 10px; align-items: center;">
                     <input type="text" name="features[]" value="{{ $feat }}" placeholder="Feature / poin" class="form-input">

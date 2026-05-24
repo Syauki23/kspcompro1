@@ -48,8 +48,14 @@
         <button type="button" onclick="addFeature()" style="background: rgba(249,115,22,0.15); color: var(--accent-orange); border: 1px solid rgba(249,115,22,0.3); padding: 6px 14px; border-radius: 8px; font-size: 12px; cursor: pointer; font-family: var(--font-body);">+ Tambah Feature</button>
     </div>
     <div id="features-container">
-        @php $features = old('feature_title') ? null : ($srv?->features ?? []); @endphp
-        @if($features && count($features) > 0)
+        @php
+            $features = old('feature_title') ? null : ($srv?->features ?? []);
+            if (is_string($features)) {
+                $decoded = json_decode($features, true);
+                $features = is_array($decoded) ? $decoded : [$features];
+            }
+        @endphp
+        @if(is_array($features) && count($features) > 0)
             @foreach($features as $i => $feat)
                 <div class="feature-row" style="display: grid; grid-template-columns: 1fr 2fr auto; gap: 12px; margin-bottom: 12px; align-items: start;">
                     <input type="text" name="feature_title[]" value="{{ $feat['title'] ?? '' }}" placeholder="Feature Title" class="form-input">
