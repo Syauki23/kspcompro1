@@ -72,6 +72,70 @@
                                 @endforeach
                             </div>
                         </div>
+                    @elseif($group === 'Statistics Section' && request()->routeIs('admin.settings.about'))
+                        @php
+                            $stats = [1 => [], 2 => [], 3 => []];
+                            foreach($settings as $setting) {
+                                if (str_contains($setting->key, 'stat_1')) $stats[1][] = $setting;
+                                elseif (str_contains($setting->key, 'stat_2')) $stats[2][] = $setting;
+                                elseif (str_contains($setting->key, 'stat_3')) $stats[3][] = $setting;
+                            }
+                        @endphp
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                            @foreach($stats as $num => $statFields)
+                                <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
+                                    <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Statistic #{{ $num }}</div>
+                                    @foreach($statFields as $setting)
+                                        @include('admin.settings.partials.input', ['setting' => $setting])
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Images Grid Section' && request()->routeIs('admin.settings.about'))
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px;">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Core Values Section' && request()->routeIs('admin.settings.about'))
+                        @php
+                            $titleSetting = null;
+                            $cores = [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => []];
+                            foreach($settings as $setting) {
+                                if ($setting->key === 'about_core_title') $titleSetting = $setting;
+                                elseif (str_contains($setting->key, 'core_1')) $cores[1][] = $setting;
+                                elseif (str_contains($setting->key, 'core_2')) $cores[2][] = $setting;
+                                elseif (str_contains($setting->key, 'core_3')) $cores[3][] = $setting;
+                                elseif (str_contains($setting->key, 'core_4')) $cores[4][] = $setting;
+                                elseif (str_contains($setting->key, 'core_5')) $cores[5][] = $setting;
+                                elseif (str_contains($setting->key, 'core_6')) $cores[6][] = $setting;
+                            }
+                        @endphp
+                        @if($titleSetting)
+                            <div style="margin-bottom: 24px;">
+                                @include('admin.settings.partials.input', ['setting' => $titleSetting])
+                            </div>
+                        @endif
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                            @foreach($cores as $num => $coreFields)
+                                <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
+                                    <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Core Value #{{ $num }}</div>
+                                    @foreach($coreFields as $setting)
+                                        @include('admin.settings.partials.input', ['setting' => $setting])
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Header & Description' && request()->routeIs('admin.settings.about'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ ($setting->key === 'about_desc') ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
                     @else
                         @foreach($settings as $setting)
                             @include('admin.settings.partials.input', ['setting' => $setting])

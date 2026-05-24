@@ -37,7 +37,22 @@ class SettingsController extends Controller
 
     public function about()
     {
-        return $this->showGroup('about', 'About Us');
+        $settings = Setting::where('group', 'about')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'about_core')) {
+                $groups['Core Values Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'about_image')) {
+                $groups['Images Grid Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'about_stat')) {
+                $groups['Statistics Section'][] = $setting;
+            } else {
+                $groups['Header & Description'][] = $setting;
+            }
+        }
+        
+        $pageTitle = 'About Us';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
     public function global()
