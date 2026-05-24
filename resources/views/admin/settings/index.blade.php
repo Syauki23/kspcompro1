@@ -244,6 +244,48 @@
                                 Manage Events &rarr;
                             </a>
                         </div>
+                    @elseif($group === 'Feature Strip' && request()->routeIs('admin.settings.training'))
+                        @php
+                            $features = [1 => [], 2 => [], 3 => [], 4 => []];
+                            foreach($settings as $setting) {
+                                preg_match('/_(\d+)_/', $setting->key, $m);
+                                if (isset($m[1]) && isset($features[(int)$m[1]])) {
+                                    $features[(int)$m[1]][] = $setting;
+                                }
+                            }
+                        @endphp
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            @foreach($features as $num => $fields)
+                                <div style="background: var(--bg-admin); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 14px;">
+                                    <div style="font-size: 11px; font-weight: 700; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.8px;">Feature {{ $num }}</div>
+                                    @foreach($fields as $setting)
+                                        @include('admin.settings.partials.input', ['setting' => $setting])
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Banner / Hero' && request()->routeIs('admin.settings.training'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ in_array($setting->key, ['training_hero_description', 'training_banner_image']) ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Topics Section' && request()->routeIs('admin.settings.training'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ $setting->key === 'training_topics_subtitle' ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif($group === 'Recent Events Section' && request()->routeIs('admin.settings.training'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                @include('admin.settings.partials.input', ['setting' => $setting])
+                            @endforeach
+                        </div>
                     @else
                         @foreach($settings as $setting)
                             @include('admin.settings.partials.input', ['setting' => $setting])
