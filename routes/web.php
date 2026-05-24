@@ -100,6 +100,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/settings/experience', [App\Http\Controllers\Admin\SettingsController::class, 'experience'])->name('admin.settings.experience');
     Route::get('/settings/philosophy', [App\Http\Controllers\Admin\SettingsController::class, 'philosophy'])->name('admin.settings.philosophy');
     Route::get('/settings/services', [App\Http\Controllers\Admin\SettingsController::class, 'services'])->name('admin.settings.services');
+    Route::get('/settings/contact', [App\Http\Controllers\Admin\SettingsController::class, 'contact'])->name('admin.settings.contact');
     Route::get('/settings/training', [App\Http\Controllers\Admin\SettingsController::class, 'training'])->name('admin.settings.training');
     Route::get('/settings/global', [App\Http\Controllers\Admin\SettingsController::class, 'global'])->name('admin.settings.global');
     Route::post('/settings', [App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('admin.settings.update');

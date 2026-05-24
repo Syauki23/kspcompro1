@@ -264,6 +264,29 @@
                                 </div>
                             @endforeach
                         </div>
+                    @elseif($group === 'Informasi Kontak' && request()->routeIs('admin.settings.contact'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ $setting->key === 'contact_whatsapp_link' ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
+                        <div style="margin-top: 16px; background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.2); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <div style="font-size: 13px; font-weight: 600; color: var(--text-white);">Pesan Masuk (Inbox)</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Lihat semua pesan dari form contact</div>
+                            </div>
+                            <a href="{{ route('admin.inbox') }}" style="background: var(--accent-teal); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none;">Buka Inbox &rarr;</a>
+                        </div>
+                    @elseif($group === 'Banner / Hero' && request()->routeIs('admin.settings.contact'))
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            @foreach($settings as $setting)
+                                <div style="{{ in_array($setting->key, ['contact_banner_description']) ? 'grid-column: span 2;' : '' }}">
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                </div>
+                            @endforeach
+                        </div>
                     @elseif($group === 'Banner / Hero' && request()->routeIs('admin.settings.training'))
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             @foreach($settings as $setting)

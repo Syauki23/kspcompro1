@@ -98,11 +98,11 @@
   <div class="contact-banner-container">
     <div class="contact-banner-content">
       <h1 class="cb-title">
-        <span class="line-white">Strategic Solutions for</span>
-        <span class="line-orange">Maritime Excellence</span>
+        <span class="line-white">{{ $settings['contact_banner_title_white'] ?? 'Strategic Solutions for' }}</span>
+        <span class="line-orange">{{ $settings['contact_banner_title_orange'] ?? 'Maritime Excellence' }}</span>
       </h1>
       <p class="cb-desc">
-        Knowledge-driven consulting to help maritime and industrial businesses operate safely, efficiently, and sustainably.
+        {{ $settings['contact_banner_description'] ?? 'Knowledge-driven consulting to help maritime and industrial businesses operate safely, efficiently, and sustainably.' }}
       </p>
     </div>
   </div>

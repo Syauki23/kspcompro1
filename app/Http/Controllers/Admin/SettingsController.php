@@ -108,9 +108,24 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
-    public function training()
+    public function contact()
     {
-        $settings = Setting::where('group', 'training')->orderBy('id')->get();
+        $settings = Setting::where('group', 'contact')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'contact_banner')) {
+                $groups['Banner / Hero'][] = $setting;
+            } else {
+                $groups['Informasi Kontak'][] = $setting;
+            }
+        }
+
+        $pageTitle = 'Contact';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
+    }
+
+    public function training()
+    {        $settings = Setting::where('group', 'training')->orderBy('id')->get();
         $groups = [];
         foreach ($settings as $setting) {
             if (str_starts_with($setting->key, 'training_feature')) {
