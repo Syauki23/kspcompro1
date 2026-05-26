@@ -21,130 +21,15 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. Seed Settings
-        $settings = [
-            // Home Hero settings
-            [
-                'key' => 'home_hero_title_white',
-                'value' => 'Navigating Complexity.',
-                'group' => 'home',
-                'label' => 'Hero Title White Text',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'home_hero_title_orange',
-                'value' => 'Delivering',
-                'group' => 'home',
-                'label' => 'Hero Title Orange Prefix',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'home_typewriter_words',
-                'value' => '["Operational Excellence.", "Strategic Solutions.", "Maritime Expertise."]',
-                'group' => 'home',
-                'label' => 'Hero Typewriter Words (JSON format array)',
-                'type' => 'textarea',
-            ],
-            [
-                'key' => 'home_hero_description',
-                'value' => 'KSP Consulting helps maritime and industrial businesses solve operational challenges through consulting, assessment, training, and strategic implementation.',
-                'group' => 'home',
-                'label' => 'Hero Description Text',
-                'type' => 'textarea',
-            ],
-
-            // About settings
-            [
-                'key' => 'about_hero_title',
-                'value' => 'Pioneering Safety, Building Trust',
-                'group' => 'about',
-                'label' => 'About Hero Title',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'about_hero_description',
-                'value' => 'KSP Consulting was founded to provide premium operational consulting and high-impact training for the maritime and industrial sectors.',
-                'group' => 'about',
-                'label' => 'About Hero Description',
-                'type' => 'textarea',
-            ],
-            [
-                'key' => 'about_mission',
-                'value' => 'To deliver exceptional value and establish operational safety, efficiency, and compliance as a standard for all our partners.',
-                'group' => 'about',
-                'label' => 'Our Mission Statement',
-                'type' => 'textarea',
-            ],
-            [
-                'key' => 'about_vision',
-                'value' => 'To be the leading and most trusted maritime consulting partner in the Asia-Pacific region, recognized for innovation and collective excellence.',
-                'group' => 'about',
-                'label' => 'Our Vision Statement',
-                'type' => 'textarea',
-            ],
-
-            // Contact & General settings
-            [
-                'key' => 'contact_phone',
-                'value' => '+62 878 8023 1853',
-                'group' => 'contact',
-                'label' => 'Contact Telephone Number',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'contact_email',
-                'value' => 'info@ksp-consulting.com',
-                'group' => 'contact',
-                'label' => 'Contact Email Address',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'contact_address',
-                'value' => 'Jakarta, Indonesia',
-                'group' => 'contact',
-                'label' => 'Company Address Line',
-                'type' => 'textarea',
-            ],
-            [
-                'key' => 'contact_whatsapp_link',
-                'value' => 'https://wa.me/6287880231853',
-                'group' => 'contact',
-                'label' => 'WhatsApp Chat Link',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'contact_map_url',
-                'value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24151746237!2d106.78918939726563!3d-6.229746499999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e849e7ecf1%3A0x2ad1b181a4b449b!2sJakarta!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid',
-                'group' => 'contact',
-                'label' => 'Google Map Embed URL (src attribute only)',
-                'type' => 'textarea',
-            ],
-            [
-                'key' => 'contact_banner_title_white',
-                'value' => 'Strategic Solutions for',
-                'group' => 'contact',
-                'label' => 'CTA Strip Title White Text',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'contact_banner_title_orange',
-                'value' => 'Maritime Excellence',
-                'group' => 'contact',
-                'label' => 'CTA Strip Title Orange Text',
-                'type' => 'text',
-            ],
-            [
-                'key' => 'contact_banner_description',
-                'value' => 'Knowledge-driven consulting to help maritime and industrial businesses operate safely, efficiently, and sustainably.',
-                'group' => 'contact',
-                'label' => 'CTA Strip Description Text',
-                'type' => 'textarea',
-            ],
-        ];
-
-        foreach ($settings as $s) {
-            \App\Models\Setting::updateOrCreate(['key' => $s['key']], $s);
-        }
+        // 2. Call Page Update Seeders
+        $this->call([
+            HomeUpdateSeeder::class,
+            AboutUpdateSeeder::class,
+            ExperienceUpdateSeeder::class,
+            PhilosophyUpdateSeeder::class,
+            ServicesSettingsSeeder::class,
+            TrainingSettingsSeeder::class,
+        ]);
 
         // 3. Seed SWARNADWIPA Philosophy Values
         $philosophyValues = [
