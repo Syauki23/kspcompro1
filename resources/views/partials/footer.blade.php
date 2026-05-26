@@ -12,7 +12,11 @@
       <!-- Brand Column -->
       <div class="footer-col brand-col">
         <a href="{{ url('/') }}" class="footer-logo-link">
-          <img src="{{ asset('assets/KSP logo Transparant White -1.png') }}" alt="KSP Consulting Logo" class="footer-logo">
+          @if(isset($globalSettings['site_logo']) && $globalSettings['site_logo'])
+            <img src="{{ str_starts_with($globalSettings['site_logo'], 'http') ? $globalSettings['site_logo'] : Storage::url($globalSettings['site_logo']) }}" alt="KSP Consulting Logo" class="footer-logo">
+          @else
+            <img src="{{ asset('assets/KSP logo Transparant White -1.png') }}" alt="KSP Consulting Logo" class="footer-logo">
+          @endif
         </a>
         <p class="footer-desc">
           Knowledge-driven consulting for maritime &amp; industrial excellence. We help you navigate complexity and achieve sustainable success.
@@ -38,16 +42,16 @@
 
         <!-- Social Icons -->
         <div class="footer-socials">
-          <a href="#" class="footer-social-btn" aria-label="Instagram" title="Instagram">
+          <a href="{{ $globalSettings['social_instagram'] ?? '#' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram" title="Instagram">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="#" class="footer-social-btn" aria-label="LinkedIn" title="LinkedIn">
+          <a href="{{ $globalSettings['social_linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn" title="LinkedIn">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
-          <a href="#" class="footer-social-btn" aria-label="YouTube" title="YouTube">
+          <a href="{{ $globalSettings['social_youtube'] ?? '#' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="YouTube" title="YouTube">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
-          <a href="#" class="footer-social-btn footer-social-spotify" aria-label="Spotify" title="Spotify">
+          <a href="{{ $globalSettings['social_spotify'] ?? '#' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn footer-social-spotify" aria-label="Spotify" title="Spotify">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.54.66.3 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.141C9.6 9.9 15.001 10.62 18.66 12.84c.42.24.54.84.3 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.239.54-.959.72-1.5.42z"/></svg>
           </a>
         </div>
@@ -112,7 +116,7 @@
             </div>
             <div class="footer-contact-text">
               <span class="footer-contact-label">Phone</span>
-              <span>+62 878 8023 1853</span>
+              <span>{{ $globalSettings['contact_phone'] ?? '+62 878 8023 1853' }}</span>
             </div>
           </li>
           <li>
@@ -121,7 +125,7 @@
             </div>
             <div class="footer-contact-text">
               <span class="footer-contact-label">Email</span>
-              <span>info@ksp-consulting.com</span>
+              <span>{{ $globalSettings['contact_email'] ?? 'info@ksp-consulting.com' }}</span>
             </div>
           </li>
           <li>
@@ -130,7 +134,7 @@
             </div>
             <div class="footer-contact-text">
               <span class="footer-contact-label">Office</span>
-              <span>Jakarta, Indonesia</span>
+              <span>{{ $globalSettings['contact_address'] ?? 'Jakarta, Indonesia' }}</span>
             </div>
           </li>
         </ul>

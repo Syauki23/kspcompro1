@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             PhilosophyUpdateSeeder::class,
             ServicesSettingsSeeder::class,
             TrainingSettingsSeeder::class,
+            GlobalSettingsSeeder::class,
         ]);
     }
 }

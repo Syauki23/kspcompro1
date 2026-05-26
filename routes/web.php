@@ -21,6 +21,16 @@ Route::get('/', function () {
     return view('index', compact('settings', 'partners', 'testimonials', 'latestPodcast'));
 });
 
+// Route Utilitas untuk Seed Database secara langsung lewat Browser
+Route::get('/seed-database-ksp', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('db:seed');
+        return "Sukses! Seluruh data pengaturan (Home, About, Experience, Philosophy, Services, Training, Global/Contact) berhasil di-seed ke database. Silakan kembali ke website/admin panel.";
+    } catch (\Exception $e) {
+        return "Terjadi kesalahan saat seeding: " . $e->getMessage();
+    }
+});
+
 Route::get('/about', function () {
     $settings = \App\Models\Setting::where('group', 'about')->pluck('value', 'key');
     return view('about', compact('settings'));

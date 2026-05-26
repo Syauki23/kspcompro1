@@ -147,8 +147,10 @@ class SettingsController extends Controller
 
     public function global()
     {
-        // Get settings that are NOT 'home' or 'about'
-        $groups = Setting::whereNotIn('group', ['home', 'about'])->orderBy('group')->orderBy('id')->get()->groupBy('group');
+        $settings = Setting::where('group', 'global')->orderBy('id')->get();
+        $groups = [];
+        $groups['Global & Identity'] = $settings;
+        
         $pageTitle = 'Global Settings';
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }

@@ -3,7 +3,11 @@
 
   <!-- Logo -->
   <a href="{{ url('/') }}" class="navbar-logo" aria-label="KSP Consulting Home">
-    <img src="{{ asset('assets/KSP logo Transparant White -1.png') }}" alt="KSP Consulting Logo" class="main-logo">
+    @if(isset($globalSettings['site_logo']) && $globalSettings['site_logo'])
+      <img src="{{ str_starts_with($globalSettings['site_logo'], 'http') ? $globalSettings['site_logo'] : Storage::url($globalSettings['site_logo']) }}" alt="KSP Consulting Logo" class="main-logo">
+    @else
+      <img src="{{ asset('assets/KSP logo Transparant White -1.png') }}" alt="KSP Consulting Logo" class="main-logo">
+    @endif
   </a>
 
   <!-- Nav Links -->
