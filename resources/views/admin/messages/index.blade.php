@@ -40,8 +40,6 @@
                 <div style="text-align: center; color: var(--text-muted); padding: 40px;">
                     No contact form messages have been submitted yet.
                 </div>
-            @forelse ($messages as $msg)
-            @endforelse
             @endforelse
         </div>
 
