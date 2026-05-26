@@ -3254,7 +3254,7 @@ ul {
    ========================================= */
 .about-section {
   padding: 120px 0 80px;
-  background-color: var(--white);
+  background-color: #F2F1EE;
 }
 
 .about-container {
@@ -3389,7 +3389,7 @@ ul {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 40px;
-  background-color: var(--white);
+  background-color: #F2F1EE;
 }
 
 .core-values-title {
@@ -3417,7 +3417,7 @@ ul {
 
 .core-values-grid {
   display: flex;
-  background: #f8fafc;
+  background: #ffffff;
   border-radius: 16px;
   padding: 40px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
@@ -4661,7 +4661,7 @@ ul {
    CLIENTS & PARTNERS — REDESIGN v2
    ========================================= */
 .clients-partners {
-  background: #ffffff;
+  background: #F2F1EE;
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -5496,7 +5496,7 @@ ul {
    TESTIMONIALS SECTION
    ========================================= */
 .testimonials-section {
-  background-color: #f8fafc;
+  background-color: #F2F1EE;
   padding: 100px 40px;
   position: relative;
   z-index: 10;
@@ -5983,7 +5983,7 @@ ul {
    HOME: CORE SERVICES HIGHLIGHTS
    ========================================= */
 .home-services-section {
-  background-color: #ffffff;
+  background-color: #F2F1EE;
   padding: 100px 40px 40px;
   position: relative;
   z-index: 10;
@@ -6032,7 +6032,7 @@ ul {
 }
 
 .hs-card {
-  background-color: #f8fafc;
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 40px 32px;
   border: 1px solid #e2e8f0;
@@ -6106,7 +6106,7 @@ ul {
    HOME: LATEST INSIGHTS & PODCAST
    ========================================= */
 .home-insights-section {
-  background-color: #f8fafc;
+  background-color: #F2F1EE;
   padding: 100px 40px;
   position: relative;
   z-index: 10;
