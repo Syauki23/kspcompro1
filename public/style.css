@@ -200,7 +200,7 @@ ul {
 
 /* Active state */
 .navbar-nav .nav-item.active>a {
-  color: #ffffff;
+  color: #E1A730;
   font-weight: 600;
 }
 
@@ -213,9 +213,9 @@ ul {
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
-  background: var(--primary-orange);
+  background: #E1A730;
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(225, 167, 48, 0.5);
+  box-shadow: 0 0 6px rgba(225, 167, 48, 0.6);
   animation: none;
 }
 
@@ -322,7 +322,7 @@ ul {
 }
 
 .dropdown-menu li.active a {
-  color: var(--primary-orange) !important;
+  color: #E1A730 !important;
   font-weight: 600 !important;
   background-color: rgba(225, 167, 48, 0.08) !important;
 }
@@ -1241,7 +1241,7 @@ ul {
 
 /* Active state — orange pill indicator */
 .navbar-nav .nav-item.active>a {
-  color: var(--navy-dark);
+  color: #E1A730;
   font-weight: 600;
 }
 
@@ -1254,9 +1254,9 @@ ul {
   transform: translateX(-50%);
   width: 18px;
   height: 2.5px;
-  background: #1F628E;
+  background: #E1A730;
   border-radius: 99px;
-  box-shadow: 0 0 8px rgba(31, 98, 142, 0.6);
+  box-shadow: 0 0 8px rgba(225, 167, 48, 0.6);
   animation: activeNavPulse 2.5s ease-in-out infinite;
 }
 
@@ -1265,12 +1265,12 @@ ul {
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 6px rgba(31, 98, 142, 0.5);
+    box-shadow: 0 0 6px rgba(225, 167, 48, 0.5);
   }
 
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 14px rgba(31, 98, 142, 0.9);
+    box-shadow: 0 0 14px rgba(225, 167, 48, 0.9);
   }
 }
 
@@ -1377,7 +1377,7 @@ ul {
 }
 
 .dropdown-menu li.active a {
-  color: var(--primary-orange) !important;
+  color: #E1A730 !important;
   font-weight: 600 !important;
   background-color: rgba(225, 167, 48, 0.08) !important;
 }
@@ -1530,7 +1530,7 @@ ul {
 
 .navbar.scrolled .navbar-nav .nav-item.active>a,
 .navbar.navbar-services .navbar-nav .nav-item.active>a {
-  color: var(--white);
+  color: #E1A730;
   font-weight: 600;
 }
 
