@@ -37,6 +37,26 @@
                     </a>
                 </li>
 
+                <li class="menu-item has-dropdown {{ Route::is('admin.partners.*') || Route::is('admin.testimonials.*') ? 'active open' : '' }}">
+                    <a href="javascript:void(0);" class="dropdown-trigger">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <span>Social Proof</span>
+                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li class="submenu-item {{ Route::is('admin.partners.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.partners.index') }}">
+                                <span>Partners</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('admin.testimonials.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.testimonials.index') }}">
+                                <span>Testimonials</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="menu-item {{ Route::is('admin.settings.about') ? 'active' : '' }}">
                     <a href="{{ route('admin.settings.about') }}">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
@@ -70,26 +90,6 @@
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
                         <span>Training</span>
                     </a>
-                </li>
-
-                <li class="menu-item has-dropdown {{ Route::is('admin.partners.*') || Route::is('admin.testimonials.*') ? 'active open' : '' }}">
-                    <a href="javascript:void(0);" class="dropdown-trigger">
-                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        <span>Social Proof</span>
-                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </a>
-                    <ul class="sidebar-submenu">
-                        <li class="submenu-item {{ Route::is('admin.partners.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.partners.index') }}">
-                                <span>Partners</span>
-                            </a>
-                        </li>
-                        <li class="submenu-item {{ Route::is('admin.testimonials.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.testimonials.index') }}">
-                                <span>Testimonials</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class="menu-item has-dropdown {{ Route::is('admin.podcasts.*') || Route::is('admin.settings.podcast') ? 'active open' : '' }}">
