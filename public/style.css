@@ -504,13 +504,13 @@ ul {
   flex: 1;
   max-width: 60px;
   height: 1px;
-  background: rgba(31, 98, 142, 0.5);
+  background: rgba(225, 167, 48, 0.5);
 }
 
 .train-title {
   font-size: 56px;
   font-weight: 800;
-  color: var(--navy-dark);
+  color: #E1A730;
   line-height: 1.1;
   margin-bottom: 24px;
   letter-spacing: -1px;
@@ -2445,7 +2445,7 @@ ul {
 }
 
 .service-card {
-  background: var(--white);
+  background: #e7e4df;
   border-radius: 16px;
   padding: 26px 20px;
   /* More compact card padding */
