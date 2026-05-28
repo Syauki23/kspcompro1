@@ -99,11 +99,24 @@
                     </a>
                 </li>
 
-                <li class="menu-item {{ Route::is('admin.inbox') || Route::is('admin.settings.contact') ? 'active' : '' }}">
-                    <a href="{{ route('admin.settings.contact') }}">
+                <li class="menu-item has-dropdown {{ Route::is('admin.inbox') || Route::is('admin.settings.contact') ? 'active open' : '' }}">
+                    <a href="javascript:void(0);" class="dropdown-trigger">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>Contact</span>
+                        <span>Contact &amp; Inbox</span>
+                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
+                    <ul class="sidebar-submenu">
+                        <li class="submenu-item {{ Route::is('admin.inbox') ? 'active' : '' }}">
+                            <a href="{{ route('admin.inbox') }}">
+                                <span>Inbox Messages</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('admin.settings.contact') ? 'active' : '' }}">
+                            <a href="{{ route('admin.settings.contact') }}">
+                                <span>Contact Settings</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="menu-item {{ Route::is('admin.settings.global') ? 'active' : '' }}">

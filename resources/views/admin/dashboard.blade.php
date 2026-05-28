@@ -125,9 +125,15 @@
                                 </td>
                                 <td>
                                     <button 
-                                        class="btn-secondary" 
+                                        class="btn-secondary recent-read-btn" 
                                         style="padding: 6px 12px; font-size: 12px;"
-                                        onclick="showQuickMessage('{{ addslashes($msg->name) }}', '{{ addslashes($msg->company) }}', '{{ addslashes($msg->email) }}', '{{ addslashes($msg->phone) }}', '{{ addslashes($msg->message) }}', '{{ route('admin.messages.read', $msg->id) }}', '{{ $msg->is_read ? 1 : 0 }}')"
+                                        data-name="{{ $msg->name }}"
+                                        data-company="{{ $msg->company }}"
+                                        data-email="{{ $msg->email }}"
+                                        data-phone="{{ $msg->phone }}"
+                                        data-message="{{ $msg->message }}"
+                                        data-read-url="{{ route('admin.messages.read', $msg->id) }}"
+                                        data-is-read="{{ $msg->is_read ? 1 : 0 }}"
                                     >
                                         Read
                                     </button>
@@ -234,32 +240,47 @@
 
 @section('scripts')
 <script>
-    function showQuickMessage(name, company, email, phone, message, readUrl, isRead) {
-        document.getElementById('quickSender').textContent = name;
-        document.getElementById('quickCompany').textContent = company || '-';
-        document.getElementById('quickEmail').textContent = email;
-        document.getElementById('quickPhone').textContent = phone || '-';
-        document.getElementById('quickMessageText').textContent = message;
-        
-        document.getElementById('quickMessageModal').style.display = 'flex';
+    document.addEventListener('DOMContentLoaded', function () {
+        const readBtns = document.querySelectorAll('.recent-read-btn');
+        readBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const name = this.getAttribute('data-name');
+                const company = this.getAttribute('data-company');
+                const email = this.getAttribute('data-email');
+                const phone = this.getAttribute('data-phone');
+                const message = this.getAttribute('data-message');
+                const readUrl = this.getAttribute('data-read-url');
+                const isRead = this.getAttribute('data-is-read');
 
-        if (!parseInt(isRead)) {
-            // Mark as read in background
-            fetch(readUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.success) {
-                    // Smoothly refresh after close to show clean status
+                document.getElementById('quickSender').textContent = name;
+                document.getElementById('quickCompany').textContent = company || '-';
+                document.getElementById('quickEmail').textContent = email;
+                document.getElementById('quickPhone').textContent = phone || '-';
+                document.getElementById('quickMessageText').textContent = message;
+                
+                document.getElementById('quickMessageModal').style.display = 'flex';
+
+                if (!parseInt(isRead)) {
+                    // Mark as read in background
+                    fetch(readUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.success) {
+                            // Smoothly refresh after close to show clean status
+                        }
+                    })
+                    .catch(err => console.error(err));
                 }
             });
-        }
-    }
+        });
+    });
 
     function closeQuickMessage() {
         document.getElementById('quickMessageModal').style.display = 'none';

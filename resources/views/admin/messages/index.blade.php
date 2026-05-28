@@ -19,8 +19,15 @@
         <div class="inbox-list">
             @forelse($messages as $msg)
                 <div 
-                    class="inbox-item {{ $msg->is_read ? '' : 'unread' }}"
-                    onclick="showMessageDetails('{{ addslashes($msg->name) }}', '{{ addslashes($msg->company) }}', '{{ addslashes($msg->email) }}', '{{ addslashes($msg->phone) }}', '{{ addslashes($msg->message) }}', '{{ route('admin.messages.read', $msg->id) }}', '{{ route('admin.messages.delete', $msg->id) }}', '{{ $msg->is_read ? 1 : 0 }}')"
+                    class="inbox-item {{ $msg->is_read ? '' : 'unread' }} message-click-trigger"
+                    data-name="{{ $msg->name }}"
+                    data-company="{{ $msg->company }}"
+                    data-email="{{ $msg->email }}"
+                    data-phone="{{ $msg->phone }}"
+                    data-message="{{ $msg->message }}"
+                    data-read-url="{{ route('admin.messages.read', $msg->id) }}"
+                    data-delete-url="{{ route('admin.messages.delete', $msg->id) }}"
+                    data-is-read="{{ $msg->is_read ? 1 : 0 }}"
                 >
                     <div class="inbox-item-header">
                         <div>
@@ -94,35 +101,51 @@
 
 @section('scripts')
 <script>
-    function showMessageDetails(name, company, email, phone, message, readUrl, deleteUrl, isRead) {
-        document.getElementById('msgSender').textContent = name;
-        document.getElementById('msgCompany').textContent = company || '-';
-        document.getElementById('msgEmail').textContent = email;
-        document.getElementById('msgPhone').textContent = phone || '-';
-        document.getElementById('msgContent').textContent = message;
-        
-        // Setup delete action form action URL
-        document.getElementById('deleteForm').action = deleteUrl;
-        
-        document.getElementById('detailsModal').style.display = 'flex';
+    document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.message-click-trigger');
+        items.forEach(item => {
+            item.addEventListener('click', function () {
+                const name = this.getAttribute('data-name');
+                const company = this.getAttribute('data-company');
+                const email = this.getAttribute('data-email');
+                const phone = this.getAttribute('data-phone');
+                const message = this.getAttribute('data-message');
+                const readUrl = this.getAttribute('data-read-url');
+                const deleteUrl = this.getAttribute('data-delete-url');
+                const isRead = this.getAttribute('data-is-read');
 
-        if (!parseInt(isRead)) {
-            // Mark as read in background via AJAX
-            fetch(readUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    // It is read successfully
+                document.getElementById('msgSender').textContent = name;
+                document.getElementById('msgCompany').textContent = company || '-';
+                document.getElementById('msgEmail').textContent = email;
+                document.getElementById('msgPhone').textContent = phone || '-';
+                document.getElementById('msgContent').textContent = message;
+                
+                // Setup delete action form action URL
+                document.getElementById('deleteForm').action = deleteUrl;
+                
+                document.getElementById('detailsModal').style.display = 'flex';
+
+                if (!parseInt(isRead)) {
+                    // Mark as read in background via AJAX
+                    fetch(readUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            // It is read successfully
+                        }
+                    })
+                    .catch(err => console.error(err));
                 }
             });
-        }
-    }
+        });
+    });
 
     function closeDetailsModal() {
         document.getElementById('detailsModal').style.display = 'none';
