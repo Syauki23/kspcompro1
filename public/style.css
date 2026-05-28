@@ -2049,7 +2049,7 @@ ul {
 .footer-heading {
   font-size: 12px;
   font-weight: 700;
-  color: #E1A730;
+  color: var(--white);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -2062,7 +2062,7 @@ ul {
   display: inline-block;
   width: 20px;
   height: 2px;
-  background: #E1A730;
+  background: var(--primary-orange);
   border-radius: 99px;
   flex-shrink: 0;
 }
@@ -4357,7 +4357,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-orange);
+  color: #E1A730;
+  border: 1.5px solid #1F628E;
 }
 
 .slide-feat-icon svg {
@@ -4419,7 +4420,7 @@ ul {
 .phil-cval.active .phil-cval-icon {
   background: #E1A730;
   color: var(--white);
-  border-color: #E1A730;
+  border-color: #1F628E;
 }
 
 .phil-cval.active .phil-cval-num {
@@ -4435,8 +4436,8 @@ ul {
   align-items: center;
   justify-content: center;
   background: #e6e4e0;
-  border: 1px solid #cbd5e1;
-  color: #1F628E;
+  border: 1px solid #1F628E;
+  color: #E1A730;
   transition: all 0.25s;
 }
 
