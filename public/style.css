@@ -1964,7 +1964,7 @@ ul {
   display: block;
   font-size: 20px;
   font-weight: 800;
-  color: var(--primary-orange);
+  color: #E1A730;
   line-height: 1.1;
   margin-bottom: 3px;
 }
@@ -1976,7 +1976,7 @@ ul {
 .footer-stat-label {
   display: block;
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.45);
+  color: #E1A730;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -2049,7 +2049,7 @@ ul {
 .footer-heading {
   font-size: 12px;
   font-weight: 700;
-  color: var(--white);
+  color: #E1A730;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -2062,7 +2062,7 @@ ul {
   display: inline-block;
   width: 20px;
   height: 2px;
-  background: var(--primary-orange);
+  background: #E1A730;
   border-radius: 99px;
   flex-shrink: 0;
 }
@@ -2089,14 +2089,14 @@ ul {
 .footer-links a::before {
   content: '→';
   font-size: 11px;
-  color: var(--primary-orange);
+  color: #E1A730;
   opacity: 0;
   transform: translateX(-6px);
   transition: all 0.25s ease;
 }
 
 .footer-links a:hover {
-  color: var(--white);
+  color: #E1A730;
   transform: translateX(8px);
 }
 
@@ -2129,7 +2129,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-orange);
+  color: #E1A730;
   flex-shrink: 0;
 }
 
@@ -2143,7 +2143,7 @@ ul {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.35);
+  color: #E1A730;
   margin-bottom: 2px;
 }
 
