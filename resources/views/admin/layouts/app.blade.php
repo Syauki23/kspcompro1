@@ -92,11 +92,29 @@
                     </ul>
                 </li>
 
-                <li class="menu-item {{ Route::is('admin.podcasts.*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.podcasts.index') }}">
+                <li class="menu-item has-dropdown {{ Route::is('admin.podcasts.*') || Route::is('admin.settings.podcast') ? 'active open' : '' }}">
+                    <a href="javascript:void(0);" class="dropdown-trigger">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
                         <span>Podcast</span>
+                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
+                    <ul class="sidebar-submenu">
+                        <li class="submenu-item {{ Route::is('admin.podcasts.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.podcasts.index') }}">
+                                <span>Semua Episode</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('admin.podcasts.create') ? 'active' : '' }}">
+                            <a href="{{ route('admin.podcasts.create') }}">
+                                <span>Tambah Episode</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('admin.settings.podcast') ? 'active' : '' }}">
+                            <a href="{{ route('admin.settings.podcast') }}">
+                                <span>Podcast Settings</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="menu-item has-dropdown {{ Route::is('admin.inbox') || Route::is('admin.settings.contact') ? 'active open' : '' }}">

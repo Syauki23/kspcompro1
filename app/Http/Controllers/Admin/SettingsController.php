@@ -124,6 +124,24 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
+    public function podcast()
+    {
+        $settings = Setting::where('group', 'podcast')->orderBy('id')->get();
+        $groups = [];
+        foreach ($settings as $setting) {
+            if (str_starts_with($setting->key, 'podcast_hero')) {
+                $groups['Hero Section'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'podcast_platform')) {
+                $groups['Platform Section'][] = $setting;
+            } else {
+                $groups['Other'][] = $setting;
+            }
+        }
+
+        $pageTitle = 'Podcast Settings';
+        return view('admin.settings.index', compact('groups', 'pageTitle'));
+    }
+
     public function training()
     {        $settings = Setting::where('group', 'training')->orderBy('id')->get();
         $groups = [];

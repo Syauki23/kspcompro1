@@ -69,7 +69,7 @@ Route::get('/podcast', function () {
     $featured = \App\Models\Podcast::where('is_featured', true)->where('is_active', true)->first();
     $categories = \App\Models\Podcast::where('is_active', true)->where('is_featured', false)
         ->orderBy('episode_number', 'desc')->get()->groupBy('category');
-    $settings = \App\Models\Setting::where('group', 'contact')->pluck('value', 'key');
+    $settings = \App\Models\Setting::whereIn('group', ['contact', 'podcast'])->pluck('value', 'key');
     return view('podcast', compact('featured', 'categories', 'settings'));
 });
 
@@ -115,6 +115,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/settings/services', [App\Http\Controllers\Admin\SettingsController::class, 'services'])->name('admin.settings.services');
     Route::get('/settings/contact', [App\Http\Controllers\Admin\SettingsController::class, 'contact'])->name('admin.settings.contact');
     Route::get('/settings/training', [App\Http\Controllers\Admin\SettingsController::class, 'training'])->name('admin.settings.training');
+    Route::get('/settings/podcast', [App\Http\Controllers\Admin\SettingsController::class, 'podcast'])->name('admin.settings.podcast');
     Route::get('/settings/global', [App\Http\Controllers\Admin\SettingsController::class, 'global'])->name('admin.settings.global');
     Route::post('/settings', [App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('admin.settings.update');
 
