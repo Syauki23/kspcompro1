@@ -4003,13 +4003,13 @@ ul {
   flex: 1;
   max-width: 60px;
   height: 1px;
-  background: rgba(31, 98, 142, 0.5);
+  background: rgba(225, 167, 48, 0.5);
 }
 
 .phil-title {
   font-size: clamp(34px, 4vw, 48px);
   font-weight: 800;
-  color: var(--navy-dark);
+  color: #E1A730;
   line-height: 1.15;
   margin-bottom: 20px;
   letter-spacing: -0.5px;
@@ -4020,7 +4020,7 @@ ul {
 }
 
 .phil-intro-card {
-  border-left: 2px solid var(--primary-orange);
+  border-left: 2px solid #E1A730;
   padding: 2px 0 2px 16px;
   margin-bottom: 24px;
 }
