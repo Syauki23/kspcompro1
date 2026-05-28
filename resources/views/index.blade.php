@@ -115,8 +115,8 @@
         <div class="hs-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
         </div>
-        <h3 class="hs-card-title">Maritime Consulting</h3>
-        <p class="hs-card-desc">Strategic operational assessments, safety management frameworks, and process optimization tailored to global maritime compliance.</p>
+        <h3 class="hs-card-title">{{ $settings['home_services_card_1_title'] ?? 'Maritime Consulting' }}</h3>
+        <p class="hs-card-desc">{{ $settings['home_services_card_1_desc'] ?? 'Strategic operational assessments, safety management frameworks, and process optimization tailored to global maritime compliance.' }}</p>
         <a href="{{ url('/services') }}" class="hs-card-link">Learn More &rarr;</a>
       </div>
 
@@ -125,8 +125,8 @@
         <div class="hs-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
-        <h3 class="hs-card-title">Risk &amp; HR Assessment</h3>
-        <p class="hs-card-desc">Comprehensive crew audits, operational risk mapping, and competency profiling to ensure high-reliability human capital performance.</p>
+        <h3 class="hs-card-title">{{ $settings['home_services_card_2_title'] ?? 'Risk & HR Assessment' }}</h3>
+        <p class="hs-card-desc">{{ $settings['home_services_card_2_desc'] ?? 'Comprehensive crew audits, operational risk mapping, and competency profiling to ensure high-reliability human capital performance.' }}</p>
         <a href="{{ url('/services') }}" class="hs-card-link">Learn More &rarr;</a>
       </div>
 
@@ -135,8 +135,8 @@
         <div class="hs-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
         </div>
-        <h3 class="hs-card-title">Workshop &amp; Training</h3>
-        <p class="hs-card-desc">Interactive, highly practical knowledge sharing sessions combining regulatory best practices with intensive case-study masterclasses.</p>
+        <h3 class="hs-card-title">{{ $settings['home_services_card_3_title'] ?? 'Workshop & Training' }}</h3>
+        <p class="hs-card-desc">{{ $settings['home_services_card_3_desc'] ?? 'Interactive, highly practical knowledge sharing sessions combining regulatory best practices with intensive case-study masterclasses.' }}</p>
         <a href="{{ url('/training') }}" class="hs-card-link">Learn More &rarr;</a>
       </div>
     </div>
@@ -254,41 +254,13 @@
   <div class="hi-container">
     <div class="hi-header">
       <span class="hi-subtitle">{{ $settings['home_insights_subtitle'] ?? 'KNOWLEDGE SHARING' }}</span>
-      <h2 class="hi-title">{{ $settings['home_insights_title'] ?? 'Latest Insights & Media' }}</h2>
-      <p class="hi-desc">{{ $settings['home_insights_desc'] ?? 'Stay updated with our analytical perspectives, practical case studies, and engaging dialogue on maritime operations.' }}</p>
+      <h2 class="hi-title">{{ $settings['home_insights_title'] ?? 'Our Podcast Series' }}</h2>
+      <p class="hi-desc">{{ $settings['home_insights_desc'] ?? 'Listen to expert talks discussing high-level industry hurdles, leadership culture, and cutting-edge operational frameworks directly with top practitioners.' }}</p>
     </div>
 
-    <div class="hi-grid">
-      <!-- Article Card 1 -->
-      <div class="hi-card">
-        <div class="hi-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Ship optimization">
-          <span class="hi-tag">Article</span>
-        </div>
-        <div class="hi-content">
-          <span class="hi-date">May 10, 2026</span>
-          <h3 class="hi-card-title">Navigating Safety Frameworks: Implementation Strategies</h3>
-          <p class="hi-card-desc">Practical methodologies for bridging standard compliance with real-world maritime operational cultures.</p>
-          <a href="{{ url('/blog') }}" class="hi-link">Read Article &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Article Card 2 -->
-      <div class="hi-card">
-        <div class="hi-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Data connectivity">
-          <span class="hi-tag">Case Study</span>
-        </div>
-        <div class="hi-content">
-          <span class="hi-date">April 28, 2026</span>
-          <h3 class="hi-card-title">Data-Driven Crew Audits: Enhancing Operational Reliability</h3>
-          <p class="hi-card-desc">How competency profiling mitigates systemic error and drives continuous improvement across fleets.</p>
-          <a href="{{ url('/blog') }}" class="hi-link">Read Article &rarr;</a>
-        </div>
-      </div>
-
+    <div class="hi-grid" style="grid-template-columns: 1fr;">
       <!-- Dedicated Podcast Block -->
-      <div class="hi-podcast-card">
+      <div class="hi-podcast-card" style="max-width: 800px; margin: 0 auto; width: 100%;">
         <div class="pod-badge-wrap">
           <span class="pod-badge">PODCAST</span>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="spotify-icon"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.54.66.3 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.141C9.6 9.9 15.001 10.62 18.66 12.84c.42.24.54.84.3 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.239.54-.959.72-1.5.42z"/></svg>
@@ -300,11 +272,15 @@
             <div class="pod-player-mock">
             <div class="player-left">
                 <div class="player-thumb">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                @if($latestPodcast->image)
+                    <img src="{{ str_starts_with($latestPodcast->image, 'http') || str_starts_with($latestPodcast->image, 'assets') ? asset($latestPodcast->image) : Storage::url($latestPodcast->image) }}" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                @else
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                @endif
                 </div>
                 <div class="player-info">
                 <h4>Episode #{{ str_pad($latestPodcast->episode_number, 2, '0', STR_PAD_LEFT) }}: {{ Str::limit($latestPodcast->title, 30) }}</h4>
-                <span>{{ $latestPodcast->category }}</span>
+                <span>{{ $latestPodcast->category ?? 'Hosted by KSP Consulting' }}</span>
                 </div>
             </div>
             <button class="btn-play-pod" onclick="window.open('{{ $latestPodcast->spotify_url ?? 'https://spotify.com' }}', '_blank')" aria-label="Play on Spotify">
