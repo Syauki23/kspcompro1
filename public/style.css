@@ -2362,7 +2362,7 @@ ul {
 .services-title {
   font-size: clamp(38px, 4.5vw, 56px);
   font-weight: 800;
-  color: var(--navy-dark);
+  color: #E1A730;
   line-height: 1.1;
   letter-spacing: -1px;
   margin-bottom: 16px;
@@ -2371,7 +2371,7 @@ ul {
 .services-title-decor {
   width: 60px;
   height: 4px;
-  background-color: var(--primary-orange);
+  background-color: #E1A730;
   margin-bottom: 24px;
 }
 
@@ -3284,7 +3284,7 @@ ul {
 .about-title {
   font-size: 42px;
   font-weight: 800;
-  color: var(--navy-dark);
+  color: #E1A730;
   line-height: 1.1;
   letter-spacing: -1px;
   margin-bottom: 24px;
@@ -3590,7 +3590,7 @@ ul {
 .exp-title {
   font-size: clamp(38px, 4.5vw, 56px);
   font-weight: 800;
-  color: var(--navy-dark);
+  color: #E1A730;
   line-height: 1.1;
   letter-spacing: -1px;
   margin-bottom: 24px;
@@ -3599,7 +3599,7 @@ ul {
 .exp-title-decor {
   width: 35px;
   height: 3px;
-  background-color: var(--primary-orange);
+  background-color: #E1A730;
   margin-bottom: 24px;
 }
 
