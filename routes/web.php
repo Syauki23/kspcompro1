@@ -87,6 +87,9 @@ Route::post('/contact', function (\Illuminate\Http\Request $request) {
         'message' => 'required|string',
     ]);
     \App\Models\ContactMessage::create($validated);
+    if ($request->ajax() || $request->wantsJson()) {
+        return response()->json(['success' => true, 'message' => 'Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.']);
+    }
     return back()->with('success', 'Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.');
 })->name('contact.submit');
 

@@ -151,7 +151,43 @@
         submitBtn.innerHTML = '<span>Sending...</span>';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
+        // Extract form data
+        const nameVal = consultForm.querySelector('input[name="name"]').value;
+        const companyVal = consultForm.querySelector('input[name="company"]').value;
+        const emailVal = consultForm.querySelector('input[name="email"]').value;
+        const phoneVal = consultForm.querySelector('input[name="phone"]').value;
+        const serviceVal = consultForm.querySelector('select[name="service"]').value;
+        const messageVal = consultForm.querySelector('textarea[name="message"]').value;
+        
+        // Combine service and message for storing in the 'message' field
+        const combinedMessage = `[Service Needed: ${serviceVal}]\n\n${messageVal}`;
+        
+        const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+        const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute('content') : '';
+
+        fetch('/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: nameVal,
+            company: companyVal,
+            email: emailVal,
+            phone: phoneVal,
+            message: combinedMessage
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
           submitBtn.innerHTML = '<span>Inquiry Sent Successfully!</span>';
           submitBtn.style.backgroundColor = '#22c55e';
           
@@ -163,7 +199,17 @@
             submitBtn.style.backgroundColor = '';
             submitBtn.disabled = false;
           }, 1500);
-        }, 1200);
+        })
+        .catch(error => {
+          console.error('Error submitting form:', error);
+          submitBtn.innerHTML = '<span>Error. Try Again!</span>';
+          submitBtn.style.backgroundColor = '#ef4444';
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.backgroundColor = '';
+            submitBtn.disabled = false;
+          }, 2000);
+        });
       });
     }
   }

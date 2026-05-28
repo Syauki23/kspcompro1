@@ -11,17 +11,18 @@
       </p>
 
       <form class="consult-form" id="consultationForm">
+        @csrf
         <div class="form-row">
-          <input type="text" class="consult-input" placeholder="Full Name" required>
-          <input type="text" class="consult-input" placeholder="Company" required>
+          <input type="text" name="name" class="consult-input" placeholder="Full Name" required>
+          <input type="text" name="company" class="consult-input" placeholder="Company" required>
         </div>
         <div class="form-row">
-          <input type="email" class="consult-input" placeholder="Email" required>
-          <input type="tel" class="consult-input" placeholder="Phone Number" required>
+          <input type="email" name="email" class="consult-input" placeholder="Email" required>
+          <input type="tel" name="phone" class="consult-input" placeholder="Phone Number" required>
         </div>
         <div class="form-row full-width">
           <div class="select-wrapper">
-            <select class="consult-select" required>
+            <select name="service" class="consult-select" required>
               <option value="" disabled selected hidden>Service Needed</option>
               <option value="Maritime Consulting">Maritime Consulting</option>
               <option value="Risk Assessment">Risk Assessment</option>
@@ -34,7 +35,7 @@
           </div>
         </div>
         <div class="form-row full-width">
-          <textarea class="consult-textarea" placeholder="Message" rows="3" required></textarea>
+          <textarea name="message" class="consult-textarea" placeholder="Message" rows="3" required></textarea>
         </div>
 
         <button type="submit" class="btn-consult-submit">
