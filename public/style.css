@@ -3417,7 +3417,7 @@ ul {
 
 .core-values-grid {
   display: flex;
-  background: #ffffff;
+  background: #e6e4e0;
   border-radius: 16px;
   padding: 40px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
@@ -3427,7 +3427,7 @@ ul {
   flex: 1;
   padding: 0 24px;
   text-align: center;
-  border-right: 1px solid #e2e8f0;
+  border-right: 1px solid #cbd5e1;
 }
 
 .value-item:last-child {
