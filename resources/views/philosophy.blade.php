@@ -64,7 +64,7 @@
     </button>
     <div class="phil-slider-wrapper">
       <div class="phil-slider-img">
-        <img src="{{ isset($settings['phil_slider_image']) ? (str_starts_with($settings['phil_slider_image'], 'http') || str_starts_with($settings['phil_slider_image'], 'assets') ? asset($settings['phil_slider_image']) : Storage::url($settings['phil_slider_image'])) : 'https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80' }}" alt="Philosophy Value">
+        <img id="phil-slide-image" src="{{ isset($settings['phil_slider_image']) ? (str_starts_with($settings['phil_slider_image'], 'http') || str_starts_with($settings['phil_slider_image'], 'assets') ? asset($settings['phil_slider_image']) : Storage::url($settings['phil_slider_image'])) : 'https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80' }}" alt="Philosophy Value">
       </div>
       <div class="phil-slider-content" id="phil-slide-content">
         <!-- JS will populate this -->
@@ -78,14 +78,19 @@
 
 {{-- Pass philosophy data to JS --}}
 <script>
-  const philosophyData = {!! json_encode($values->map(fn($v) => [
-    'letter' => $v->letter,
-    'index' => $v->index,
-    'title' => $v->title,
-    'description' => $v->description,
-    'features' => $v->features ?? [],
-    'icon' => $v->icon ?? 'users',
-  ])) !!};
+  const defaultSliderImg = '{{ isset($settings["phil_slider_image"]) ? (str_starts_with($settings["phil_slider_image"], "http") || str_starts_with($settings["phil_slider_image"], "assets") ? asset($settings["phil_slider_image"]) : Storage::url($settings["phil_slider_image"])) : "https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80" }}';
+  
+  const philosophyData = {!! json_encode($values->map(function($v) {
+    return [
+      'letter' => $v->letter,
+      'index' => $v->index,
+      'title' => $v->title,
+      'description' => $v->description,
+      'features' => $v->features ?? [],
+      'icon' => $v->icon ?? 'users',
+      'image' => $v->image ? (str_starts_with($v->image, 'http') || str_starts_with($v->image, 'assets') ? asset($v->image) : Storage::url($v->image)) : null
+    ];
+  })) !!};
 </script>
 
 @endsection

@@ -71,11 +71,24 @@
                     </a>
                 </li>
 
-                <li class="menu-item {{ Route::is('admin.settings.philosophy') || Route::is('admin.philosophy.*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.settings.philosophy') }}">
+                <li class="menu-item has-dropdown {{ Route::is('admin.settings.philosophy') || Route::is('admin.philosophy.*') ? 'active open' : '' }}">
+                    <a href="javascript:void(0);" class="dropdown-trigger">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                         <span>Philosophy</span>
+                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
+                    <ul class="sidebar-submenu">
+                        <li class="submenu-item {{ Route::is('admin.philosophy.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.philosophy.index') }}">
+                                <span>Philosophy Values (Huruf)</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ Route::is('admin.settings.philosophy') ? 'active' : '' }}">
+                            <a href="{{ route('admin.settings.philosophy') }}">
+                                <span>Philosophy Settings</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="menu-item {{ Route::is('admin.settings.services') || Route::is('admin.services.*') ? 'active' : '' }}">

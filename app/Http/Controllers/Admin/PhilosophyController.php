@@ -28,11 +28,16 @@ class PhilosophyController extends Controller
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
             'icon'        => 'nullable|string|max:50',
+            'image'       => 'nullable|image|max:5120',
         ]);
 
         // Handle features
         $features = array_filter($request->input('features', []), fn($v) => !empty(trim($v)));
         $validated['features'] = array_values($features);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('philosophy', 'public');
+        }
 
         PhilosophyValue::create($validated);
 
@@ -52,11 +57,19 @@ class PhilosophyController extends Controller
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
             'icon'        => 'nullable|string|max:50',
+            'image'       => 'nullable|image|max:5120',
         ]);
 
         // Handle features
         $features = array_filter($request->input('features', []), fn($v) => !empty(trim($v)));
         $validated['features'] = array_values($features);
+
+        if ($request->hasFile('image')) {
+            if ($philosophy->image && !str_starts_with($philosophy->image, 'http') && \Illuminate\Support\Facades\Storage::disk('public')->exists($philosophy->image)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($philosophy->image);
+            }
+            $validated['image'] = $request->file('image')->store('philosophy', 'public');
+        }
 
         $philosophy->update($validated);
 
@@ -65,6 +78,9 @@ class PhilosophyController extends Controller
 
     public function destroy(PhilosophyValue $philosophy)
     {
+        if ($philosophy->image && !str_starts_with($philosophy->image, 'http') && \Illuminate\Support\Facades\Storage::disk('public')->exists($philosophy->image)) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($philosophy->image);
+        }
         $philosophy->delete();
         return redirect()->route('admin.philosophy.index')->with('success', 'Philosophy value berhasil dihapus.');
     }

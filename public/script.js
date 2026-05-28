@@ -332,7 +332,8 @@
           title: v.title,
           desc: v.description,
           feats: feats,
-          icon: v.icon || 'users'
+          icon: v.icon || 'users',
+          image: v.image || null
         };
       })
     : defaultValues;
@@ -393,6 +394,14 @@
     // Render slide
     const renderSlide = (i) => {
       const v = values[i];
+      
+      // Update image
+      const imgEl = document.getElementById('phil-slide-image');
+      if (imgEl) {
+        imgEl.src = v.image ? v.image : (typeof defaultSliderImg !== 'undefined' ? defaultSliderImg : 'https://images.unsplash.com/photo-1503945438517-f65904a52ce6?auto=format&fit=crop&w=600&q=80');
+        imgEl.alt = v.title;
+      }
+
       slideContent.innerHTML = `
         <div class="phil-slide">
           <span class="slide-num">${v.num}</span>

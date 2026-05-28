@@ -15,7 +15,8 @@ class PhilosophyValue extends Model
         'title',
         'description',
         'features',
-        'icon'
+        'icon',
+        'image'
     ];
 
     protected $casts = [

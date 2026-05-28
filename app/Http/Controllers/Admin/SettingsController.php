@@ -85,9 +85,8 @@ class SettingsController extends Controller
                 $groups['Header Section'][] = $setting;
             }
         }
-        $groups['Philosophy Values Section'] = []; // Empty array for custom button layout
         
-        $pageTitle = 'Philosophy';
+        $pageTitle = 'Philosophy Settings';
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
