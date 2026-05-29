@@ -91,7 +91,11 @@
 
 <header class="contact-banner-wrapper">
   <div class="contact-banner-bg">
-    <img src="{{ asset('assets/ngecet.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
+    @if(isset($settings['contact_banner_image']) && $settings['contact_banner_image'])
+      <img src="{{ str_starts_with($settings['contact_banner_image'], 'http') || str_starts_with($settings['contact_banner_image'], 'assets') ? asset($settings['contact_banner_image']) : Storage::url($settings['contact_banner_image']) }}" alt="{{ $settings['contact_banner_title_white'] ?? '' }}">
+    @else
+      <img src="{{ asset('assets/ngecet.jpg') }}" alt="Strategic Solutions for Maritime Excellence">
+    @endif
   </div>
   <div class="contact-banner-overlay"></div>
   
@@ -112,9 +116,9 @@
   <div class="ic-container">
     <!-- Left Column: Information -->
     <div class="ic-info-col">
-      <span class="ic-subtitle">GET IN TOUCH</span>
-      <h2 class="ic-title">Let's Start a Conversation</h2>
-      <p class="ic-desc">Have a question or need more information? We're here to help.</p>
+      <span class="ic-subtitle">{{ $settings['contact_section_subtitle'] ?? 'GET IN TOUCH' }}</span>
+      <h2 class="ic-title">{{ $settings['contact_section_title'] ?? "Let's Start a Conversation" }}</h2>
+      <p class="ic-desc">{{ $settings['contact_section_description'] ?? 'Have a question or need more information? We\'re here to help.' }}</p>
       
       <ul class="ic-contact-list">
         <li>
@@ -158,9 +162,13 @@
 
     <!-- Right Column: Visual Photo Card -->
     <div class="ic-image-col">
-     <img src="{{ asset('assets/training.png') }}" alt="Training Session Background">
+      @if(isset($settings['contact_section_image']) && $settings['contact_section_image'])
+        <img src="{{ str_starts_with($settings['contact_section_image'], 'http') || str_starts_with($settings['contact_section_image'], 'assets') ? asset($settings['contact_section_image']) : Storage::url($settings['contact_section_image']) }}" alt="Contact Image">
+      @else
+        <img src="{{ asset('assets/training.png') }}" alt="Training Session Background">
+      @endif
       <div class="ic-image-overlay">
-        <p>We value every conversation and look forward to supporting your business.</p>
+        <p>{{ $settings['contact_section_image_caption'] ?? 'We value every conversation and look forward to supporting your business.' }}</p>
         <div class="ic-image-line"></div>
       </div>
     </div>

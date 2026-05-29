@@ -114,6 +114,8 @@ class SettingsController extends Controller
         foreach ($settings as $setting) {
             if (str_starts_with($setting->key, 'contact_banner')) {
                 $groups['Banner / Hero'][] = $setting;
+            } elseif (str_starts_with($setting->key, 'contact_section')) {
+                $groups['Get In Touch Section'][] = $setting;
             } else {
                 $groups['Informasi Kontak'][] = $setting;
             }

@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             ServicesSettingsSeeder::class,
             TrainingSettingsSeeder::class,
             GlobalSettingsSeeder::class,
+            ContactUpdateSeeder::class,
         ]);
     }
 }
