@@ -74,18 +74,6 @@ ul {
 }
 
 /* Bottom light gradient */
-.hero-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 35%;
-  background: linear-gradient(to top,
-      rgba(242, 241, 238, 0.6) 0%,
-      transparent 100%);
-  z-index: 1;
-}
 
 /* =========================================
    NAVIGATION BAR — Premium Redesign
@@ -341,14 +329,6 @@ ul {
   z-index: 2;
 }
 
-/* Hide divider and social icons in new design */
-.navbar-divider {
-  display: none;
-}
-
-.social-icons {
-  display: none;
-}
 
 /* --- CTA Button (Pill style) --- */
 .btn-consult {
