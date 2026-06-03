@@ -16,10 +16,14 @@
 <body>
 
     <div class="admin-wrapper">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
         <!-- Sidebar -->
         <aside class="admin-sidebar" id="adminSidebar">
             <div class="sidebar-brand">
                 <a href="{{ route('admin.dashboard') }}" class="brand-logo">KSP<span>.</span>Admin</a>
+                <button class="mobile-close-btn" id="closeSidebarBtn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
             </div>
 
             <ul class="sidebar-menu">
@@ -173,14 +177,17 @@
         <main class="admin-main">
             <!-- Header -->
             <header class="admin-header">
-                <div class="header-title">
+                <div class="header-title" style="display: flex; align-items: center; gap: 16px;">
+                    <button class="mobile-menu-btn" id="openSidebarBtn" aria-label="Open menu">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
                     <h1>@yield('header_title', 'Dashboard')</h1>
                 </div>
 
                 <div class="header-user">
-                    <a href="{{ url('/') }}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 7px; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); color: var(--accent-orange); padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: var(--font-brand);" onmouseover="this.style.background='rgba(249,115,22,0.18)'" onmouseout="this.style.background='rgba(249,115,22,0.1)'">
+                    <a href="{{ url('/') }}" target="_blank" rel="noopener noreferrer" class="view-website-btn" style="display: flex; align-items: center; gap: 7px; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); color: var(--accent-orange); padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: var(--font-brand);" onmouseover="this.style.background='rgba(249,115,22,0.18)'" onmouseout="this.style.background='rgba(249,115,22,0.1)'">
                         <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        View Website
+                        <span class="view-website-text">View Website</span>
                     </a>
                     <div class="user-info">
                         <div class="user-name">{{ Auth::user()?->name ?? 'Administrator' }}</div>
@@ -201,6 +208,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Dropdown logic
             const dropdownTriggers = document.querySelectorAll('.menu-item.has-dropdown .dropdown-trigger');
             dropdownTriggers.forEach(trigger => {
                 trigger.addEventListener('click', function (e) {
@@ -209,6 +217,28 @@
                     parent.classList.toggle('open');
                 });
             });
+
+            // Mobile Sidebar Toggle
+            const adminSidebar = document.getElementById('adminSidebar');
+            const openSidebarBtn = document.getElementById('openSidebarBtn');
+            const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                adminSidebar.classList.add('open');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            function closeSidebar() {
+                adminSidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = ''; 
+            }
+
+            if (openSidebarBtn) openSidebarBtn.addEventListener('click', openSidebar);
+            if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+            if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
         });
     </script>
 
