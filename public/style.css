@@ -6203,11 +6203,12 @@ ul {
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .hs-card:hover .hs-icon-wrapper {
-  background-color: var(--navy-dark);
+  background-color: #1F628E;
+  color: #E1A730;
 }
 
 .hs-icon-wrapper svg {
