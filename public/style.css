@@ -3825,19 +3825,15 @@ ul {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-}
-
-/* Style 1: Background Brand Blue, Icon White */
-.exp-card-icon.style-navy {
-  background-color: var(--primary-orange);
-  color: var(--white);
-}
-
-/* Style 2: Light Brand Blue Tint, Icon Brand Blue */
-.exp-card-icon.style-orange {
-  background-color: rgba(31, 98, 142, 0.1);
+  background: rgba(10, 22, 40, 0.04);
   color: var(--primary-orange);
-  border: 1px solid rgba(31, 98, 142, 0.15);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.exp-card:hover .exp-card-icon {
+  background-color: #1F628E;
+  color: #E1A730;
+  border-color: transparent;
 }
 
 .exp-card-icon svg {
