@@ -52,10 +52,18 @@
 
 <!-- Features Section -->
 <div style="margin-top: 28px;">
-    <div class="section-divider">
-        <label class="form-label" style="margin-bottom: 0;">Features / Poin Utama</label>
-        <button type="button" onclick="addFeature()" class="btn-add-row">+ Tambah</button>
-    </div>
+    <style>
+        .icon-dropdown { position: relative; }
+        .icon-dropdown summary::-webkit-details-marker { display: none; }
+        .icon-dropdown summary { list-style: none; cursor: pointer; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent-orange, #e1a730); transition: all 0.2s; }
+        .icon-dropdown summary:hover { background: rgba(255,255,255,0.08); }
+        .icon-dropdown[open] summary { border-color: var(--accent-orange, #e1a730); }
+        .icon-dropdown-menu { position: absolute; top: calc(100% + 4px); left: 0; background: #1a2235; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; z-index: 50; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .icon-option { background: transparent; border: 1px solid transparent; padding: 8px; border-radius: 6px; cursor: pointer; color: var(--text-muted, #94a3b8); display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .icon-option:hover { background: rgba(255,255,255,0.1); }
+        .icon-option.active { color: var(--accent-orange, #e1a730); background: rgba(225, 167, 48, 0.1); border-color: rgba(225, 167, 48, 0.3); }
+    </style>
+
     <div id="features-container">
         @php
             $features = old('features') ?? ($val?->features ?? []);
@@ -69,14 +77,23 @@
             @php 
                 $fText = is_array($feat) ? ($feat['text'] ?? '') : $feat;
                 $fIcon = is_array($feat) ? ($feat['icon'] ?? 'check-circle') : 'check-circle';
+                $currentSvg = $iconsList[$fIcon][1] ?? $iconsList['check-circle'][1];
             @endphp
-            <div class="dynamic-row" style="display: flex; gap: 8px; margin-bottom: 8px;">
-                <select name="feature_icon[]" class="form-input" style="width: 150px;">
-                    @foreach($iconsList as $iKey => $iData)
-                        <option value="{{ $iKey }}" {{ $fIcon === $iKey ? 'selected' : '' }}>{{ $iData[0] }}</option>
-                    @endforeach
-                </select>
-                <input type="text" name="feature_text[]" value="{{ $fText }}" placeholder="Feature / poin" class="form-input" style="flex: 1;">
+            <div class="dynamic-row" style="display: flex; gap: 8px; margin-bottom: 12px; align-items: center;">
+                <details class="icon-dropdown">
+                    <summary class="selected-icon-preview" title="Pilih Icon">
+                        {!! $currentSvg !!}
+                    </summary>
+                    <div class="icon-dropdown-menu">
+                        <input type="hidden" name="feature_icon[]" class="icon-input" value="{{ $fIcon }}">
+                        @foreach($iconsList as $iKey => $iData)
+                            <button type="button" onclick="selectDropdownIcon(this, '{{ $iKey }}')" class="icon-option {{ $fIcon === $iKey ? 'active' : '' }}" title="{{ $iData[0] }}">
+                                {!! $iData[1] !!}
+                            </button>
+                        @endforeach
+                    </div>
+                </details>
+                <input type="text" name="feature_text[]" value="{{ $fText }}" placeholder="Teks Feature / Poin Utama" class="form-input" style="flex: 1;">
                 <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
             </div>
         @endforeach
@@ -84,21 +101,48 @@
 </div>
 
 <script>
+// Click outside to close details dropdown
+document.addEventListener('click', function(event) {
+    const dropdowns = document.querySelectorAll('.icon-dropdown[open]');
+    dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(event.target)) {
+            dropdown.removeAttribute('open');
+        }
+    });
+});
+
+function selectDropdownIcon(btn, key) {
+    const details = btn.closest('.icon-dropdown');
+    details.querySelector('.icon-input').value = key;
+    details.querySelector('.selected-icon-preview').innerHTML = btn.innerHTML;
+    details.querySelectorAll('.icon-option').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    details.removeAttribute('open');
+}
+
 function addFeature() {
     const row = document.createElement('div');
     row.className = 'dynamic-row';
-    row.style = 'display: flex; gap: 8px; margin-bottom: 8px;';
+    row.style = 'display: flex; gap: 8px; margin-bottom: 12px; align-items: center;';
     
-    // Create options string from PHP iconsList
-    const options = `{!! implode('', array_map(function($key, $data) {
-        return "<option value=\'{$key}\'>{$data[0]}</option>";
+    const menuOptionsHtml = `{!! implode('', array_map(function($key, $data) {
+        return "<button type=\'button\' onclick=\'selectDropdownIcon(this, \\\"{$key}\\\")\' class=\'icon-option\' title=\'{$data[0]}\'>{$data[1]}</button>";
     }, array_keys($iconsList), $iconsList)) !!}`;
     
+    const defaultIconHtml = menuOptionsHtml.replace('selectDropdownIcon(this, "check-circle")\' class=\'icon-option\'', 'selectDropdownIcon(this, "check-circle")\' class=\'icon-option active\'');
+    const defaultSvg = `{!! $iconsList['check-circle'][1] !!}`;
+
     row.innerHTML = `
-        <select name="feature_icon[]" class="form-input" style="width: 150px;">
-            ${options}
-        </select>
-        <input type="text" name="feature_text[]" placeholder="Feature / poin" class="form-input" style="flex: 1;">
+        <details class="icon-dropdown">
+            <summary class="selected-icon-preview" title="Pilih Icon">
+                ${defaultSvg}
+            </summary>
+            <div class="icon-dropdown-menu">
+                <input type="hidden" name="feature_icon[]" class="icon-input" value="check-circle">
+                ${defaultIconHtml}
+            </div>
+        </details>
+        <input type="text" name="feature_text[]" placeholder="Teks Feature / Poin Utama" class="form-input" style="flex: 1;">
         <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
     `;
     document.getElementById('features-container').appendChild(row);
