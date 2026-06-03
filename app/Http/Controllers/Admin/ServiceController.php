@@ -42,9 +42,14 @@ class ServiceController extends Controller
         $features = [];
         $featureTitles = $request->input('feature_title', []);
         $featureDescs  = $request->input('feature_desc', []);
+        $featureIcons  = $request->input('feature_icon', []);
         foreach ($featureTitles as $i => $title) {
             if (!empty($title)) {
-                $features[] = ['title' => $title, 'desc' => $featureDescs[$i] ?? ''];
+                $features[] = [
+                    'title' => $title,
+                    'desc' => $featureDescs[$i] ?? '',
+                    'icon' => $featureIcons[$i] ?? 'check-circle'
+                ];
             }
         }
         $validated['features'] = $features;
@@ -83,9 +88,14 @@ class ServiceController extends Controller
         $features = [];
         $featureTitles = $request->input('feature_title', []);
         $featureDescs  = $request->input('feature_desc', []);
+        $featureIcons  = $request->input('feature_icon', []);
         foreach ($featureTitles as $i => $title) {
             if (!empty($title)) {
-                $features[] = ['title' => $title, 'desc' => $featureDescs[$i] ?? ''];
+                $features[] = [
+                    'title' => $title,
+                    'desc' => $featureDescs[$i] ?? '',
+                    'icon' => $featureIcons[$i] ?? 'check-circle'
+                ];
             }
         }
         $validated['features'] = $features;

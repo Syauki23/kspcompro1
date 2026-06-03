@@ -47,7 +47,8 @@
             'check-circle' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
             'anchor' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>',
             'compass' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
-            'ship' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>'
+            'ship' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>',
+            'activity' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>'
         ];
       @endphp
       @forelse($services as $service)
@@ -118,8 +119,8 @@
     </div>
     <div class="modal-right-content">
       <div class="modal-header-top">
-        <div class="modal-icon-bg">
-          <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--primary-orange)" stroke-width="2" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <div class="modal-icon-bg" style="color: var(--primary-orange);">
+          {!! $frontendIcons[$service->icon] ?? $frontendIcons['layers'] !!}
         </div>
       </div>
       <h2 class="modal-title">{{ $service->title }}</h2>
@@ -137,7 +138,14 @@
       <ul class="modal-features-list">
         @foreach($features as $feat)
         <li>
-          <div class="feat-icon"><svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--primary-orange)" stroke-width="2" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+          <div class="feat-icon" style="color: var(--primary-orange);">
+            @php
+              $featIcon = is_array($feat) ? ($feat['icon'] ?? 'activity') : 'activity';
+              $svgContent = $frontendIcons[$featIcon] ?? $frontendIcons['activity'];
+              $svgContent = str_replace(['width="24"', 'height="24"'], ['width="20"', 'height="20"'], $svgContent);
+            @endphp
+            {!! $svgContent !!}
+          </div>
           <div class="feat-text">
             <h4>{{ is_array($feat) ? ($feat['title'] ?? '') : $feat }}</h4>
             @if(is_array($feat) && isset($feat['desc']))<p>{{ $feat['desc'] }}</p>@endif

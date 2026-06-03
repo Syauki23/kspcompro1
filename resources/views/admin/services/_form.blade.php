@@ -33,7 +33,8 @@
             'check-circle' => ['Check/Success', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'],
             'anchor' => ['Anchor', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>'],
             'compass' => ['Compass', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>'],
-            'ship' => ['Ship', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>']
+            'ship' => ['Ship', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>'],
+            'activity' => ['Activity/Pulse', '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>']
         ];
         $currentIcon = old('icon', $srv?->icon) ?? 'layers';
         $currentSvg = $iconsList[$currentIcon][1] ?? $iconsList['layers'][1];
@@ -102,16 +103,37 @@
             $features = [];
             if (old('feature_title')) {
                 foreach (old('feature_title', []) as $i => $title) {
-                    $features[] = ['title' => $title, 'desc' => old('feature_desc')[$i] ?? ''];
+                    $features[] = [
+                        'title' => $title,
+                        'desc' => old('feature_desc')[$i] ?? '',
+                        'icon' => old('feature_icon')[$i] ?? 'activity'
+                    ];
                 }
             } else {
                 $raw = $srv?->features ?? [];
                 $features = is_string($raw) ? (json_decode($raw, true) ?? []) : $raw;
             }
-            if (empty($features)) $features = [['title' => '', 'desc' => '']];
+            if (empty($features)) $features = [['title' => '', 'desc' => '', 'icon' => 'activity']];
         @endphp
         @foreach($features as $feat)
-            <div class="dynamic-row feature-grid-header">
+            @php
+                $fIcon = $feat['icon'] ?? 'activity';
+                $currentSvg = $iconsList[$fIcon][1] ?? $iconsList['activity'][1];
+            @endphp
+            <div class="dynamic-row" style="display: grid; grid-template-columns: auto 1fr 2fr auto; gap: 12px; align-items: center; margin-bottom: 10px;">
+                <details class="icon-dropdown">
+                    <summary class="selected-icon-preview" title="Pilih Icon">
+                        {!! $currentSvg !!}
+                    </summary>
+                    <div class="icon-dropdown-menu">
+                        <input type="hidden" name="feature_icon[]" class="icon-input" value="{{ $fIcon }}">
+                        @foreach($iconsList as $iKey => $iData)
+                            <button type="button" onclick="selectDropdownIcon(this, '{{ $iKey }}')" class="icon-option {{ $fIcon === $iKey ? 'active' : '' }}" title="{{ $iData[0] }}">
+                                {!! $iData[1] !!}
+                            </button>
+                        @endforeach
+                    </div>
+                </details>
                 <input type="text" name="feature_title[]" value="{{ $feat['title'] ?? '' }}" placeholder="Feature Title" class="form-input">
                 <input type="text" name="feature_desc[]" value="{{ $feat['desc'] ?? '' }}" placeholder="Feature Description" class="form-input">
                 <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
@@ -142,8 +164,22 @@ function selectDropdownIcon(btn, key) {
 
 function addFeature() {
     const row = document.createElement('div');
-    row.className = 'dynamic-row feature-grid-header';
+    row.className = 'dynamic-row';
+    row.style = 'display: grid; grid-template-columns: auto 1fr 2fr auto; gap: 12px; align-items: center; margin-bottom: 10px;';
     row.innerHTML = `
+        <details class="icon-dropdown">
+            <summary class="selected-icon-preview" title="Pilih Icon">
+                {!! $iconsList['activity'][1] !!}
+            </summary>
+            <div class="icon-dropdown-menu">
+                <input type="hidden" name="feature_icon[]" class="icon-input" value="activity">
+                @foreach($iconsList as $iKey => $iData)
+                    <button type="button" onclick="selectDropdownIcon(this, '${iKey}')" class="icon-option ${iKey === 'activity' ? 'active' : ''}" title="{{ $iData[0] }}">
+                        {!! $iData[1] !!}
+                    </button>
+                @endforeach
+            </div>
+        </details>
         <input type="text" name="feature_title[]" placeholder="Feature Title" class="form-input">
         <input type="text" name="feature_desc[]" placeholder="Feature Description" class="form-input">
         <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
