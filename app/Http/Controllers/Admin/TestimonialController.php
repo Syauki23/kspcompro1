@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
+    use \App\Traits\ImageCompressor;
+
     public function index()
     {
         $testimonials = Testimonial::orderBy('order_position')->get();
@@ -36,7 +38,7 @@ class TestimonialController extends Controller
         $validated['order_position'] = $validated['order_position'] ?? 0;
 
         if ($request->hasFile('client_logo')) {
-            $validated['client_logo'] = $request->file('client_logo')->store('testimonials', 'public');
+            $validated['client_logo'] = $this->compressAndStoreImage($request->file('client_logo'), 'testimonials');
         }
 
         Testimonial::create($validated);
@@ -68,7 +70,7 @@ class TestimonialController extends Controller
             if ($testimonial->client_logo && Storage::disk('public')->exists($testimonial->client_logo) && !str_starts_with($testimonial->client_logo, 'assets/')) {
                 Storage::disk('public')->delete($testimonial->client_logo);
             }
-            $validated['client_logo'] = $request->file('client_logo')->store('testimonials', 'public');
+            $validated['client_logo'] = $this->compressAndStoreImage($request->file('client_logo'), 'testimonials');
         }
 
         $testimonial->update($validated);

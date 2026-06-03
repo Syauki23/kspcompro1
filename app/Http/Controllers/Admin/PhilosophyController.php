@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class PhilosophyController extends Controller
 {
+    use \App\Traits\ImageCompressor;
+
     public function index()
     {
         $values = PhilosophyValue::orderBy('index')->get();
@@ -28,7 +30,7 @@ class PhilosophyController extends Controller
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
             'icon'        => 'nullable|string|max:50',
-            'image'       => 'nullable|image|max:5120',
+            'image'       => 'nullable|image|max:10240',
         ]);
 
         // Handle features
@@ -36,7 +38,7 @@ class PhilosophyController extends Controller
         $validated['features'] = array_values($features);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('philosophy', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'philosophy');
         }
 
         PhilosophyValue::create($validated);
@@ -57,7 +59,7 @@ class PhilosophyController extends Controller
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
             'icon'        => 'nullable|string|max:50',
-            'image'       => 'nullable|image|max:5120',
+            'image'       => 'nullable|image|max:10240',
         ]);
 
         // Handle features
@@ -68,7 +70,7 @@ class PhilosophyController extends Controller
             if ($philosophy->image && !str_starts_with($philosophy->image, 'http') && \Illuminate\Support\Facades\Storage::disk('public')->exists($philosophy->image)) {
                 \Illuminate\Support\Facades\Storage::disk('public')->delete($philosophy->image);
             }
-            $validated['image'] = $request->file('image')->store('philosophy', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'philosophy');
         }
 
         $philosophy->update($validated);

@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
+    use \App\Traits\ImageCompressor;
+
     public function index()
     {
         $services = Service::orderBy('id')->get();
@@ -47,9 +49,9 @@ class ServiceController extends Controller
         }
         $validated['features'] = $features;
 
-        // Handle image upload
+        // Handle image upload with compression
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('services', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'services');
         }
 
         Service::create($validated);
@@ -88,12 +90,12 @@ class ServiceController extends Controller
         }
         $validated['features'] = $features;
 
-        // Handle image upload
+        // Handle image upload with compression
         if ($request->hasFile('image')) {
             if ($service->image && Storage::disk('public')->exists($service->image)) {
                 Storage::disk('public')->delete($service->image);
             }
-            $validated['image'] = $request->file('image')->store('services', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'services');
         }
 
         $service->update($validated);

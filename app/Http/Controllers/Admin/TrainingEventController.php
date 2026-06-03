@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class TrainingEventController extends Controller
 {
+    use \App\Traits\ImageCompressor;
+
     public function index()
     {
         $events = TrainingEvent::orderBy('order_position')->orderByDesc('event_date')->get();
@@ -26,14 +28,14 @@ class TrainingEventController extends Controller
             'title'      => 'required|string|max:255',
             'location'   => 'nullable|string|max:255',
             'event_date' => 'nullable|date',
-            'image'      => 'nullable|image|max:2048',
+            'image'      => 'nullable|image|max:10240',
             'is_active'  => 'nullable|boolean',
         ]);
 
         $validated['is_active'] = $request->boolean('is_active', true);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('training_events', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'training_events');
         }
 
         // Geser semua event yang ada +1, lalu taruh yang baru di posisi 1
@@ -56,7 +58,7 @@ class TrainingEventController extends Controller
             'title'      => 'required|string|max:255',
             'location'   => 'nullable|string|max:255',
             'event_date' => 'nullable|date',
-            'image'      => 'nullable|image|max:2048',
+            'image'      => 'nullable|image|max:10240',
             'is_active'  => 'nullable|boolean',
         ]);
 
@@ -66,7 +68,7 @@ class TrainingEventController extends Controller
             if ($trainingEvent->image && !str_starts_with($trainingEvent->image, 'http') && Storage::disk('public')->exists($trainingEvent->image)) {
                 Storage::disk('public')->delete($trainingEvent->image);
             }
-            $validated['image'] = $request->file('image')->store('training_events', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'training_events');
         }
 
         $trainingEvent->update($validated);

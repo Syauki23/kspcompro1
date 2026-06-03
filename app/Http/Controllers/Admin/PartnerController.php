@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class PartnerController extends Controller
 {
+    use \App\Traits\ImageCompressor;
+
     public function index()
     {
         $partners = Partner::orderBy('order_position')->get();
@@ -33,7 +35,7 @@ class PartnerController extends Controller
         $validated['order_position'] = $validated['order_position'] ?? 0;
 
         if ($request->hasFile('logo')) {
-            $validated['logo'] = $request->file('logo')->store('partners', 'public');
+            $validated['logo'] = $this->compressAndStoreImage($request->file('logo'), 'partners');
         }
 
         Partner::create($validated);
@@ -62,7 +64,7 @@ class PartnerController extends Controller
             if ($partner->logo && Storage::disk('public')->exists($partner->logo) && !str_starts_with($partner->logo, 'assets/')) {
                 Storage::disk('public')->delete($partner->logo);
             }
-            $validated['logo'] = $request->file('logo')->store('partners', 'public');
+            $validated['logo'] = $this->compressAndStoreImage($request->file('logo'), 'partners');
         }
 
         $partner->update($validated);

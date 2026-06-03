@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 
 class PodcastController extends Controller
 {
+    use \App\Traits\ImageCompressor;
+
     public function index()
     {
         $podcasts = Podcast::orderBy('episode_number', 'desc')->get();
@@ -48,7 +50,7 @@ class PodcastController extends Controller
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('podcasts', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'podcasts');
         }
 
         Podcast::create($validated);
@@ -91,7 +93,7 @@ class PodcastController extends Controller
             if ($podcast->image && !str_starts_with($podcast->image, 'http') && Storage::disk('public')->exists($podcast->image)) {
                 Storage::disk('public')->delete($podcast->image);
             }
-            $validated['image'] = $request->file('image')->store('podcasts', 'public');
+            $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'podcasts');
         }
 
         $podcast->update($validated);

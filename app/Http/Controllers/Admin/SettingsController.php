@@ -180,6 +180,8 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('groups', 'pageTitle'));
     }
 
+    use \App\Traits\ImageCompressor;
+
     public function update(Request $request)
     {
         $data = $request->except(['_token', '_method']);
@@ -191,7 +193,7 @@ class SettingsController extends Controller
             }
         }
 
-        // Handle image uploads separately
+        // Handle image uploads separately with compression
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $key => $file) {
                 $setting = Setting::where('key', $key)->first();
@@ -200,7 +202,8 @@ class SettingsController extends Controller
                     if ($setting->value && Storage::disk('public')->exists($setting->value)) {
                         Storage::disk('public')->delete($setting->value);
                     }
-                    $path = $file->store('settings', 'public');
+                    // Compress and store as WebP
+                    $path = $this->compressAndStoreImage($file, 'settings');
                     $setting->update(['value' => $path]);
                 }
             }
