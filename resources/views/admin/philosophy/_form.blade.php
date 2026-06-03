@@ -52,6 +52,10 @@
 
 <!-- Features Section -->
 <div style="margin-top: 28px;">
+    <div class="section-divider">
+        <label class="form-label" style="margin-bottom: 0;">Features / Nilai Utama</label>
+        <button type="button" onclick="addFeature()" class="btn-add-row">+ Tambah Feature</button>
+    </div>
     <style>
         .icon-dropdown { position: relative; }
         .icon-dropdown summary::-webkit-details-marker { display: none; }
