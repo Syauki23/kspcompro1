@@ -6,7 +6,48 @@
 (function () {
   'use strict';
 
+  // ---- Mobile Navigation ----
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+  const mobileDropdownToggles = document.querySelectorAll('.mobile-nav-dropdown-toggle');
+  const mobileNavCta = document.getElementById('mobile-nav-cta-btn');
 
+  if (mobileMenuToggle && mobileNavOverlay) {
+    mobileMenuToggle.addEventListener('click', function () {
+      this.classList.toggle('open');
+      mobileNavOverlay.classList.toggle('open');
+      document.body.style.overflow = this.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileNavOverlay.addEventListener('click', function (e) {
+      if (e.target === this) {
+        mobileMenuToggle.classList.remove('open');
+        this.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  if (mobileDropdownToggles.length > 0) {
+    mobileDropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function () {
+        this.parentElement.classList.toggle('dropdown-open');
+      });
+    });
+  }
+
+  if (mobileNavCta) {
+    mobileNavCta.addEventListener('click', function(e) {
+      // Trigger the main consult button logic
+      const mainConsultBtn = document.getElementById('nav-cta-btn');
+      if (mainConsultBtn) {
+        mobileMenuToggle.classList.remove('open');
+        mobileNavOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        mainConsultBtn.click();
+      }
+    });
+  }
 
   // ---- Sticky Navbar ----
   const navbar = document.getElementById('main-navbar');
