@@ -55,7 +55,7 @@
                         @endphp
 
                         <!-- General Clients Settings Grid -->
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($general as $setting)
                                 <div style="{{ ($setting->key === 'home_clients_desc' || $setting->key === 'home_clients_subtitle' || $setting->key === 'home_clients_marquee_label') ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -66,7 +66,7 @@
                         <!-- Statistics Grid -->
                         <div style="border-top: 1px solid var(--border-glass); padding-top: 24px; margin-top: 8px;">
                             <h4 style="font-size: 13px; font-weight: 700; color: var(--text-white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;">Client Statistics Metric Cards</h4>
-                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                            <div class="settings-grid-3">
                                 @foreach($stats as $num => $statFields)
                                     <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
                                         <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Metric #{{ $num }}</div>
@@ -125,7 +125,7 @@
                                 @include('admin.settings.partials.input', ['setting' => $titleSetting])
                             </div>
                         @endif
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div class="settings-grid-3">
                             @foreach($cores as $num => $coreFields)
                                 <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
                                     <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Core Value #{{ $num }}</div>
@@ -136,7 +136,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Header & Description' && request()->routeIs('admin.settings.about'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ ($setting->key === 'about_desc') ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -144,7 +144,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Header & Description Section' && request()->routeIs('admin.settings.experience'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ ($setting->key === 'exp_desc') ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -165,7 +165,7 @@
                             </a>
                         </div>
                     @elseif($group === 'Header Section' && request()->routeIs('admin.settings.philosophy'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ in_array($setting->key, ['phil_intro_card', 'phil_intro_text']) ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -173,7 +173,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Header Section' && request()->routeIs('admin.settings.services'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ in_array($setting->key, ['services_hero_description', 'services_banner_image']) ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -181,7 +181,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Compass Section' && request()->routeIs('admin.settings.philosophy'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ ($setting->key === 'phil_compass_desc') ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -254,7 +254,7 @@
                                 }
                             }
                         @endphp
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="settings-grid-2">
                             @foreach($features as $num => $fields)
                                 <div style="background: var(--bg-admin); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 14px;">
                                     <div style="font-size: 11px; font-weight: 700; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.8px;">Feature {{ $num }}</div>
@@ -265,7 +265,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Informasi Kontak' && request()->routeIs('admin.settings.contact'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ $setting->key === 'contact_whatsapp_link' ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -280,7 +280,7 @@
                             <a href="{{ route('admin.inbox') }}" style="background: var(--accent-teal); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none;">Buka Inbox &rarr;</a>
                         </div>
                     @elseif($group === 'Banner / Hero' && request()->routeIs('admin.settings.contact'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ in_array($setting->key, ['contact_banner_description']) ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -288,7 +288,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Banner / Hero' && request()->routeIs('admin.settings.training'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ in_array($setting->key, ['training_hero_description', 'training_banner_image']) ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -296,7 +296,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Topics Section' && request()->routeIs('admin.settings.training'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 <div style="{{ $setting->key === 'training_topics_subtitle' ? 'grid-column: span 2;' : '' }}">
                                     @include('admin.settings.partials.input', ['setting' => $setting])
@@ -304,7 +304,7 @@
                             @endforeach
                         </div>
                     @elseif($group === 'Recent Events Section' && request()->routeIs('admin.settings.training'))
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="settings-grid-2">
                             @foreach($settings as $setting)
                                 @include('admin.settings.partials.input', ['setting' => $setting])
                             @endforeach

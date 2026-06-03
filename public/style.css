@@ -8647,4 +8647,132 @@ ul {
   .scroll-indicator {
     display: none;
   }
+
+  /* --- Footer Mobile Overhaul (Simplified) --- */
+  .main-footer {
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-container {
+    padding: 0 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .footer-col {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  /* Hide redundant link columns to keep footer short and simple */
+  .footer-col.links-col {
+    display: none !important;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo {
+    max-height: 40px;
+  }
+
+  .footer-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  /* Hide mini stats on mobile for maximum simplicity */
+  .footer-stats-row {
+    display: none !important;
+  }
+
+  .footer-socials {
+    gap: 12px;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .footer-social-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+  }
+
+  .footer-social-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .footer-contact-list {
+    gap: 16px;
+  }
+
+  .footer-contact-list li {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-contact-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(225, 167, 48, 0.1);
+    flex-shrink: 0;
+  }
+
+  .footer-contact-text span:first-child {
+    display: none; /* Hide label to save space */
+  }
+
+  .footer-contact-text span:last-child {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 0;
+    text-align: left;
+    background: transparent;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 32px;
+  }
+
+  .footer-legal {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-legal a {
+    font-size: 13px;
+  }
+
+  .footer-bottom-badge {
+    margin: 0; 
+    align-self: flex-start; 
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
 }
