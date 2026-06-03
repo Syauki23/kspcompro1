@@ -785,7 +785,7 @@ ul {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(225, 167, 48, 0.1);
+  background: rgba(10, 22, 40, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2620,11 +2620,18 @@ ul {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(225, 167, 48, 0.1);
+  background: rgba(10, 22, 40, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary-orange);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.service-card:hover .card-icon,
+.service-card.active-card .card-icon {
+  background-color: #1F628E;
+  color: #E1A730;
 }
 
 .card-number {
