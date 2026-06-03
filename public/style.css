@@ -791,6 +791,12 @@ ul {
   justify-content: center;
   color: var(--primary-orange);
   margin-bottom: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.train-topic-card:hover .train-topic-icon {
+  background-color: #1F628E;
+  color: #E1A730;
 }
 
 .train-topic-icon svg {
