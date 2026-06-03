@@ -542,6 +542,13 @@ ul {
   }
   .navbar {
     padding: 12px 20px;
+    position: relative;
+    justify-content: flex-end;
+  }
+  .navbar-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
