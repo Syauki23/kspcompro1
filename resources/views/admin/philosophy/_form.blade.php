@@ -76,11 +76,20 @@
                 $decoded = json_decode($features, true);
                 $features = is_array($decoded) ? $decoded : [$features];
             }
-            if (empty($features)) $features = [''];
+            if (empty($features)) $features = [['text' => '', 'icon' => 'check-circle']];
         @endphp
         @foreach($features as $feat)
-            <div class="dynamic-row">
-                <input type="text" name="features[]" value="{{ $feat }}" placeholder="Feature / poin" class="form-input">
+            @php 
+                $fText = is_array($feat) ? ($feat['text'] ?? '') : $feat;
+                $fIcon = is_array($feat) ? ($feat['icon'] ?? 'check-circle') : 'check-circle';
+            @endphp
+            <div class="dynamic-row" style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <select name="feature_icon[]" class="form-input" style="width: 150px;">
+                    @foreach($iconsList as $iKey => $iData)
+                        <option value="{{ $iKey }}" {{ $fIcon === $iKey ? 'selected' : '' }}>{{ $iData[0] }}</option>
+                    @endforeach
+                </select>
+                <input type="text" name="feature_text[]" value="{{ $fText }}" placeholder="Feature / poin" class="form-input" style="flex: 1;">
                 <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
             </div>
         @endforeach
@@ -91,8 +100,18 @@
 function addFeature() {
     const row = document.createElement('div');
     row.className = 'dynamic-row';
+    row.style = 'display: flex; gap: 8px; margin-bottom: 8px;';
+    
+    // Create options string from PHP iconsList
+    const options = `{!! implode('', array_map(function($key, $data) {
+        return "<option value=\'{$key}\'>{$data[0]}</option>";
+    }, array_keys($iconsList), $iconsList)) !!}`;
+    
     row.innerHTML = `
-        <input type="text" name="features[]" placeholder="Feature / poin" class="form-input">
+        <select name="feature_icon[]" class="form-input" style="width: 150px;">
+            ${options}
+        </select>
+        <input type="text" name="feature_text[]" placeholder="Feature / poin" class="form-input" style="flex: 1;">
         <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
     `;
     document.getElementById('features-container').appendChild(row);

@@ -460,7 +460,12 @@
           <h3 class="slide-title">${v.title}</h3>
           <p class="slide-desc">${v.desc}</p>
           <div class="slide-feats">
-            ${v.feats.map(f => `<div class="slide-feat"><div class="slide-feat-icon">${icons[v.icon]}</div><span>${f}</span></div>`).join('')}
+            ${v.feats.map(f => {
+              const fText = typeof f === 'object' && f !== null ? f.text : f;
+              const fIcon = typeof f === 'object' && f !== null && f.icon ? f.icon : 'check-circle';
+              const iconSvg = icons[fIcon] || icons['check-circle'];
+              return `<div class="slide-feat"><div class="slide-feat-icon">${iconSvg}</div><span>${fText}</span></div>`;
+            }).join('')}
           </div>
         </div>
       `;

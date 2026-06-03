@@ -34,8 +34,18 @@ class PhilosophyController extends Controller
         ]);
 
         // Handle features
-        $features = array_filter($request->input('features', []), fn($v) => !empty(trim($v)));
-        $validated['features'] = array_values($features);
+        $featureTexts = $request->input('feature_text', []);
+        $featureIcons = $request->input('feature_icon', []);
+        $features = [];
+        foreach ($featureTexts as $i => $text) {
+            if (!empty(trim($text))) {
+                $features[] = [
+                    'text' => trim($text),
+                    'icon' => $featureIcons[$i] ?? 'check-circle'
+                ];
+            }
+        }
+        $validated['features'] = $features;
 
         if ($request->hasFile('image')) {
             $validated['image'] = $this->compressAndStoreImage($request->file('image'), 'philosophy');
@@ -63,8 +73,18 @@ class PhilosophyController extends Controller
         ]);
 
         // Handle features
-        $features = array_filter($request->input('features', []), fn($v) => !empty(trim($v)));
-        $validated['features'] = array_values($features);
+        $featureTexts = $request->input('feature_text', []);
+        $featureIcons = $request->input('feature_icon', []);
+        $features = [];
+        foreach ($featureTexts as $i => $text) {
+            if (!empty(trim($text))) {
+                $features[] = [
+                    'text' => trim($text),
+                    'icon' => $featureIcons[$i] ?? 'check-circle'
+                ];
+            }
+        }
+        $validated['features'] = $features;
 
         if ($request->hasFile('image')) {
             if ($philosophy->image && !str_starts_with($philosophy->image, 'http') && \Illuminate\Support\Facades\Storage::disk('public')->exists($philosophy->image)) {
