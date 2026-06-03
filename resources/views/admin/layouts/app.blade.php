@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('admin-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-style.css?v=' . time()) }}">
     @yield('styles')
 </head>
 <body>

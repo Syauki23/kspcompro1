@@ -1599,18 +1599,31 @@ body {
   .erp-hero-panel {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
+    border-radius: 16px;
+    gap: 16px;
+  }
+
+  .erp-panel {
+    border-radius: 16px;
   }
 
   .erp-panel-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
+    padding: 16px 20px;
   }
 
   .erp-panel-header.compact {
     flex-direction: row;
     align-items: center;
     gap: 8px;
+    padding: 16px 20px;
+  }
+
+  .erp-panel-body {
+    padding: 16px 20px;
   }
 
   .erp-panel-header > a,
@@ -1638,14 +1651,16 @@ body {
 
   .login-container {
     padding: 24px;
+    border-radius: 16px;
   }
 
   .erp-table {
-    min-width: 700px;
+    min-width: 600px;
   }
 
-  .erp-panel {
-    border-radius: 20px;
+  .erp-table td,
+  .erp-table th {
+    padding: 12px 16px;
   }
 
   .dynamic-row {
@@ -1659,5 +1674,9 @@ body {
 
   .dynamic-row .btn-remove-row {
     margin-top: 8px;
+  }
+
+  .metric-card {
+    padding: 16px;
   }
 }
