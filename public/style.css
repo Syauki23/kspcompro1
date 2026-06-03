@@ -2587,7 +2587,7 @@ ul {
 }
 
 .service-card {
-  background: #e7e4df;
+  background: #ffffff;
   border-radius: 16px;
   padding: 26px 20px;
   /* More compact card padding */
@@ -2718,7 +2718,7 @@ ul {
 /* --- Stats Banner --- */
 .services-stats-banner {
   margin-top: 60px;
-  background-color: #f1f5f9;
+  background-color: #E5E4E0;
   border-radius: 16px;
   padding: 40px 50px;
   display: grid;
