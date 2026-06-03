@@ -53,8 +53,8 @@
 <!-- Features Section -->
 <div style="margin-top: 28px;">
     <div class="section-divider">
-        <label class="form-label" style="margin-bottom: 0;">Features / Nilai Utama</label>
-        <button type="button" onclick="addFeature()" class="btn-add-row">+ Tambah Feature</button>
+        <label class="form-label" style="margin-bottom: 0;">Fitur / Nilai Utama</label>
+        <button type="button" onclick="addFeature()" class="btn-add-row">+ Tambah Fitur</button>
     </div>
     <style>
         .icon-dropdown { position: relative; }
@@ -97,7 +97,7 @@
                         @endforeach
                     </div>
                 </details>
-                <input type="text" name="feature_text[]" value="{{ $fText }}" placeholder="Teks Feature / Poin Utama" class="form-input" style="flex: 1;">
+                <input type="text" name="feature_text[]" value="{{ $fText }}" placeholder="Teks Fitur / Poin Utama" class="form-input" style="flex: 1;">
                 <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
             </div>
         @endforeach
@@ -105,6 +105,9 @@
 </div>
 
 <script>
+// Pass icons list to JS
+const iconsList = @json($iconsList);
+
 // Click outside to close details dropdown
 document.addEventListener('click', function(event) {
     const dropdowns = document.querySelectorAll('.icon-dropdown[open]');
@@ -129,12 +132,13 @@ function addFeature() {
     row.className = 'dynamic-row';
     row.style = 'display: flex; gap: 8px; margin-bottom: 12px; align-items: center;';
     
-    const menuOptionsHtml = `{!! implode('', array_map(function($key, $data) {
-        return "<button type=\'button\' onclick=\'selectDropdownIcon(this, \\\"{$key}\\\")\' class=\'icon-option\' title=\'{$data[0]}\'>{$data[1]}</button>";
-    }, array_keys($iconsList), $iconsList)) !!}`;
+    let menuOptionsHtml = '';
+    for (const [key, data] of Object.entries(iconsList)) {
+        const isActive = (key === 'check-circle') ? 'active' : '';
+        menuOptionsHtml += `<button type="button" onclick="selectDropdownIcon(this, '${key}')" class="icon-option ${isActive}" title="${data[0]}">${data[1]}</button>`;
+    }
     
-    const defaultIconHtml = menuOptionsHtml.replace('selectDropdownIcon(this, "check-circle")\' class=\'icon-option\'', 'selectDropdownIcon(this, "check-circle")\' class=\'icon-option active\'');
-    const defaultSvg = `{!! $iconsList['check-circle'][1] !!}`;
+    const defaultSvg = iconsList['check-circle'][1];
 
     row.innerHTML = `
         <details class="icon-dropdown">
@@ -143,10 +147,10 @@ function addFeature() {
             </summary>
             <div class="icon-dropdown-menu">
                 <input type="hidden" name="feature_icon[]" class="icon-input" value="check-circle">
-                ${defaultIconHtml}
+                ${menuOptionsHtml}
             </div>
         </details>
-        <input type="text" name="feature_text[]" placeholder="Teks Feature / Poin Utama" class="form-input" style="flex: 1;">
+        <input type="text" name="feature_text[]" placeholder="Teks Fitur / Poin Utama" class="form-input" style="flex: 1;">
         <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
     `;
     document.getElementById('features-container').appendChild(row);

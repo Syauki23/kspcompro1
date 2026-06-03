@@ -1,7 +1,6 @@
 <div>
     <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
         {{ $setting->label }}
-        <span style="font-size: 11px; color: var(--text-dim); font-weight: 400; text-transform: none; margin-left: 6px;">({{ $setting->key }})</span>
     </label>
 
     @if($setting->type === 'textarea')

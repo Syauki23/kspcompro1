@@ -95,8 +95,8 @@
 <!-- Features Section -->
 <div style="margin-top: 28px;">
     <div class="section-divider">
-        <label class="form-label" style="margin-bottom: 0;">Features / Keunggulan</label>
-        <button type="button" onclick="addFeature()" class="btn-add-row">+ Tambah Feature</button>
+        <label class="form-label" style="margin-bottom: 0;">Fitur / Keunggulan</label>
+        <button type="button" onclick="addFeature()" class="btn-add-row">+ Tambah Fitur</button>
     </div>
     <div id="features-container">
         @php
@@ -134,8 +134,8 @@
                         @endforeach
                     </div>
                 </details>
-                <input type="text" name="feature_title[]" value="{{ $feat['title'] ?? '' }}" placeholder="Feature Title" class="form-input">
-                <input type="text" name="feature_desc[]" value="{{ $feat['desc'] ?? '' }}" placeholder="Feature Description" class="form-input">
+                <input type="text" name="feature_title[]" value="{{ $feat['title'] ?? '' }}" placeholder="Judul Fitur" class="form-input">
+                <input type="text" name="feature_desc[]" value="{{ $feat['desc'] ?? '' }}" placeholder="Deskripsi Fitur" class="form-input">
                 <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
             </div>
         @endforeach
@@ -180,8 +180,8 @@ function addFeature() {
                 @endforeach
             </div>
         </details>
-        <input type="text" name="feature_title[]" placeholder="Feature Title" class="form-input">
-        <input type="text" name="feature_desc[]" placeholder="Feature Description" class="form-input">
+        <input type="text" name="feature_title[]" placeholder="Judul Fitur" class="form-input">
+        <input type="text" name="feature_desc[]" placeholder="Deskripsi Fitur" class="form-input">
         <button type="button" onclick="this.closest('.dynamic-row').remove()" class="btn-remove-row">×</button>
     `;
     document.getElementById('features-container').appendChild(row);
