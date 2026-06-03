@@ -15,6 +15,7 @@ class Training extends Model
         'title',
         'slug',
         'description',
+        'icon',
         'duration',
         'price',
         'syllabus',

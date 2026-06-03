@@ -25,6 +25,7 @@ class TrainingController extends Controller
         $validated = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
+            'icon'        => 'nullable|string',
             'is_active'   => 'nullable|boolean',
         ]);
 
@@ -46,6 +47,7 @@ class TrainingController extends Controller
         $validated = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
+            'icon'        => 'nullable|string',
             'is_active'   => 'nullable|boolean',
         ]);
 
