@@ -287,6 +287,17 @@
     let activeIdx = 2; // Initial active card
 
     const updateCarousel = () => {
+      if (window.innerWidth <= 768) {
+        testiContainer.style.transform = 'none';
+        testiCards.forEach((card, idx) => {
+          card.classList.toggle('active', idx === activeIdx);
+        });
+        testiDots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === activeIdx);
+        });
+        return;
+      }
+
       const cardWidth = 550; // Match CSS flex-basis
       const gap = 30; // Match CSS gap
       const wrapperWidth = testiContainer.parentElement.offsetWidth;

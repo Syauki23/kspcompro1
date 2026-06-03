@@ -8430,3 +8430,221 @@ ul {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================
+   MOBILE ULTIMATE MODERNIZATION (FRONT-END)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll issues */
+  body, html {
+    overflow-x: hidden;
+  }
+
+  /* --- Hero Section --- */
+  .hero-wrapper {
+    padding-top: 100px;
+    background-attachment: scroll; /* Smoother on mobile */
+  }
+
+  .hero-content {
+    padding: 0 24px;
+    text-align: left; /* Editorial, modern look */
+    margin-top: 20px;
+  }
+
+  .hero-headline {
+    font-size: 40px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .hero-description {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 32px;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .btn-primary-hero,
+  .btn-secondary-hero {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 16px;
+  }
+
+  /* --- Hero Features (Swipeable Glass Cards) --- */
+  .hero-features {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 24px 24px 40px 24px !important;
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    transform: translateY(0);
+    grid-template-columns: none;
+  }
+  
+  .hero-features::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feature-item {
+    min-width: 260px;
+    max-width: 280px;
+    scroll-snap-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 24px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  /* --- Core Services --- */
+  .home-services-section {
+    padding: 60px 24px;
+  }
+
+  .hs-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .hs-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .hs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hs-card {
+    border-radius: 24px;
+    padding: 32px 24px;
+  }
+
+  /* --- Testimonials --- */
+  .testimonials-section {
+    padding: 60px 24px;
+  }
+
+  .testi-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .testi-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .testi-card {
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    background: #ffffff;
+  }
+
+  .testi-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* --- Clients & Partners --- */
+  .clients-partners {
+    padding: 60px 24px;
+  }
+
+  .cp2-header {
+    text-align: left;
+  }
+
+  .cp2-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .cp2-stats {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.05);
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .cp2-stat-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* --- Podcast / Insights --- */
+  .home-insights-section {
+    padding: 60px 24px;
+  }
+
+  .hi-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .hi-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .hi-podcast-card {
+    border-radius: 24px;
+    padding: 32px 24px;
+  }
+
+  .pod-player-mock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .player-left {
+    width: 100%;
+  }
+
+  .btn-play-pod {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    justify-content: center;
+  }
+
+  /* Hide scroll indicator on small screens to reduce clutter */
+  .scroll-indicator {
+    display: none;
+  }
+}
