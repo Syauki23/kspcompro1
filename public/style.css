@@ -3758,10 +3758,20 @@ ul {
 .exp-title {
   font-size: clamp(38px, 4.5vw, 56px);
   font-weight: 800;
-  color: #E1A730;
+  background: linear-gradient(135deg, #E1A730 0%, #f3c153 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1.1;
   letter-spacing: -1px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+.exp-title-accent {
+  background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .exp-title-decor {

@@ -16,7 +16,8 @@ class ExperienceUpdateSeeder extends Seeder
             // Header
             ['key' => 'exp_banner_image', 'value' => 'assets/experient.jpg', 'group' => 'experience', 'label' => 'Banner Background Image', 'type' => 'image'],
             ['key' => 'exp_subtitle', 'value' => 'OUR EXPERIENCE', 'group' => 'experience', 'label' => 'Subtitle', 'type' => 'text'],
-            ['key' => 'exp_title', 'value' => 'Our Experiences', 'group' => 'experience', 'label' => 'Main Title', 'type' => 'text'],
+            ['key' => 'exp_title', 'value' => 'Our', 'group' => 'experience', 'label' => 'Main Title', 'type' => 'text'],
+            ['key' => 'exp_title_accent', 'value' => 'Experiences', 'group' => 'experience', 'label' => 'Accent Title', 'type' => 'text'],
             ['key' => 'exp_desc', 'value' => "Our team has contributed to multiple maritime\nconsulting, assessment, operational improvement,\nand safety projects across industries.", 'group' => 'experience', 'label' => 'Description (Paragraphs)', 'type' => 'textarea'],
 
             // Stats

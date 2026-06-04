@@ -11,7 +11,14 @@
   <div class="exp-hero-container">
     <div class="exp-hero-content">
       <span class="exp-subtitle">{{ $settings['exp_subtitle'] ?? 'OUR EXPERIENCE' }}</span>
-      <h1 class="exp-title">{{ $settings['exp_title'] ?? 'Our Experiences' }}</h1>
+      <h1 class="exp-title">
+        @php
+            $expTitle = $settings['exp_title'] ?? 'Our';
+            if ($expTitle === 'Our Experiences') $expTitle = 'Our';
+        @endphp
+        {{ $expTitle }}
+        <span class="exp-title-accent">{{ $settings['exp_title_accent'] ?? 'Experiences' }}</span>
+      </h1>
       <div class="exp-title-decor"></div>
       <p class="exp-desc">
         {!! nl2br(e($settings['exp_desc'] ?? "Our team has contributed to multiple maritime\nconsulting, assessment, operational improvement,\nand safety projects across industries.")) !!}
