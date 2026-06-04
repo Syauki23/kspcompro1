@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             TrainingSettingsSeeder::class,
             GlobalSettingsSeeder::class,
             ContactUpdateSeeder::class,
+            PodcastSettingsSeeder::class,
         ]);
     }
 }
