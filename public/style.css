@@ -1724,7 +1724,10 @@ ul {
 }
 
 .hero-headline .line-white {
-  color: var(--navy-dark);
+  background: linear-gradient(135deg, #E1A730 0%, #f3c153 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   display: block;
 }
 
