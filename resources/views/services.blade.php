@@ -18,7 +18,7 @@
       <span class="services-subtitle">{{ $settings['services_hero_subtitle'] ?? 'OUR SERVICES' }}</span>
       <h1 class="services-title">
         {!! nl2br(e($settings['services_hero_title_first'] ?? 'Solutions that drive')) !!}<br>
-        <span style="color: var(--primary-orange);">{!! nl2br(e($settings['services_hero_title_second'] ?? 'operational excellence')) !!}</span>
+        <span class="services-title-accent">{!! nl2br(e($settings['services_hero_title_second'] ?? 'operational excellence')) !!}</span>
       </h1>
       <div class="services-title-decor"></div>
       <p class="services-desc">
