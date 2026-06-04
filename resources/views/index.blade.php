@@ -1,5 +1,20 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services'])
 
+@php
+    $maritimeIcons = [
+        'anchor' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><line x1="8" y1="12" x2="16" y2="12"/></svg>',
+        'helm' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg>',
+        'lighthouse' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"/><path d="M9 22L10 10h4l1 12"/><path d="M8 10h8"/><path d="M10 10V6h4v4"/><path d="M12 6L10 3h4l-2 3z"/><line x1="15" y1="7" x2="19" y2="5"/><line x1="9" y1="7" x2="5" y2="5"/></svg>',
+        'globe' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M2 16h20M2 8h20"/></svg>',
+        'ship' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20v-4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M8 14V8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/><path d="M12 6V3"/><path d="M10 3h4"/><path d="M6 17h12"/></svg>',
+        'lifebuoy' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>',
+        'compass' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/><circle cx="12" cy="12" r="2"/></svg>',
+        'target' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+        'star' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+        'shield' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    ];
+@endphp
+
 @section('content')
 <div class="hero-wrapper" style="background-image: url('{{ isset($settings['home_banner_image']) && $settings['home_banner_image'] ? (str_starts_with($settings['home_banner_image'], 'http') ? $settings['home_banner_image'] : Storage::url($settings['home_banner_image'])) : asset('assets/banner.jpg') }}');">
   <!-- HERO CONTENT -->
@@ -34,12 +49,7 @@
     <!-- Feature 1: Maritime Expertise -->
     <div class="feature-item">
       <div class="feature-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="5" r="2"/>
-          <line x1="12" y1="7" x2="12" y2="19"/>
-          <path d="M6 11h12"/>
-          <path d="M6 19c1.5 1.5 9 1.5 12 0"/>
-        </svg>
+        {!! $maritimeIcons[$settings['home_feature_1_icon'] ?? 'anchor'] ?? $maritimeIcons['anchor'] !!}
       </div>
       <h3 class="feature-title">{{ $settings['home_feature_1_title'] ?? 'Maritime Expertise' }}</h3>
       <p class="feature-desc">{{ $settings['home_feature_1_desc'] ?? 'Years of hands-on industry experience' }}</p>
@@ -48,15 +58,7 @@
     <!-- Feature 2: Strategic Solutions -->
     <div class="feature-item">
       <div class="feature-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9"/>
-          <circle cx="12" cy="12" r="5"/>
-          <circle cx="12" cy="12" r="1" fill="#1F628E" stroke="none"/>
-          <line x1="12" y1="3" x2="12" y2="1"/>
-          <line x1="12" y1="23" x2="12" y2="21"/>
-          <line x1="3" y1="12" x2="1" y2="12"/>
-          <line x1="23" y1="12" x2="21" y2="12"/>
-        </svg>
+        {!! $maritimeIcons[$settings['home_feature_2_icon'] ?? 'helm'] ?? $maritimeIcons['helm'] !!}
       </div>
       <h3 class="feature-title">{{ $settings['home_feature_2_title'] ?? 'Strategic Solutions' }}</h3>
       <p class="feature-desc">{{ $settings['home_feature_2_desc'] ?? 'Tailored strategies that drive results' }}</p>
@@ -65,11 +67,7 @@
     <!-- Feature 3: Trusted Partner -->
     <div class="feature-item">
       <div class="feature-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
+        {!! $maritimeIcons[$settings['home_feature_3_icon'] ?? 'lighthouse'] ?? $maritimeIcons['lighthouse'] !!}
       </div>
       <h3 class="feature-title">{{ $settings['home_feature_3_title'] ?? 'Trusted Partner' }}</h3>
       <p class="feature-desc">{{ $settings['home_feature_3_desc'] ?? 'Collaborative approach for lasting impact' }}</p>
@@ -78,11 +76,7 @@
     <!-- Feature 4: Global Perspective -->
     <div class="feature-item">
       <div class="feature-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
+        {!! $maritimeIcons[$settings['home_feature_4_icon'] ?? 'globe'] ?? $maritimeIcons['globe'] !!}
       </div>
       <h3 class="feature-title">{{ $settings['home_feature_4_title'] ?? 'Global Perspective Local Understanding' }}</h3>
       <p class="feature-desc">{{ $settings['home_feature_4_desc'] ?? 'Connecting standards with real-world execution' }}</p>
@@ -113,7 +107,7 @@
       <!-- Service 1 -->
       <div class="hs-card">
         <div class="hs-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          {!! $maritimeIcons[$settings['home_services_card_1_icon'] ?? 'ship'] ?? $maritimeIcons['ship'] !!}
         </div>
         <h3 class="hs-card-title">{{ $settings['home_services_card_1_title'] ?? 'Maritime Consulting' }}</h3>
         <p class="hs-card-desc">{{ $settings['home_services_card_1_desc'] ?? 'Strategic operational assessments, safety management frameworks, and process optimization tailored to global maritime compliance.' }}</p>
@@ -123,7 +117,7 @@
       <!-- Service 2 -->
       <div class="hs-card">
         <div class="hs-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          {!! $maritimeIcons[$settings['home_services_card_2_icon'] ?? 'lifebuoy'] ?? $maritimeIcons['lifebuoy'] !!}
         </div>
         <h3 class="hs-card-title">{{ $settings['home_services_card_2_title'] ?? 'Risk & HR Assessment' }}</h3>
         <p class="hs-card-desc">{{ $settings['home_services_card_2_desc'] ?? 'Comprehensive crew audits, operational risk mapping, and competency profiling to ensure high-reliability human capital performance.' }}</p>
@@ -133,7 +127,7 @@
       <!-- Service 3 -->
       <div class="hs-card">
         <div class="hs-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          {!! $maritimeIcons[$settings['home_services_card_3_icon'] ?? 'compass'] ?? $maritimeIcons['compass'] !!}
         </div>
         <h3 class="hs-card-title">{{ $settings['home_services_card_3_title'] ?? 'Workshop & Training' }}</h3>
         <p class="hs-card-desc">{{ $settings['home_services_card_3_desc'] ?? 'Interactive, highly practical knowledge sharing sessions combining regulatory best practices with intensive case-study masterclasses.' }}</p>

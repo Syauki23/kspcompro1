@@ -18,6 +18,8 @@
             <input type="file" name="images[{{ $setting->key }}]" accept="image/*"
                 style="color: var(--text-muted); font-size: 13px;">
         </div>
+    @elseif($setting->type === 'icon')
+        @include('admin.settings.partials.icon_picker', ['setting' => $setting])
     @else
         <input
             type="text"

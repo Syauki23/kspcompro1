@@ -8945,3 +8945,296 @@ ul {
     border: 1px solid rgba(15, 23, 42, 0.04);
   }
 }
+
+/* =========================================
+   MODERN MOBILE OVERRIDES (Homepage Revamp)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Hero Content */
+  .hero-wrapper {
+    min-height: 100vh;
+    padding-top: 80px;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .hero-content {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-height: auto;
+  }
+  
+  .hero-headline {
+    font-size: 38px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .hero-headline .line-white,
+  .hero-headline .line-orange {
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .hero-description {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 32px;
+    max-width: 100%;
+    color: rgba(10, 22, 40, 0.8) !important;
+  }
+  
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100%;
+  }
+  
+  .btn-primary-hero, .btn-secondary-hero {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px !important;
+    font-size: 15px !important;
+    border-radius: 100px !important;
+  }
+  
+  /* Hero Features (Horizontal Scroll Snap) */
+  .hero-features {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 16px !important;
+    padding: 20px 24px 40px 24px !important;
+    margin: 0 !important;
+    position: relative !important;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .hero-features::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .feature-item {
+    min-width: 280px;
+    scroll-snap-align: center;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    flex: 0 0 auto !important;
+  }
+  
+  .feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .feature-title {
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .feature-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  /* Services Section */
+  .home-services-section {
+    padding: 60px 24px !important;
+  }
+  
+  .hs-header {
+    text-align: left !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .hs-title {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  .hs-card {
+    padding: 32px 24px !important;
+    border-radius: 24px !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 32px rgba(10, 22, 40, 0.06) !important;
+  }
+  
+  /* Testimonials */
+  .testimonials-section {
+    padding: 60px 24px !important;
+  }
+  
+  .testi-header {
+    text-align: left !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .testi-title {
+    font-size: 32px !important;
+  }
+  
+  .testi-cards-container {
+    height: auto !important;
+    min-height: 350px !important;
+  }
+  
+  .testi-card {
+    width: 100% !important;
+    padding: 32px 24px !important;
+    border-radius: 24px !important;
+  }
+  
+  .testi-text {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Clients & Partners */
+  .clients-partners {
+    padding: 60px 24px !important;
+  }
+  
+  .cp2-header {
+    text-align: left !important;
+  }
+  
+  .cp2-title {
+    font-size: 32px !important;
+  }
+  
+  .cp2-stats {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  
+  .cp2-stat-divider {
+    width: 100% !important;
+    height: 1px !important;
+    background: rgba(10, 22, 40, 0.1) !important;
+  }
+  
+  .cp2-stat {
+    width: 100% !important;
+    text-align: left !important;
+  }
+  
+  .cp2-marquee-track {
+    gap: 24px !important;
+  }
+  
+  .cp2-logo-card {
+    width: 120px !important;
+    height: 80px !important;
+    padding: 16px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Podcast / Insights */
+  .home-insights-section {
+    padding: 60px 24px !important;
+  }
+  
+  .hi-header {
+    text-align: left !important;
+  }
+  
+  .hi-title {
+    font-size: 32px !important;
+  }
+  
+  .hi-podcast-card {
+    padding: 24px !important;
+    border-radius: 24px !important;
+  }
+  
+  .pod-player-mock {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+  
+  .player-left {
+    width: 100% !important;
+  }
+  
+  .player-info h4 {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
+  
+  .btn-play-pod {
+    align-self: flex-end !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .footer-col.brand-col {
+    padding-right: 0 !important;
+  }
+  
+  .footer-stats-row {
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+  }
+  
+  .footer-stat-divider {
+    display: none !important;
+  }
+  
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+    padding-bottom: 80px !important; /* Extra padding to clear WA widget and avoid cut-off */
+  }
+  
+  .footer-legal {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+  }
+  
+  /* WhatsApp Widget */
+  .wa-widget {
+    bottom: 24px !important;
+    right: 24px !important;
+    z-index: 99 !important;
+  }
+}
