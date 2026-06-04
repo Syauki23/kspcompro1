@@ -2830,6 +2830,7 @@ ul {
 .service-modal-overlay.show {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .service-modal-container {
