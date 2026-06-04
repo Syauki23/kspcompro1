@@ -26,17 +26,24 @@ class HomeUpdateSeeder extends Seeder
             // Home Features
             ['key' => 'home_feature_1_title', 'value' => "Maritime Expertise", 'group' => 'home', 'label' => 'Feature 1 Title', 'type' => 'text'],
             ['key' => 'home_feature_1_desc', 'value' => "Years of hands-on industry experience", 'group' => 'home', 'label' => 'Feature 1 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_1_icon', 'value' => 'anchor', 'group' => 'home', 'label' => 'Feature 1 Icon', 'type' => 'icon'],
             ['key' => 'home_feature_2_title', 'value' => "Strategic Solutions", 'group' => 'home', 'label' => 'Feature 2 Title', 'type' => 'text'],
             ['key' => 'home_feature_2_desc', 'value' => "Tailored strategies that drive results", 'group' => 'home', 'label' => 'Feature 2 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_2_icon', 'value' => 'helm', 'group' => 'home', 'label' => 'Feature 2 Icon', 'type' => 'icon'],
             ['key' => 'home_feature_3_title', 'value' => "Trusted Partner", 'group' => 'home', 'label' => 'Feature 3 Title', 'type' => 'text'],
             ['key' => 'home_feature_3_desc', 'value' => "Collaborative approach for lasting impact", 'group' => 'home', 'label' => 'Feature 3 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_3_icon', 'value' => 'lighthouse', 'group' => 'home', 'label' => 'Feature 3 Icon', 'type' => 'icon'],
             ['key' => 'home_feature_4_title', 'value' => "Global Perspective Local Understanding", 'group' => 'home', 'label' => 'Feature 4 Title', 'type' => 'text'],
             ['key' => 'home_feature_4_desc', 'value' => "Connecting standards with real-world execution", 'group' => 'home', 'label' => 'Feature 4 Description', 'type' => 'textarea'],
+            ['key' => 'home_feature_4_icon', 'value' => 'globe', 'group' => 'home', 'label' => 'Feature 4 Icon', 'type' => 'icon'],
 
             // Core Services Highlights
             ['key' => 'home_services_subtitle', 'value' => 'WHAT WE DO', 'group' => 'home', 'label' => 'Core Services Subtitle', 'type' => 'text'],
             ['key' => 'home_services_title', 'value' => 'End-to-End Operational Excellence', 'group' => 'home', 'label' => 'Core Services Title', 'type' => 'text'],
             ['key' => 'home_services_desc', 'value' => 'We deliver integrated solutions connecting high-level strategy, thorough assessment, and on-the-ground training implementation.', 'group' => 'home', 'label' => 'Core Services Description', 'type' => 'textarea'],
+            ['key' => 'home_services_card_1_icon', 'value' => 'ship', 'group' => 'home', 'label' => 'Service Card 1 Icon', 'type' => 'icon'],
+            ['key' => 'home_services_card_2_icon', 'value' => 'lifebuoy', 'group' => 'home', 'label' => 'Service Card 2 Icon', 'type' => 'icon'],
+            ['key' => 'home_services_card_3_icon', 'value' => 'compass', 'group' => 'home', 'label' => 'Service Card 3 Icon', 'type' => 'icon'],
 
             // Testimonials Section
             ['key' => 'home_testimonials_subtitle', 'value' => 'CLIENT TESTIMONIALS', 'group' => 'home', 'label' => 'Testimonials Subtitle', 'type' => 'text'],
