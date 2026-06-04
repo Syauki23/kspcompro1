@@ -10,7 +10,14 @@
     <!-- Text Column -->
     <div class="about-text-col">
       <span class="about-subtitle">{{ $settings['about_subtitle'] ?? 'WHO WE ARE' }}</span>
-      <h1 class="about-title">{{ $settings['about_title'] ?? 'About KSP Consulting' }}</h1>
+      <h1 class="about-title">
+        @php
+            $aboutTitle = $settings['about_title'] ?? 'About KSP';
+            if ($aboutTitle === 'About KSP Consulting') $aboutTitle = 'About KSP';
+        @endphp
+        {{ $aboutTitle }}
+        <span class="about-title-accent">{{ $settings['about_title_accent'] ?? 'Consulting' }}</span>
+      </h1>
       
       <div class="about-desc">
         @foreach(explode("\n", $settings['about_desc'] ?? '') as $paragraph)

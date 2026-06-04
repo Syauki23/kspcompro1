@@ -3451,6 +3451,13 @@ ul {
   margin-bottom: 24px;
 }
 
+.about-title-accent {
+  background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .about-desc {
   font-size: 15.5px;
   color: #475569;

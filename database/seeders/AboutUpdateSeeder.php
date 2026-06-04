@@ -15,7 +15,8 @@ class AboutUpdateSeeder extends Seeder
         $settings = [
             // Header & Description
             ['key' => 'about_subtitle', 'value' => 'WHO WE ARE', 'group' => 'about', 'label' => 'About Subtitle', 'type' => 'text'],
-            ['key' => 'about_title', 'value' => 'About KSP Consulting', 'group' => 'about', 'label' => 'About Title', 'type' => 'text'],
+            ['key' => 'about_title', 'value' => 'About KSP', 'group' => 'about', 'label' => 'About Title Main', 'type' => 'text'],
+            ['key' => 'about_title_accent', 'value' => 'Consulting', 'group' => 'about', 'label' => 'About Title Accent', 'type' => 'text'],
             ['key' => 'about_desc', 'value' => "KSP Consulting (Karya Swarna Persada) is a consulting firm dedicated to helping businesses navigate operational and organizational challenges through innovative, practical, and sustainable solutions.\n\nWith expertise in maritime consulting, business management, technical training, risk assessment, and transportation consultancy, KSP Consulting supports companies in achieving operational excellence and long-term growth.\n\nDriven by integrity, connectivity, and excellence, the company believes strong partnerships create sustainable impact across industries.", 'group' => 'about', 'label' => 'About Description (Paragraphs)', 'type' => 'textarea'],
 
             // Statistics
