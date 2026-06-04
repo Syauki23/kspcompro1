@@ -56,11 +56,17 @@
     margin-bottom: 16px;
   }
   .cb-title .line-white {
-    color: var(--navy-dark);
+    background: linear-gradient(135deg, #E1A730 0%, #f3c153 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     display: block;
   }
   .cb-title .line-orange {
-    color: var(--primary-orange);
+    background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     display: block;
   }
   .cb-desc {
