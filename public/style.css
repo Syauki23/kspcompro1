@@ -5684,6 +5684,13 @@ ul {
   margin-bottom: 16px;
 }
 
+.testi-title-accent {
+  background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .testi-desc {
   font-size: 15px;
   color: #475569;
@@ -6171,6 +6178,13 @@ ul {
   margin-bottom: 16px;
 }
 
+.hs-title-accent {
+  background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .hs-desc {
   font-size: 15px;
   color: #475569;
@@ -6294,6 +6308,13 @@ ul {
   line-height: 1.15;
   letter-spacing: -0.5px;
   margin-bottom: 16px;
+}
+
+.hi-title-accent {
+  background: linear-gradient(135deg, #1F628E 0%, #3a92cb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hi-desc {

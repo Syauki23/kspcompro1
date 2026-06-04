@@ -39,7 +39,8 @@ class HomeUpdateSeeder extends Seeder
 
             // Core Services Highlights
             ['key' => 'home_services_subtitle', 'value' => 'WHAT WE DO', 'group' => 'home', 'label' => 'Core Services Subtitle', 'type' => 'text'],
-            ['key' => 'home_services_title', 'value' => 'End-to-End Operational Excellence', 'group' => 'home', 'label' => 'Core Services Title', 'type' => 'text'],
+            ['key' => 'home_services_title', 'value' => 'End-to-End', 'group' => 'home', 'label' => 'Core Services Title Main', 'type' => 'text'],
+            ['key' => 'home_services_title_accent', 'value' => 'Operational Excellence', 'group' => 'home', 'label' => 'Core Services Title Accent', 'type' => 'text'],
             ['key' => 'home_services_desc', 'value' => 'We deliver integrated solutions connecting high-level strategy, thorough assessment, and on-the-ground training implementation.', 'group' => 'home', 'label' => 'Core Services Description', 'type' => 'textarea'],
             ['key' => 'home_services_card_1_icon', 'value' => 'ship', 'group' => 'home', 'label' => 'Service Card 1 Icon', 'type' => 'icon'],
             ['key' => 'home_services_card_2_icon', 'value' => 'lifebuoy', 'group' => 'home', 'label' => 'Service Card 2 Icon', 'type' => 'icon'],
@@ -47,7 +48,8 @@ class HomeUpdateSeeder extends Seeder
 
             // Testimonials Section
             ['key' => 'home_testimonials_subtitle', 'value' => 'CLIENT TESTIMONIALS', 'group' => 'home', 'label' => 'Testimonials Subtitle', 'type' => 'text'],
-            ['key' => 'home_testimonials_title', 'value' => "Trusted by Maritime Leaders", 'group' => 'home', 'label' => 'Testimonials Title', 'type' => 'text'],
+            ['key' => 'home_testimonials_title', 'value' => "Trusted by", 'group' => 'home', 'label' => 'Testimonials Title Main', 'type' => 'text'],
+            ['key' => 'home_testimonials_title_accent', 'value' => "Maritime Leaders", 'group' => 'home', 'label' => 'Testimonials Title Accent', 'type' => 'text'],
             ['key' => 'home_testimonials_desc', 'value' => "We are proud to be a trusted partner for maritime and industrial businesses across Indonesia.", 'group' => 'home', 'label' => 'Testimonials Description', 'type' => 'textarea'],
 
             // Clients & Partners Section
@@ -65,7 +67,8 @@ class HomeUpdateSeeder extends Seeder
 
             // Latest Insights
             ['key' => 'home_insights_subtitle', 'value' => 'KNOWLEDGE SHARING', 'group' => 'home', 'label' => 'Insights Subtitle', 'type' => 'text'],
-            ['key' => 'home_insights_title', 'value' => 'Latest Insights & Media', 'group' => 'home', 'label' => 'Insights Title', 'type' => 'text'],
+            ['key' => 'home_insights_title', 'value' => 'Latest', 'group' => 'home', 'label' => 'Insights Title Main', 'type' => 'text'],
+            ['key' => 'home_insights_title_accent', 'value' => 'Insights & Media', 'group' => 'home', 'label' => 'Insights Title Accent', 'type' => 'text'],
             ['key' => 'home_insights_desc', 'value' => 'Stay updated with our analytical perspectives, practical case studies, and engaging dialogue on maritime operations.', 'group' => 'home', 'label' => 'Insights Description', 'type' => 'textarea'],
         ];
 
