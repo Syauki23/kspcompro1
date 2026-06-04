@@ -309,6 +309,37 @@
                                 @include('admin.settings.partials.input', ['setting' => $setting])
                             @endforeach
                         </div>
+                    @elseif($group === 'Features Section' || $group === 'Core Services Section')
+                        @php
+                            $items = [];
+                            foreach($settings as $setting) {
+                                preg_match('/_(\d+)_/', $setting->key, $m);
+                                if (isset($m[1])) {
+                                    $items[(int)$m[1]][] = $setting;
+                                } else {
+                                    $items[0][] = $setting; // If no number
+                                }
+                            }
+                            ksort($items);
+                        @endphp
+                        @if(isset($items[0]))
+                            <div class="settings-grid-2" style="margin-bottom: 24px;">
+                                @foreach($items[0] as $setting)
+                                    @include('admin.settings.partials.input', ['setting' => $setting])
+                                @endforeach
+                            </div>
+                            @php unset($items[0]); @endphp
+                        @endif
+                        <div class="settings-grid-2">
+                            @foreach($items as $num => $fields)
+                                <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-glass); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px;">
+                                    <div style="font-size: 11px; font-weight: 800; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: -4px;">Item #{{ $num }}</div>
+                                    @foreach($fields as $setting)
+                                        @include('admin.settings.partials.input', ['setting' => $setting])
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
                     @else
                         @foreach($settings as $setting)
                             @include('admin.settings.partials.input', ['setting' => $setting])
