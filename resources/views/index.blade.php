@@ -100,7 +100,11 @@
     <div class="hs-header">
       <span class="hs-subtitle">{{ $settings['home_services_subtitle'] ?? 'WHAT WE DO' }}</span>
       <h2 class="hs-title">
-        {{ $settings['home_services_title'] ?? 'End-to-End' }}
+        @php
+            $servicesTitle = $settings['home_services_title'] ?? 'End-to-End';
+            if ($servicesTitle === 'End-to-End Operational Excellence') $servicesTitle = 'End-to-End';
+        @endphp
+        {{ $servicesTitle }}
         <span class="hs-title-accent">{{ $settings['home_services_title_accent'] ?? 'Operational Excellence' }}</span>
       </h2>
       <p class="hs-desc">{{ $settings['home_services_desc'] ?? 'We deliver integrated solutions connecting high-level strategy, thorough assessment, and on-the-ground training implementation.' }}</p>
@@ -147,7 +151,11 @@
     <div class="testi-header">
       <span class="testi-subtitle">{{ $settings['home_testimonials_subtitle'] ?? 'CLIENT TESTIMONIALS' }}</span>
       <h2 class="testi-title">
-        {{ $settings['home_testimonials_title'] ?? 'Trusted by' }}
+        @php
+            $testiTitle = $settings['home_testimonials_title'] ?? 'Trusted by';
+            if ($testiTitle === 'Trusted by Maritime Leaders') $testiTitle = 'Trusted by';
+        @endphp
+        {{ $testiTitle }}
         <span class="testi-title-accent">{{ $settings['home_testimonials_title_accent'] ?? 'Maritime Leaders' }}</span>
       </h2>
       <p class="testi-desc">{{ $settings['home_testimonials_desc'] ?? 'We are proud to be a trusted partner for maritime and industrial businesses across Indonesia.' }}</p>
@@ -255,7 +263,11 @@
     <div class="hi-header">
       <span class="hi-subtitle">{{ $settings['home_insights_subtitle'] ?? 'KNOWLEDGE SHARING' }}</span>
       <h2 class="hi-title">
-        {{ $settings['home_insights_title'] ?? 'Latest' }}
+        @php
+            $insightsTitle = $settings['home_insights_title'] ?? 'Latest';
+            if ($insightsTitle === 'Latest Insights & Media') $insightsTitle = 'Latest';
+        @endphp
+        {{ $insightsTitle }}
         <span class="hi-title-accent">{{ $settings['home_insights_title_accent'] ?? 'Insights & Media' }}</span>
       </h2>
       <p class="hi-desc">{{ $settings['home_insights_desc'] ?? 'Listen to expert talks discussing high-level industry hurdles, leadership culture, and cutting-edge operational frameworks directly with top practitioners.' }}</p>
