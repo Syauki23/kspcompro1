@@ -20,6 +20,23 @@
         </div>
     @elseif($setting->type === 'icon')
         @include('admin.settings.partials.icon_picker', ['setting' => $setting])
+    @elseif($setting->type === 'color')
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <input
+                type="color"
+                value="{{ (str_starts_with($setting->value, '#') && strlen($setting->value) == 7) ? $setting->value : '#000000' }}"
+                style="width: 45px; height: 45px; padding: 0; border: 1px solid var(--border-glass); border-radius: 8px; background: none; cursor: pointer;"
+                oninput="this.nextElementSibling.value = this.value"
+            >
+            <input
+                type="text"
+                name="{{ $setting->key }}"
+                value="{{ $setting->value }}"
+                class="form-input"
+                style="flex: 1; font-family: monospace;"
+                oninput="if(this.value.startsWith('#') && this.value.length === 7) this.previousElementSibling.value = this.value"
+            >
+        </div>
     @else
         <input
             type="text"
