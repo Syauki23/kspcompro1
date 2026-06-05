@@ -231,7 +231,7 @@ ul {
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  background: rgba(10, 20, 40, 0.96);
+  background: var(--navbar-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   min-width: 220px;
@@ -256,7 +256,7 @@ ul {
   transform: translateX(-50%) rotate(45deg);
   width: 12px;
   height: 12px;
-  background: rgba(10, 20, 40, 0.96);
+  background: var(--navbar-bg);
   border-top: 1px solid rgba(225, 167, 48, 0.2);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -452,7 +452,7 @@ ul {
   width: 80%;
   max-width: 320px;
   height: 100%;
-  background: rgba(15, 30, 55, 0.95);
+  background: var(--navbar-bg);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   padding: 100px 30px 40px;
   display: flex;
@@ -1451,7 +1451,7 @@ ul {
   top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(9, 20, 40, 0.96);
+  background: var(--navbar-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   min-width: 230px;
@@ -1476,7 +1476,7 @@ ul {
   transform: translateX(-50%);
   width: 12px;
   height: 12px;
-  background: rgba(9, 20, 40, 0.96);
+  background: var(--navbar-bg);
   border-top: 1px solid rgba(225, 167, 48, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
