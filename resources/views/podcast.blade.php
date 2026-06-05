@@ -52,9 +52,11 @@
             </div>
           </div>
         </div>
+        @if(!empty($featured->description))
         <div class="pod-feat-desc-block">
           <p>{{ $featured->description }}</p>
         </div>
+        @endif
         @else
         <div class="pod-feat-card">
           <div class="pod-feat-content" style="padding: 24px;">
