@@ -23,8 +23,7 @@
                     <tr>
                         <th>Order</th>
                         <th>Title</th>
-                        <th>Company</th>
-                        <th>Year</th>
+
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -34,8 +33,7 @@
                         <tr>
                             <td>{{ $exp->order_position }}</td>
                             <td style="font-weight: 600;">{{ $exp->title }}</td>
-                            <td style="color: var(--text-muted);">{{ $exp->company }}</td>
-                            <td>{{ $exp->year }}</td>
+
                             <td>
                                 <span class="badge {{ $exp->is_active ? 'badge-read' : 'badge-unread' }}">
                                     {{ $exp->is_active ? 'Active' : 'Inactive' }}
@@ -52,7 +50,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 30px;">Belum ada data.</td></tr>
+                        <tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">Belum ada data.</td></tr>
                     @endforelse
                 </tbody>
             </table>

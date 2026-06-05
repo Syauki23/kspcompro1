@@ -64,19 +64,7 @@
         </div>
     </div>
     
-    <div>
-        <label class="form-label">Company *</label>
-        <input type="text" name="company" value="{{ old('company', $exp?->company) }}" class="form-input" required>
-    </div>
-    <div>
-        <label class="form-label">Year *</label>
-        <input type="text" name="year" value="{{ old('year', $exp?->year) }}" class="form-input" placeholder="e.g. 2022 - Present" required>
-    </div>
-    <div>
-        <label class="form-label">Category</label>
-        <input type="text" name="category" value="{{ old('category', $exp?->category) }}" class="form-input" placeholder="e.g. Maritime">
-    </div>
-    <div>
+    <div style="grid-column: span 2;">
         <label class="form-label">Color Scheme</label>
         <select name="color_scheme" class="form-input">
             <option value="style-navy" {{ old('color_scheme', $exp?->color_scheme) === 'style-navy' ? 'selected' : '' }}>Navy</option>

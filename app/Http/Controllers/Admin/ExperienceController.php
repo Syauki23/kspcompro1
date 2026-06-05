@@ -23,10 +23,7 @@ class ExperienceController extends Controller
     {
         $validated = $request->validate([
             'title'          => 'required|string|max:255',
-            'company'        => 'required|string|max:255',
-            'year'           => 'required|string|max:50',
             'description'    => 'nullable|string',
-            'category'       => 'nullable|string|max:100',
             'color_scheme'   => 'nullable|string|max:50',
             'icon'           => 'nullable|string|max:50',
             'order_position' => 'nullable|integer',
@@ -49,10 +46,7 @@ class ExperienceController extends Controller
     {
         $validated = $request->validate([
             'title'          => 'required|string|max:255',
-            'company'        => 'required|string|max:255',
-            'year'           => 'required|string|max:50',
             'description'    => 'nullable|string',
-            'category'       => 'nullable|string|max:100',
             'color_scheme'   => 'nullable|string|max:50',
             'icon'           => 'nullable|string|max:50',
             'order_position' => 'nullable|integer',
