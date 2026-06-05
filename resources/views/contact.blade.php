@@ -4,6 +4,18 @@
 @section('meta_description', 'Get in touch with KSP Consulting. We provide knowledge-driven consulting to help maritime and industrial businesses operate safely and efficiently.')
 @section('meta_keywords', 'Contact KSP Consulting, Maritime Consultants Indonesia, Consulting Services Inquiry, Maritime Assessment Contact')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Contact", "item": "{{ url('/contact') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <style>

@@ -4,6 +4,18 @@
 @section('meta_description', 'Learn about the philosophy and culture behind KSP Consulting. Discover Swarnadwipa, our guiding principles for excellence and collaborative growth.')
 @section('meta_keywords', 'KSP Consulting Culture, Our Philosophy, Swarnadwipa, Core Values, Integrity, Collaborative Growth')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Philosophy", "item": "{{ url('/philosophy') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <section class="phil-hero">

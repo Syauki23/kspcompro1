@@ -4,6 +4,18 @@
 @section('meta_description', 'Join our practical maritime workshops and training sessions. Delivered by industry experts covering risk assessment, safety management, and operational excellence.')
 @section('meta_keywords', 'Maritime Training, Maritime Workshops, Knowledge Sharing, Maritime Assessment, Safety Management Training')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Training", "item": "{{ url('/training') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <header class="train-hero">

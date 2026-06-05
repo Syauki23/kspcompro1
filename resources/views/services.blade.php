@@ -4,6 +4,18 @@
 @section('meta_description', 'Explore KSP Consulting services including maritime consulting, risk assessment, HR assessment, and strategic operational implementations.')
 @section('meta_keywords', 'Maritime Services, Maritime Consulting, Risk Assessment, HR Assessment, Operational Implementations, Ship Management')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "{{ url('/services') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- SERVICES HERO BANNER -->

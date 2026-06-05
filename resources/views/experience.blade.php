@@ -4,6 +4,18 @@
 @section('meta_description', 'Discover KSP Consulting track record in maritime assessment, operational improvement, and safety projects across Indonesia.')
 @section('meta_keywords', 'KSP Consulting Experience, Maritime Projects, Safety Assessment Projects, Operational Improvement, TMSA Gap Assessments')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Experience", "item": "{{ url('/experience') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <section class="exp-hero-section">

@@ -4,6 +4,18 @@
 @section('meta_description', 'Listen to KSP Consulting podcast. Executive conversations, strategic insights, and human-centered discussions on maritime leadership, operations, and growth.')
 @section('meta_keywords', 'Maritime Podcast, KSP Consulting Media, Leadership Talks, Operational Insights, Maritime Industry Discussions')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Podcast", "item": "{{ url('/podcast') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <main>

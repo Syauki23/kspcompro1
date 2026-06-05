@@ -1,6 +1,21 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-blog'])
 
 @section('title', 'Blog & Insights | KSP Consulting')
+@section('meta_description', 'Read the latest insights, articles, and best practices on maritime consulting, safety management, operational excellence, and industry trends from KSP Consulting.')
+@section('meta_keywords', 'Maritime Blog, KSP Consulting Insights, Maritime Industry Articles, Safety Compliance, Operational Excellence Blog')
+
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ url('/blog') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <main class="modern-blog-layout">

@@ -3,6 +3,22 @@
 @section('title', 'KSP Consulting | Maritime Consulting & Operational Excellence')
 @section('meta_description', 'KSP Consulting delivers end-to-End Operational Excellence in maritime and industrial sectors. We provide strategic consulting, risk assessment, and training.')
 @section('meta_keywords', 'KSP Consulting, Maritime Consulting Indonesia, Operational Excellence, Risk Assessment, Maritime Industry Solutions')
+
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ url('/') }}"
+  }]
+}
+</script>
+@endsection
+
 @php
     $maritimeIcons = [
         'anchor' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><line x1="8" y1="12" x2="16" y2="12"/></svg>',

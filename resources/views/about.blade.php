@@ -4,6 +4,18 @@
 @section('meta_description', 'Learn more about KSP Consulting, who we are, and our core values. We bring years of maritime assessment and consulting experience across Indonesia.')
 @section('meta_keywords', 'About KSP Consulting, Maritime Consultants, Core Values, Integrity, Connectivity, Excellence, Maritime Assessment')
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url('/') }}"},
+    {"@type": "ListItem", "position": 2, "name": "About Us", "item": "{{ url('/about') }}"}
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- ABOUT SECTION -->
