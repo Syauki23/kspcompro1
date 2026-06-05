@@ -43,7 +43,7 @@
 
   <div class="phil-letters" id="phil-letters">
     @foreach($values as $val)
-    <div class="phil-letter {{ $loop->first ? 'active' : '' }}" data-index="{{ $val->index }}"><span class="letter">{{ $val->letter }}</span></div>
+    <div class="phil-letter {{ $loop->first ? 'active' : '' }}" data-index="{{ $loop->index }}"><span class="letter">{{ $val->letter }}</span></div>
     @endforeach
   </div>
 
