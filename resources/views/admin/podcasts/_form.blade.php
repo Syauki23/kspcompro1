@@ -28,9 +28,8 @@
         <input type="text" name="category" value="{{ old('category', $pod?->category) }}" class="form-input" placeholder="e.g. Navigating Through Maritime">
     </div>
     <div>
-        <label class="form-label">YouTube Video ID</label>
-        <input type="text" name="youtube_id" value="{{ old('youtube_id', $pod?->youtube_id) }}" class="form-input" placeholder="e.g. dQw4w9WgXcQ">
-        <p style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Hanya ID-nya saja, bukan full URL</p>
+        <label class="form-label">YouTube URL</label>
+        <input type="text" name="youtube_id" value="{{ old('youtube_id', $pod?->youtube_id ? (str_starts_with($pod->youtube_id, 'http') ? $pod->youtube_id : 'https://www.youtube.com/watch?v=' . $pod->youtube_id) : '') }}" class="form-input" placeholder="https://www.youtube.com/watch?v=...">
     </div>
     <div>
         <label class="form-label">Spotify URL</label>

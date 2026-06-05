@@ -30,7 +30,7 @@ class PodcastController extends Controller
             'episode_number' => 'nullable|integer',
             'duration'       => 'nullable|string|max:20',
             'publish_date'   => 'nullable|date',
-            'youtube_id'     => 'nullable|string|max:50',
+            'youtube_id'     => 'nullable|string|max:500',
             'spotify_url'    => 'nullable|url|max:500',
             'description'    => 'nullable|string',
             'category'       => 'nullable|string|max:100',
@@ -42,6 +42,11 @@ class PodcastController extends Controller
         $validated['slug'] = Str::slug($validated['title']);
         $validated['is_featured'] = $request->boolean('is_featured', false);
         $validated['is_active']   = $request->boolean('is_active', true);
+
+        if (!empty($validated['youtube_id'])) {
+            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $validated['youtube_id'], $match);
+            $validated['youtube_id'] = $match[1] ?? $validated['youtube_id'];
+        }
 
         // If this is featured, unset others
         if ($validated['is_featured']) {
@@ -70,7 +75,7 @@ class PodcastController extends Controller
             'episode_number' => 'nullable|integer',
             'duration'       => 'nullable|string|max:20',
             'publish_date'   => 'nullable|date',
-            'youtube_id'     => 'nullable|string|max:50',
+            'youtube_id'     => 'nullable|string|max:500',
             'spotify_url'    => 'nullable|url|max:500',
             'description'    => 'nullable|string',
             'category'       => 'nullable|string|max:100',
@@ -82,6 +87,11 @@ class PodcastController extends Controller
         $validated['slug'] = Str::slug($validated['title']);
         $validated['is_featured'] = $request->boolean('is_featured', false);
         $validated['is_active']   = $request->boolean('is_active', true);
+
+        if (!empty($validated['youtube_id'])) {
+            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $validated['youtube_id'], $match);
+            $validated['youtube_id'] = $match[1] ?? $validated['youtube_id'];
+        }
 
         // If this is featured, unset others
         if ($validated['is_featured']) {
