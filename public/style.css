@@ -1276,10 +1276,6 @@ ul {
     flex-direction: column;
   }
 
-  .train-events-grid {
-    /* tablet: tampil 2 card */
-  }
-
   .train-event-card {
     flex: 0 0 calc(50% - 10px);
   }
@@ -1314,10 +1310,6 @@ ul {
 
   .train-speakers-grid {
     flex-direction: column;
-  }
-
-  .train-events-grid {
-    /* mobile: tampil 1 card */
   }
 
   .train-event-card {
