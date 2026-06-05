@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-philosophy'])
 
-@section('title', 'Philosophy | KSP Consulting')
+@section('title', 'Our Philosophy & Culture | KSP Consulting')
+@section('meta_description', 'Learn about the philosophy and culture behind KSP Consulting. Discover Swarnadwipa, our guiding principles for excellence and collaborative growth.')
+@section('meta_keywords', 'KSP Consulting Culture, Our Philosophy, Swarnadwipa, Core Values, Integrity, Collaborative Growth')
+
 
 @section('content')
 <section class="phil-hero">

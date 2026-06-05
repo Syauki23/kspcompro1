@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-services'])
 
-@section('title', 'Services | KSP Consulting')
+@section('title', 'Maritime Services & Solutions | KSP Consulting')
+@section('meta_description', 'Explore KSP Consulting services including maritime consulting, risk assessment, HR assessment, and strategic operational implementations.')
+@section('meta_keywords', 'Maritime Services, Maritime Consulting, Risk Assessment, HR Assessment, Operational Implementations, Ship Management')
+
 
 @section('content')
 <!-- SERVICES HERO BANNER -->

@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-contact'])
 
 @section('title', 'Contact Us | KSP Consulting')
+@section('meta_description', 'Get in touch with KSP Consulting. We provide knowledge-driven consulting to help maritime and industrial businesses operate safely and efficiently.')
+@section('meta_keywords', 'Contact KSP Consulting, Maritime Consultants Indonesia, Consulting Services Inquiry, Maritime Assessment Contact')
+
 
 @section('content')
 <style>

@@ -83,6 +83,35 @@ Route::post('/contact', function (\Illuminate\Http\Request $request) {
     return back()->with('success', 'Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.');
 })->name('contact.submit');
 
+Route::get('/sitemap.xml', function () {
+    $pages = [
+        '',
+        'about',
+        'experience',
+        'philosophy',
+        'services',
+        'training',
+        'blog',
+        'podcast',
+        'contact'
+    ];
+    
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+    
+    foreach ($pages as $page) {
+        $xml .= '<url>';
+        $xml .= '<loc>' . url($page) . '</loc>';
+        $xml .= '<changefreq>weekly</changefreq>';
+        $xml .= '<priority>' . ($page == '' ? '1.0' : '0.8') . '</priority>';
+        $xml .= '</url>';
+    }
+    
+    $xml .= '</urlset>';
+    
+    return response($xml)->header('Content-Type', 'text/xml');
+});
+
 // Admin Authentication Routes
 Route::get('/admin/login', [App\Http\Controllers\AuthController::class, 'showLogin'])->name('login');
 Route::post('/admin/login', [App\Http\Controllers\AuthController::class, 'login'])->name('admin.login.submit');

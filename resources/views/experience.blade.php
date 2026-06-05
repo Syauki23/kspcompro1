@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-experience'])
 
-@section('title', 'Experience | KSP Consulting')
+@section('title', 'Our Experience & Projects | KSP Consulting')
+@section('meta_description', 'Discover KSP Consulting track record in maritime assessment, operational improvement, and safety projects across Indonesia.')
+@section('meta_keywords', 'KSP Consulting Experience, Maritime Projects, Safety Assessment Projects, Operational Improvement, TMSA Gap Assessments')
+
 
 @section('content')
 <section class="exp-hero-section">

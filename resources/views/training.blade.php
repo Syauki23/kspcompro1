@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-training'])
 
-@section('title', 'Training & Knowledge Sharing | KSP Consulting')
+@section('title', 'Maritime Workshop & Training | KSP Consulting')
+@section('meta_description', 'Join our practical maritime workshops and training sessions. Delivered by industry experts covering risk assessment, safety management, and operational excellence.')
+@section('meta_keywords', 'Maritime Training, Maritime Workshops, Knowledge Sharing, Maritime Assessment, Safety Management Training')
+
 
 @section('content')
 <header class="train-hero">

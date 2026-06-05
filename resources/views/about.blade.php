@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-about'])
 
 @section('title', 'About Us | KSP Consulting')
+@section('meta_description', 'Learn more about KSP Consulting, who we are, and our core values. We bring years of maritime assessment and consulting experience across Indonesia.')
+@section('meta_keywords', 'About KSP Consulting, Maritime Consultants, Core Values, Integrity, Connectivity, Excellence, Maritime Assessment')
+
 
 @section('content')
 <!-- ABOUT SECTION -->

@@ -1,6 +1,9 @@
 @extends('layouts.app', ['navbarClass' => 'navbar-services', 'bodyClass' => 'page-podcast'])
 
-@section('title', 'Podcast | KSP Consulting - Conversations Beyond Operations')
+@section('title', 'Podcast & Media | KSP Consulting')
+@section('meta_description', 'Listen to KSP Consulting podcast. Executive conversations, strategic insights, and human-centered discussions on maritime leadership, operations, and growth.')
+@section('meta_keywords', 'Maritime Podcast, KSP Consulting Media, Leadership Talks, Operational Insights, Maritime Industry Discussions')
+
 
 @section('content')
 <main>
