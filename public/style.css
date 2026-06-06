@@ -7094,7 +7094,8 @@ ul {
   transform: translateY(-3px);
 }
 
-.plat-link img {
+.plat-link img,
+.plat-link svg {
   width: 44px;
   height: 44px;
 }
@@ -8446,7 +8447,8 @@ ul {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-.plat-link img {
+.plat-link img,
+.plat-link svg {
   width: 32px;
   height: 32px;
 }
