@@ -33,7 +33,7 @@
                         name="email" 
                         id="email" 
                         class="form-input" 
-                        placeholder="admin@ksp-consulting.com" 
+                        placeholder="email" 
                         value="{{ old('email') }}" 
                         required 
                         autocomplete="email" 
