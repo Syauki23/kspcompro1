@@ -27,5 +27,6 @@ class Podcast extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
+        'publish_date' => 'date',
     ];
 }

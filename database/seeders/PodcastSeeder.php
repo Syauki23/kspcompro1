@@ -38,7 +38,7 @@ class PodcastSeeder extends Seeder
                 'description' => 'A deep dive into self-purpose, executive leadership models, and leaving a lasting legacy.',
                 'category' => 'Navigating Through Life',
                 'is_featured' => false,
-                'image' => 'assets/life_podcast.png',
+                'image' => 'assets/sumatra.jpg',
                 'is_active' => true,
             ],
             [
@@ -52,7 +52,7 @@ class PodcastSeeder extends Seeder
                 'description' => 'Exploring case studies of failures and how individuals and teams pivot toward strategic strength.',
                 'category' => 'Navigating Through Life',
                 'is_featured' => true,
-                'image' => 'podcasts/h9y12iudaUmUR7TC2ZFBt5mH1FTmqJWoY6Babwzm.webp',
+                'image' => 'assets/experient.jpg',
                 'is_active' => true,
             ],
             [
@@ -80,7 +80,7 @@ class PodcastSeeder extends Seeder
                 'description' => 'How digitalization, automation, and ESG safety demands are reshaping maritime human capital.',
                 'category' => 'Navigating Through Maritime',
                 'is_featured' => false,
-                'image' => 'assets/maritime_podcast.png',
+                'image' => 'assets/training.png',
                 'is_active' => true,
             ],
             [
@@ -94,7 +94,7 @@ class PodcastSeeder extends Seeder
                 'description' => 'A comprehensive review of upcoming environmental regulations and STCW updates for 2025.',
                 'category' => 'Navigating Through Maritime',
                 'is_featured' => false,
-                'image' => 'assets/maritime_podcast.png',
+                'image' => 'assets/bg-ship.jpg',
                 'is_active' => true,
             ],
         ];

@@ -19,7 +19,7 @@
 
 @section('content')
 <main>
-  <!-- PODCAST HERO (DARK) -->
+  <!-- PODCAST HERO -->
   <section class="pod-hero">
     <div class="pod-hero-container">
       <div class="pod-hero-left">
@@ -63,7 +63,7 @@
             <h3>{{ $featured->title }}</h3>
             <div class="pod-meta">
               <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> {{ $featured->duration }}</span>
-              <span>{{ $featured->publish_date }}</span>
+              <span>{{ $featured->publish_date ? $featured->publish_date->format('M d, Y') : '' }}</span>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
     </div>
   </section>
 
-  <!-- EPISODE LISTS (WHITE) -->
+  <!-- EPISODE LISTS -->
   <section class="pod-playlists">
     <div class="pod-playlist-container">
       
@@ -96,28 +96,32 @@
           </div>
           <a href="{{ $settings['podcast_youtube_url'] ?? '#' }}" class="view-all" target="_blank">View all on YouTube &rarr;</a>
         </div>
-        <div class="pod-grid">
-          @foreach($episodes->take(3) as $episode)
-          <div class="pod-card">
+        <div class="pod-grid" data-count="{{ $episodes->count() }}">
+          @foreach($episodes as $episode)
+          <div class="pod-card" @if($episode->youtube_id) onclick="window.open('https://www.youtube.com/watch?v={{ $episode->youtube_id }}', '_blank')" style="cursor:pointer;" @endif>
             <div class="pod-card-img">
               @if($episode->image)
                 <img src="{{ str_starts_with($episode->image, 'http') || str_starts_with($episode->image, 'assets') ? asset($episode->image) : Storage::url($episode->image) }}" alt="{{ $episode->title }}">
               @else
                 <img src="{{ asset('assets/life_podcast.png') }}" alt="{{ $episode->title }}">
               @endif
-              <div class="pod-play-overlay-small" @if($episode->youtube_id) onclick="window.open('https://www.youtube.com/watch?v={{ $episode->youtube_id }}', '_blank')" style="cursor:pointer;" @endif>
+              <div class="pod-play-overlay-small">
                 <div class="play-btn-circle-small"><div class="play-triangle-small"></div></div>
               </div>
               <span class="pod-duration">{{ $episode->duration }}</span>
             </div>
             <div class="pod-card-content">
-              <span class="pod-ep-tag">EP.{{ $episode->episode_number }}</span>
+              <div class="pod-card-top-row">
+                <span class="pod-ep-tag">EP.{{ $episode->episode_number }}</span>
+                <span class="pod-date">{{ $episode->publish_date ? $episode->publish_date->format('M d, Y') : '' }}</span>
+              </div>
               <h4>{{ $episode->title }}</h4>
-              <span class="pod-date">{{ $episode->publish_date }}</span>
+              @if($episode->description)
+              <p class="pod-card-desc">{{ Str::limit($episode->description, 90) }}</p>
+              @endif
             </div>
           </div>
           @endforeach
-          <button class="pod-grid-next"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
         </div>
       </div>
       @empty
@@ -127,7 +131,7 @@
     </div>
   </section>
 
-  <!-- PLATFORMS (LIGHT) -->
+  <!-- PLATFORMS -->
   <section class="pod-platforms">
     <div class="pod-plat-container">
       <div class="pod-plat-info">

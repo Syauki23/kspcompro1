@@ -8213,33 +8213,36 @@ ul {
   text-decoration: underline;
 }
 
+/* Adaptive grid: fills space when fewer items */
 .pod-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
   position: relative;
 }
 
 .pod-card {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .pod-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 86, 179, 0.1);
 }
 
 .pod-card-img {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
-  /* 16:9 Aspect Ratio */
   overflow: hidden;
   background-color: #e2e8f0;
 }
@@ -8251,11 +8254,11 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .pod-card:hover .pod-card-img img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .pod-duration {
@@ -8265,10 +8268,11 @@ ul {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: 0.75rem;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
   font-weight: 600;
   z-index: 2;
+  backdrop-filter: blur(4px);
 }
 
 /* Small Play Animation Overlay */
@@ -8278,7 +8282,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8321,63 +8325,58 @@ ul {
   0% {
     box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
   }
-
   70% {
     box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
   }
-
   100% {
     box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
   }
 }
 
 .pod-card-content {
-  padding: 20px;
+  padding: 20px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top row: episode tag left, date right */
+.pod-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .pod-ep-tag {
   font-size: 0.8rem;
   color: #0056b3;
   font-weight: 700;
-  margin-bottom: 8px;
-  display: block;
+  display: inline-block;
+  background: rgba(0, 86, 179, 0.06);
+  padding: 3px 10px;
+  border-radius: 20px;
 }
 
 .pod-card-content h4 {
   font-size: 1.1rem;
   color: #0f172a;
   line-height: 1.4;
-  margin-bottom: 12px;
-  font-weight: 600;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.pod-card-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-top: auto;
 }
 
 .pod-date {
-  font-size: 0.85rem;
-  color: #64748b;
-}
-
-.pod-grid-next {
-  position: absolute;
-  top: 50%;
-  right: -50px;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.pod-grid-next:hover {
-  background: #0056b3;
-  color: #fff;
-  border-color: #0056b3;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
 }
 
 /* --------------------------------------------------
@@ -8385,19 +8384,20 @@ ul {
    -------------------------------------------------- */
 .pod-platforms {
   background-color: #F2F1EE;
-  padding: 40px 0;
+  padding: 40px 0 80px;
 }
 
 .pod-plat-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 40px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 16px;
-  padding: 30px 40px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .pod-plat-info {
@@ -8407,7 +8407,7 @@ ul {
 .plat-badge {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #0056b3;
+  color: var(--primary-orange);
   letter-spacing: 1px;
   margin-bottom: 12px;
   display: block;
@@ -8427,37 +8427,41 @@ ul {
 
 .pod-plat-links {
   display: flex;
-  gap: 20px;
+  gap: 16px;
 }
 
 .plat-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   background: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 16px 28px;
+  border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  min-width: 200px;
 }
 
 .plat-link:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 86, 179, 0.1);
 }
 
 .plat-link img,
 .plat-link svg {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
 }
 
 .plat-text span {
   display: block;
   font-size: 1rem;
   font-weight: 700;
-  color: #000;
+  color: #0f172a;
   margin-bottom: 2px;
 }
 
@@ -8493,15 +8497,16 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .pod-grid-next {
-    display: none;
-  }
-
   .pod-plat-container {
     flex-direction: column;
     text-align: center;
     gap: 40px;
     padding: 40px 30px;
+  }
+
+  .pod-plat-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -8520,6 +8525,11 @@ ul {
 
   .pod-grid {
     grid-template-columns: 1fr;
+  }
+
+  .plat-link {
+    min-width: unset;
+    flex: 1;
   }
 }
 
