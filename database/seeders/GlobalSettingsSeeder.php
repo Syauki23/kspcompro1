@@ -16,6 +16,9 @@ class GlobalSettingsSeeder extends Seeder
             // Website Logo & Identity
             ['key' => 'site_logo', 'value' => '', 'group' => 'global', 'label' => 'Website Logo (Header & Footer)', 'type' => 'image'],
             
+            // Design / Customization
+            ['key' => 'navbar_color', 'value' => 'rgba(10, 20, 40, 0.92)', 'group' => 'global', 'label' => 'Navbar Background Color (Hex or RGBA)', 'type' => 'color'],
+
             // Social Media links
             ['key' => 'social_instagram', 'value' => 'https://instagram.com', 'group' => 'global', 'label' => 'Instagram URL', 'type' => 'text'],
             ['key' => 'social_linkedin', 'value' => 'https://linkedin.com', 'group' => 'global', 'label' => 'LinkedIn URL', 'type' => 'text'],
