@@ -25,5 +25,6 @@ class Training extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
+        'syllabus' => 'array',
     ];
 }

@@ -31,6 +31,13 @@ class DatabaseSeeder extends Seeder
             GlobalSettingsSeeder::class,
             ContactUpdateSeeder::class,
             PodcastSettingsSeeder::class,
+            
+            // Core content seeders
+            PhilosophyValueSeeder::class,
+            ExperienceSeeder::class,
+            ServiceSeeder::class,
+            TrainingSeeder::class,
+            PodcastSeeder::class,
         ]);
     }
 }
