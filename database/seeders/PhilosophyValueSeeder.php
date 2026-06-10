@@ -116,7 +116,7 @@ class PhilosophyValueSeeder extends Seeder
 
         foreach ($values as $val) {
             PhilosophyValue::updateOrCreate(
-                ['letter' => $val['letter'], 'index' => $val['index']],
+                ['index' => $val['index']],
                 $val
             );
         }
