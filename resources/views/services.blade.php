@@ -183,7 +183,7 @@
 
       <div class="modal-cta-wrap">
         <button class="btn-consult modal-inquire-btn" data-service="{{ $service->title }}">
-          Inquire for {{ $service->title }}
+          Inquire Now
         </button>
       </div>
     </div>
