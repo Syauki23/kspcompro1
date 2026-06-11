@@ -2065,8 +2065,8 @@ ul {
 /* ── Main Grid ── */
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1.6fr;
-  gap: 0 40px;
+  grid-template-columns: 2.2fr 1.2fr 1.2fr 1.6fr;
+  gap: 0 50px;
   padding: 56px 0 48px;
 }
 
