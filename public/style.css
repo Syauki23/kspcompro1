@@ -1117,7 +1117,7 @@ ul {
   padding: 20px;
   display: flex;
   gap: 16px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .te-date {
@@ -2065,8 +2065,8 @@ ul {
 /* ── Main Grid ── */
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1.6fr;
-  gap: 0 40px;
+  grid-template-columns: 2.2fr 1.2fr 1.2fr 1.6fr;
+  gap: 0 50px;
   padding: 56px 0 48px;
 }
 
@@ -3822,6 +3822,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
@@ -3882,18 +3883,25 @@ ul {
 }
 
 .exp-card-title {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--navy-dark);
-  line-height: 1.35;
-  margin-bottom: 12px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 84px;
+  width: 100%;
 }
 
 .exp-card-bullets {
-  margin-top: auto;
-  text-align: left;
+  margin-top: 12px;
+  text-align: center;
   width: 100%;
-  padding-top: 10px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
 }
 
 .exp-card-bullets ul {

@@ -71,7 +71,7 @@
       </div>
       <div class="exp-card-title">{{ $exp->title }}</div>
       @if($exp->description)
-      <div class="exp-card-bullets" style="margin-top: 8px; font-size: 13px; color: #64748b;">{{ $exp->description }}</div>
+      <div class="exp-card-bullets">{{ $exp->description }}</div>
       @endif
     </div>
     @empty

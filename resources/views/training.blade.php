@@ -153,8 +153,7 @@
         <img src="{{ $imgSrc }}" alt="{{ $event->title }}" class="te-img">
         <div class="te-content">
           <div class="te-date">
-            <span class="te-day">{{ $event->event_date ? $event->event_date->format('d') : '--' }}</span>
-            <span class="te-mo">{{ $event->event_date ? strtoupper($event->event_date->format('M Y')) : '' }}</span>
+            <span class="te-day" style="font-size: 24px;">{{ $event->event_date ? $event->event_date->format('Y') : '--' }}</span>
           </div>
           <div class="te-info">
             <h4 class="te-title">{{ $event->title }}</h4>

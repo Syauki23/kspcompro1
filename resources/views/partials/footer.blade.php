@@ -86,23 +86,7 @@
           <li><a href="{{ url('/about') }}">About Us</a></li>
           <li><a href="{{ url('/experience') }}">Our Experience</a></li>
           <li><a href="{{ url('/philosophy') }}">Philosophy &amp; Culture</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-
-      <!-- Resources Column -->
-      <div class="footer-col links-col">
-        <h4 class="footer-heading">
-          <span class="footer-heading-line" aria-hidden="true"></span>
-          Resources
-        </h4>
-        <ul class="footer-links">
-          <li><a href="{{ url('/blog') }}">Blog &amp; Insights</a></li>
           <li><a href="{{ url('/podcast') }}">KSP Podcast</a></li>
-          <li><a href="#">Case Studies</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">FAQ</a></li>
         </ul>
       </div>
 
