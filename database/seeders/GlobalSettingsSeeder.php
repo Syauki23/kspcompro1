@@ -24,6 +24,7 @@ class GlobalSettingsSeeder extends Seeder
             ['key' => 'social_linkedin', 'value' => 'https://linkedin.com', 'group' => 'global', 'label' => 'LinkedIn URL', 'type' => 'text'],
             ['key' => 'social_youtube', 'value' => 'https://youtube.com', 'group' => 'global', 'label' => 'YouTube URL', 'type' => 'text'],
             ['key' => 'social_spotify', 'value' => 'https://spotify.com', 'group' => 'global', 'label' => 'Spotify Podcast URL', 'type' => 'text'],
+            ['key' => 'social_tiktok', 'value' => 'https://tiktok.com', 'group' => 'global', 'label' => 'TikTok URL', 'type' => 'text'],
 
             // Contact Information
             ['key' => 'contact_phone', 'value' => '+62 878 8023 1853', 'group' => 'contact', 'label' => 'Contact Telephone Number', 'type' => 'text'],
