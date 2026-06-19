@@ -2606,6 +2606,22 @@ ul {
   /* Constrain width so popup can sit on the right side */
 }
 
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+}
+
 .service-card {
   background: #ffffff;
   border-radius: 16px;
