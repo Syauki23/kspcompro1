@@ -25,7 +25,7 @@
   </div>
 
   <div class="phil-hero-container">
-    <div class="phil-hero-content">
+    <div class="phil-hero-content reveal fade-in-left">
       <div class="phil-subtitle-wrap">
         <span class="phil-subtitle">{{ $settings['phil_subtitle'] ?? 'OUR PHILOSOPHY & CULTURE' }}</span>
         <div class="phil-subtitle-line"></div>
@@ -52,7 +52,7 @@
   </div>
 </section>
 
-<section class="phil-compass">
+<section class="phil-compass reveal fade-in-up">
   <h2 class="phil-compass-title">{{ $settings['phil_compass_title'] ?? 'Our Culture, Our Compass' }}</h2>
   <p class="phil-compass-desc">{!! nl2br(e($settings['phil_compass_desc'] ?? 'SWARNADWIPA represents the values that guide us in everything we do.')) !!}</p>
 
@@ -72,7 +72,7 @@
   </div>
 </section>
 
-<section class="phil-slider-section">
+<section class="phil-slider-section reveal fade-in-up">
   <div class="phil-slider-inner">
     <button class="phil-arrow phil-arrow-left" id="phil-prev" aria-label="Previous">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>

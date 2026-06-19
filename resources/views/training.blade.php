@@ -31,7 +31,7 @@
   </div>
   
   <div class="train-hero-container">
-    <div class="train-hero-content">
+    <div class="train-hero-content reveal fade-in-left">
       <div class="train-subtitle-wrap">
         <span class="train-subtitle">{{ $settings['training_hero_subtitle'] ?? 'OUR TRAINING & KNOWLEDGE SHARING' }}</span>
         <div class="train-subtitle-line"></div>
@@ -45,29 +45,29 @@
   </div>
 
   <!-- Features Bottom Strip -->
-  <div class="train-features-strip">
-    <div class="train-feature-item">
+  <div class="train-features-strip stagger-container">
+    <div class="train-feature-item reveal fade-in-up">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
       <div class="train-feature-text">
         <h4>{{ $settings['training_feature_1_title'] ?? 'Industry Experts' }}</h4>
         <p>{{ $settings['training_feature_1_desc'] ?? 'Delivered by practitioners' }}</p>
       </div>
     </div>
-    <div class="train-feature-item">
+    <div class="train-feature-item reveal fade-in-up">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
       <div class="train-feature-text">
         <h4>{{ $settings['training_feature_2_title'] ?? 'Practical Learning' }}</h4>
         <p>{{ $settings['training_feature_2_desc'] ?? 'Real case studies & best practices' }}</p>
       </div>
     </div>
-    <div class="train-feature-item">
+    <div class="train-feature-item reveal fade-in-up">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
       <div class="train-feature-text">
         <h4>{{ $settings['training_feature_3_title'] ?? 'Actionable Insights' }}</h4>
         <p>{{ $settings['training_feature_3_desc'] ?? 'Tools & strategies you can apply' }}</p>
       </div>
     </div>
-    <div class="train-feature-item">
+    <div class="train-feature-item reveal fade-in-up">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
       <div class="train-feature-text">
         <h4>{{ $settings['training_feature_4_title'] ?? 'Trusted Partner' }}</h4>
@@ -87,7 +87,7 @@
     <p class="train-section-subtitle">{{ $settings['training_topics_subtitle'] ?? 'Comprehensive programs designed to enhance knowledge, build capability, and drive operational excellence.' }}</p>
   </div>
 
-  <div class="train-topics-grid">
+  <div class="train-topics-grid stagger-container">
     @php
       $frontendIcons = [
           'briefcase' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>',
@@ -119,7 +119,7 @@
       ];
     @endphp
     @forelse($trainings as $training)
-    <div class="train-topic-card">
+    <div class="train-topic-card reveal fade-in-up">
       <div class="train-topic-icon">
         {!! $frontendIcons[$training->icon] ?? $frontendIcons['briefcase'] !!}
       </div>
@@ -133,7 +133,7 @@
 </section>
 
 @if($events->count() > 0)
-<section class="train-events-section">
+<section class="train-events-section reveal fade-in-up">
   <div class="train-split-header">
     <h3>{{ $settings['training_events_title'] ?? 'Recent Workshop & Training Recap' }}</h3>
   </div>
@@ -142,9 +142,9 @@
     <button class="train-events-prev" id="eventsPrev" aria-label="Previous Events">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>
-    <div class="train-events-grid" id="eventsGrid">
+    <div class="train-events-grid stagger-container" id="eventsGrid">
       @foreach($events as $event)
-      <div class="train-event-card">
+      <div class="train-event-card reveal fade-in-up">
         @php
           $imgSrc = $event->image
             ? (str_starts_with($event->image, 'http') ? $event->image : Storage::url($event->image))

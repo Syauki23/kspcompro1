@@ -612,3 +612,124 @@
   window.addEventListener('resize', updateButtons);
   updateButtons();
 })();
+
+
+// ============================================================
+// Scroll-Reveal & Stat Count-Up Animation Engine (Premium)
+// ============================================================
+(function () {
+  'use strict';
+
+  // 1. Premium Scrambling / Rolling Count-Up Animation for Numeric Stats
+  function animateCountUp(el) {
+    if (el.dataset.animated) return;
+    el.dataset.animated = "true";
+
+    const originalText = el.textContent.trim();
+    const matches = originalText.match(/\d+/);
+    if (!matches) return;
+
+    const targetStr = matches[0];
+    const N = targetStr.length;
+    const prefix = originalText.slice(0, matches.index);
+    const suffix = originalText.slice(matches.index + matches[0].length);
+
+    // Slower premium duration: 2.5 seconds total for excellent readability
+    const duration = 2500; 
+    let startTime = null;
+    let lastUpdate = 0;
+    
+    // Scramble updates every 50ms (20 updates/second) so it's super smooth but readable
+    const frameDelay = 50; 
+
+    // Add visual scrambling styling class
+    el.classList.add('count-up-scrambling');
+
+    function updateCount(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
+      if (elapsed - lastUpdate >= frameDelay || elapsed >= duration) {
+        lastUpdate = elapsed;
+
+        let currentStr = "";
+        const scramblePhase = duration * 0.4; // 40% of time (1.0s) is wild scrambling
+        const lockPhase = duration - scramblePhase; // 60% of time (1.5s) is sequential locking
+
+        for (let i = 0; i < N; i++) {
+          // Calculate when this digit should lock
+          const lockTime = scramblePhase + lockPhase * ((i + 1) / N);
+          
+          if (elapsed >= lockTime || elapsed >= duration) {
+            currentStr += targetStr[i];
+          } else {
+            // Keep spinning with random digits
+            const minDigit = (i === 0 && N > 1) ? 1 : 0; // Avoid leading zero for numbers longer than 1 digit
+            const randomDigit = Math.floor(Math.random() * (10 - minDigit)) + minDigit;
+            currentStr += randomDigit;
+          }
+        }
+
+        el.textContent = `${prefix}${currentStr}${suffix}`;
+      }
+
+      if (elapsed < duration) {
+        requestAnimationFrame(updateCount);
+      } else {
+        // Remove scrambling styling class and restore original string exactly
+        el.classList.remove('count-up-scrambling');
+        el.textContent = originalText;
+      }
+    }
+
+    requestAnimationFrame(updateCount);
+  }
+
+  // 2. Handle stagger containers automatically
+  const staggerContainers = document.querySelectorAll('.stagger-container');
+  staggerContainers.forEach(container => {
+    // Find all immediate reveal children
+    const reveals = container.querySelectorAll('.reveal');
+    reveals.forEach((el, index) => {
+      // Apply inline transition-delay proportional to child index
+      const delay = index * 120; // 120ms stagger delay for premium snappy transition
+      el.style.transitionDelay = `${delay}ms`;
+    });
+  });
+
+  // 3. Intersection Observer setup
+  const observerOptions = {
+    root: null, // use window viewport
+    rootMargin: '0px 0px -10% 0px', // trigger when element is 10% inside the viewport
+    threshold: 0.05
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+
+        // Find and trigger any count-up statistics inside the revealed container
+        let stats = Array.from(entry.target.querySelectorAll('.cp2-stat-num, h4'));
+        if (entry.target.matches('.cp2-stat-num, h4')) {
+          stats.push(entry.target);
+        }
+        stats.forEach(stat => {
+          if (stat.textContent.trim().match(/\d+/)) {
+            animateCountUp(stat);
+          }
+        });
+
+        // Unobserve once animated for high scroll performance
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // 4. Start observing all elements marked with the .reveal class
+  const revealElements = document.querySelectorAll('.reveal');
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+  });
+})();
+

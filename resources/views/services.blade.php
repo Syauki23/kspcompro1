@@ -29,7 +29,7 @@
   </div>
   <div class="services-hero-overlay"></div>
   <div class="services-hero-container">
-    <div class="services-hero-content">
+    <div class="services-hero-content reveal fade-in-left">
       <span class="services-subtitle">{{ $settings['services_hero_subtitle'] ?? 'OUR SERVICES' }}</span>
       <h1 class="services-title">
         {!! nl2br(e($settings['services_hero_title_first'] ?? 'Solutions that drive')) !!}<br>
@@ -46,7 +46,7 @@
 <!-- SERVICES SECTION -->
 <section id="services" class="services-section" role="region" aria-label="Our Services">
   <div class="services-container">
-    <div class="services-grid">
+    <div class="services-grid stagger-container">
       @php 
         $frontendIcons = [
             'briefcase' => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>',
@@ -78,7 +78,7 @@
         ];
       @endphp
       @forelse($services as $service)
-      <div class="service-card">
+      <div class="service-card reveal fade-in-up">
         <div class="card-top">
           <div class="card-icon">
             {!! $frontendIcons[$service->icon] ?? $frontendIcons['layers'] !!}
@@ -98,29 +98,29 @@
     </div>
 
     <!-- Stats Banner -->
-    <div class="services-stats-banner">
-      <div class="stat-item">
+    <div class="services-stats-banner stagger-container">
+      <div class="stat-item reveal fade-in-up">
         <div class="stat-icon"><svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--navy-mid)" stroke-width="1.5" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
         <div class="stat-text">
           <h4>{{ $settings['services_stat_1_value'] ?? '15+' }}</h4>
           <p>{!! nl2br(e($settings['services_stat_1_label'] ?? "Ship Management\nEntities Assessed")) !!}</p>
         </div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal fade-in-up">
         <div class="stat-icon"><svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--navy-mid)" stroke-width="1.5" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
         <div class="stat-text">
           <h4>{{ $settings['services_stat_2_value'] ?? 'Since 2017' }}</h4>
           <p>{!! nl2br(e($settings['services_stat_2_label'] ?? "Maritime Assessment &\nConsulting Experience")) !!}</p>
         </div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal fade-in-up">
         <div class="stat-icon"><svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--navy-mid)" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
         <div class="stat-text">
           <h4>{{ $settings['services_stat_3_value'] ?? 'Multiple' }}</h4>
           <p>{!! nl2br(e($settings['services_stat_3_label'] ?? "TMSA Gap Assessments &\nImplementations")) !!}</p>
         </div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal fade-in-up">
         <div class="stat-icon"><svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--navy-mid)" stroke-width="1.5" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div>
         <div class="stat-text">
           <h4>{{ $settings['services_stat_4_value'] ?? 'Trusted' }}</h4>

@@ -116,7 +116,7 @@
 <!-- CORE SERVICES HIGHLIGHTS -->
 <section class="home-services-section" aria-label="Core Services">
   <div class="hs-container">
-    <div class="hs-header">
+    <div class="hs-header reveal fade-in-up">
       <span class="hs-subtitle">{{ $settings['home_services_subtitle'] ?? 'WHAT WE DO' }}</span>
       <h2 class="hs-title">
         @php
@@ -129,9 +129,9 @@
       <p class="hs-desc">{{ $settings['home_services_desc'] ?? 'We deliver integrated solutions connecting high-level strategy, thorough assessment, and on-the-ground training implementation.' }}</p>
     </div>
 
-    <div class="hs-grid">
+    <div class="hs-grid stagger-container">
       <!-- Service 1 -->
-      <div class="hs-card">
+      <div class="hs-card reveal fade-in-up">
         <div class="hs-icon-wrapper">
           {!! $maritimeIcons[$settings['home_services_card_1_icon'] ?? 'ship'] ?? $maritimeIcons['ship'] !!}
         </div>
@@ -141,7 +141,7 @@
       </div>
 
       <!-- Service 2 -->
-      <div class="hs-card">
+      <div class="hs-card reveal fade-in-up">
         <div class="hs-icon-wrapper">
           {!! $maritimeIcons[$settings['home_services_card_2_icon'] ?? 'lifebuoy'] ?? $maritimeIcons['lifebuoy'] !!}
         </div>
@@ -151,7 +151,7 @@
       </div>
 
       <!-- Service 3 -->
-      <div class="hs-card">
+      <div class="hs-card reveal fade-in-up">
         <div class="hs-icon-wrapper">
           {!! $maritimeIcons[$settings['home_services_card_3_icon'] ?? 'compass'] ?? $maritimeIcons['compass'] !!}
         </div>
@@ -167,7 +167,7 @@
 <section class="testimonials-section" aria-label="Client Testimonials">
   <div class="testi-bg"></div>
   <div class="testi-container">
-    <div class="testi-header">
+    <div class="testi-header reveal fade-in-up">
       <span class="testi-subtitle">{{ $settings['home_testimonials_subtitle'] ?? 'CLIENT TESTIMONIALS' }}</span>
       <h2 class="testi-title">
         @php
@@ -181,7 +181,7 @@
     </div>
 
     @if(isset($testimonials) && count($testimonials) > 0)
-    <div class="testi-carousel-wrapper">
+    <div class="testi-carousel-wrapper reveal zoom-in">
       <div class="testi-cards-container">
         @foreach($testimonials as $index => $t)
         <div class="testi-card {{ $index == 1 ? 'active' : '' }}" data-index="{{ $index }}">
@@ -216,25 +216,25 @@
 <section class="clients-partners" aria-label="Clients and Partners">
   <div class="cp2-bg"></div>
   <div class="cp2-wrapper">
-    <div class="cp2-header">
+    <div class="cp2-header reveal fade-in-up">
       <div class="cp2-badge">{{ $settings['home_clients_subtitle'] ?? 'CLIENTS & PARTNERS' }}</div>
       <h2 class="cp2-title">
         {{ $settings['home_clients_title'] ?? 'Trusted By' }}
         <span class="cp2-title-accent">{{ $settings['home_clients_title_accent'] ?? 'Industry Leaders' }}</span>
       </h2>
       <p class="cp2-desc">{{ $settings['home_clients_desc'] ?? 'We collaborate with leading organizations across maritime and industrial sectors to drive operational excellence and sustainable growth.' }}</p>
-      <div class="cp2-stats">
-        <div class="cp2-stat">
+      <div class="cp2-stats stagger-container">
+        <div class="cp2-stat reveal fade-in-up">
           <span class="cp2-stat-num">{{ $settings['home_clients_stat_1_num'] ?? '50+' }}</span>
           <span class="cp2-stat-label">{{ $settings['home_clients_stat_1_label'] ?? 'Clients Served' }}</span>
         </div>
         <div class="cp2-stat-divider"></div>
-        <div class="cp2-stat">
+        <div class="cp2-stat reveal fade-in-up">
           <span class="cp2-stat-num">{{ $settings['home_clients_stat_2_num'] ?? '15+' }}</span>
           <span class="cp2-stat-label">{{ $settings['home_clients_stat_2_label'] ?? 'Years Experience' }}</span>
         </div>
         <div class="cp2-stat-divider"></div>
-        <div class="cp2-stat">
+        <div class="cp2-stat reveal fade-in-up">
           <span class="cp2-stat-num">{{ $settings['home_clients_stat_3_num'] ?? '100%' }}</span>
           <span class="cp2-stat-label">{{ $settings['home_clients_stat_3_label'] ?? 'Client Satisfaction' }}</span>
         </div>
@@ -279,7 +279,7 @@
 <!-- LATEST INSIGHTS & PODCAST -->
 <section class="home-insights-section" id="podcast" aria-label="Insights and Podcast">
   <div class="hi-container">
-    <div class="hi-header">
+    <div class="hi-header reveal fade-in-up">
       <span class="hi-subtitle">{{ $settings['home_insights_subtitle'] ?? 'KNOWLEDGE SHARING' }}</span>
       <h2 class="hi-title">
         @php
@@ -294,7 +294,7 @@
 
     <div class="hi-grid" style="grid-template-columns: 1fr;">
       <!-- Dedicated Podcast Block -->
-      <div class="hi-podcast-card" style="max-width: 800px; margin: 0 auto; width: 100%;">
+      <div class="hi-podcast-card reveal fade-in-up" style="max-width: 800px; margin: 0 auto; width: 100%;">
         <div class="pod-badge-wrap">
           <span class="pod-badge">PODCAST</span>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="spotify-icon"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.54.66.3 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.141C9.6 9.9 15.001 10.62 18.66 12.84c.42.24.54.84.3 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.239.54-.959.72-1.5.42z"/></svg>
